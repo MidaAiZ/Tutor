@@ -1,0 +1,31 @@
+$primary-width: 980px;
+$primary-bgcolor: rgb(52, 241, 167);
+$nav-width: 100%;
+$nav-height: 200px;
+$wide-margin: 20px;
+$narrow-margin: 10px;
+$wide-padding: 20px;
+$narrow-padding: 10px;
+$btn-width: 100px;
+$btn-height: 30px;
+
+*
+{
+    margin: 0;
+    padding: 0;
+
+    border: none;
+}
+li
+{
+    list-style: none;
+}
+.btn
+{
+    width: $btn-width;
+    height: $btn-height;
+
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(60, 127, 244);
+}

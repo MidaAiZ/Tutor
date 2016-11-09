@@ -1,0 +1,41 @@
+@import 'base/base';
+
+nav
+{
+  width: $primary-width;
+  height: $nav-height;
+  padding: $wide-padding;
+
+  color: white;
+  background-color: rgb(43, 43, 45);
+  .logo
+  {
+    font-size: 48px;
+    // line-height: $nav-height;
+
+    width: 20%;
+    height: 100%;
+
+    text-align: center;
+  }
+  ul
+  {
+    float: right;
+    clear: right;
+
+    margin: ($nav-height - $btn-height - 2*$narrow-padding)/2 $wide-margin;
+
+    vertical-align: middle;
+    li
+    {
+      display: inline-block;
+
+      width: $btn-width;
+      height: $btn-height;
+      margin: auto;
+      padding: $wide-padding;
+
+      background-color: rgb(252, 176, 45);
+    }
+  }
+}
