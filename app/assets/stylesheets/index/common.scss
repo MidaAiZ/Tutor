@@ -1,41 +1,64 @@
+@import 'bootstrap';
+
 @import 'base/base';
 
 nav
 {
-  width: $primary-width;
-  height: $nav-height;
-  padding: $wide-padding;
+    width: 100%;
+    height: auto;
 
-  color: white;
-  background-color: rgb(43, 43, 45);
-  .logo
-  {
-    font-size: 48px;
-    // line-height: $nav-height;
-
-    width: 20%;
-    height: 100%;
-
-    text-align: center;
-  }
-  ul
-  {
-    float: right;
-    clear: right;
-
-    margin: ($nav-height - $btn-height - 2*$narrow-padding)/2 $wide-margin;
-
-    vertical-align: middle;
-    li
+    background-color: $primary-bgcolor;
+    .navbar
     {
-      display: inline-block;
+        width: $primary-width;
+        height: $nav-height;
+        margin: auto;
 
-      width: $btn-width;
-      height: $btn-height;
-      margin: auto;
-      padding: $wide-padding;
+        white-space: nowrap;
 
-      background-color: rgb(252, 176, 45);
+        color: white;
+        .logo
+        {
+            font-size: 48px;
+            line-height: $nav-height;
+
+            width: 20%;
+
+            text-align: center;
+        }
+        ul
+        {
+            float: right;
+            clear: right;
+
+            margin: ($nav-height - $btn-height)/2 $wide-margin;
+            li
+            {
+                display: inline-block;
+
+                width: $btn-width;
+                height: $btn-height;
+                margin: 0 $narrow-padding/2;
+                padding: $narrow-padding;
+
+                text-align: center;
+
+                background-color: rgb(252, 176, 45);
+                a
+                {
+                    font-size: $big-fonts-size;
+                    line-height: 100%;
+
+                    color: white;
+                }
+            }
+        }
     }
-  }
+}
+.bottom-nav
+{
+    width: 100%;
+    height: 150px;
+
+    background-color: $primary-bgcolor;
 }

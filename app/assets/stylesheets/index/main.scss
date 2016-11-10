@@ -1,3 +1,190 @@
-// Place all the styles related to the main controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'base/base';
+.container
+{
+    position: relative;
+
+    width: $primary-width;
+    height: 100%;
+    margin: $wide-margin;
+    padding: 0;
+    .slider
+    {
+        width: 100%;
+        height: 400px;
+        margin: $wide-margin auto;
+
+        background-color: rgb(57, 57, 57);
+    }
+    section
+    {
+        font-size: 36px;
+
+        width: 100%;
+        min-height: 200px;
+        margin-bottom: $wide-margin;
+
+        color: white;
+        border-radius: 5px;
+        // box-shadow: 5px 5px $narrow-margin $grey;
+    }
+    .serch-field
+    {
+        width: 100%;
+        height: auto;
+        padding: $narrow-padding;
+
+        background-color: $pink;
+        div.condition-group
+        {
+            width: 100%;
+            .condition-header
+            {
+                width: 100%;
+                height: 50px;
+            }
+            .condition-menu
+            {
+                width: 100%;
+                .father-condition
+                {
+                    position: relative;
+
+                    display: block;
+
+                    width: 100%;
+                    margin: 0;
+
+                    text-align: left;
+
+                    border: 1px solid $grey;
+                    label
+                    {
+                        font-size: $middle-fonts-size;
+
+                        float: left;
+
+                        margin: $narrow-margin;
+                        padding: $narrow-padding;
+                    }
+                    .clearfix
+                    {
+                        width: 90%;
+                        margin: auto;
+                    }
+                    .all-condition
+                    {
+                        float: left;
+
+                        padding: $narrow-padding;
+                    }
+                    .son-condition
+                    {
+                        width: 90%;
+                        padding: $narrow-padding;
+                    }
+                    .condition-item
+                    {
+                        font-size: $small-fonts-size;
+
+                        padding: $narrow-padding;
+
+                        text-align: center;
+
+                        border: 1px solid $grey;
+                        &:hover
+                        {
+                            color: $green;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .left
+    {
+        float: left;
+
+        width: $primary-width - .75*($primary-width) - $wide-margin;
+        height: 700px;
+        margin: 0 $wide-margin $wide-margin 0;
+
+        border-radius: 5px;
+        background-color: $mint-green;
+    }
+
+    .right
+    {
+        float: right;
+
+        width: 75%;
+        .teachers
+        {
+            background-color: $green;
+        }
+        .students
+        {
+            background-color: $blue;
+        }
+        .informs
+        {
+            background-color: $grey;
+        }
+    }
+    .bottom
+    {
+        width: 100%;
+        height: 300px;
+
+        background-color: $grey;
+    }
+    .box-header
+    {
+        width: 100%;
+        min-height: 50px;
+
+        text-align: left;
+
+        h2
+        {
+            width: 50%;
+            margin: 0;
+            padding: $narrow-padding;
+
+            border-bottom: 1px solid $grey;
+        }
+    }
+    .box-body
+    {
+        width: 100%;
+        .collection
+        {
+            width: auto;
+            margin: auto;
+            .list-item
+            {
+                float: left;
+
+                width: 200px;
+                height: 200px;
+                margin: $wide-margin;
+
+                border: 1px solid $grey;
+                background-color: white;
+                img
+                {
+                    width: 100%;
+                    height: 80%;
+
+                    background: $yellow;
+                }
+                .information
+                {
+                    width: 100%;
+                    height: 20%;
+
+                    background-color: $purple;
+                }
+            }
+        }
+    }
+}
