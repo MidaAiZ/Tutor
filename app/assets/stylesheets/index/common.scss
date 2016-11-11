@@ -1,3 +1,4 @@
+@import 'bootstrap-sprockets';
 @import 'bootstrap';
 
 @import 'base/base';
@@ -17,7 +18,8 @@ body
     text-align: center;
 }
 div,
-ul
+ul,
+ol
 {
     display: inline-block;
 }

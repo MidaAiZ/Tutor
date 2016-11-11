@@ -7,13 +7,48 @@
     height: 100%;
     margin: $wide-margin;
     padding: 0;
-    .slider
+    .slider-box
     {
+        overflow: hidden;
+
         width: 100%;
         height: 400px;
         margin: $wide-margin auto;
 
         background-color: rgb(57, 57, 57);
+        .carousel
+        {
+            width: 100%;
+            height: 100%;
+            .carousel-inner
+            {
+                width: 100%;
+                height: 100%;
+                // .carousel-indicators
+                // {
+                //     width: 100%;
+                // }
+                .item
+                {
+                    width: 100%;
+                    height: 400px;
+                    img
+                    {
+                        width: $primary-width;
+                        height: 100%;
+                    }
+                }
+
+                .carousel-control
+                {
+                    display: none;
+                }
+                &:hover .carousel-control
+                {
+                    display: inline-block;
+                }
+            }
+        }
     }
     section
     {
@@ -100,7 +135,7 @@
             }
         }
     }
-    .left
+    .left-panel
     {
         float: left;
 
@@ -112,7 +147,7 @@
         background-color: $mint-green;
     }
 
-    .right
+    .right-panel
     {
         float: right;
 
