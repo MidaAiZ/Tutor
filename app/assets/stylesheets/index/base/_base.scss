@@ -1,4 +1,4 @@
-$primary-width: 980px;
+$primary-width: 1100px;
 $primary-bgcolor: rgb(43, 43, 45);
 $nav-width: 100%;
 $nav-height: 150px;
@@ -21,37 +21,3 @@ $orringe: rgb(238, 142, 63);
 $yellow: rgb(247, 255, 87);
 $purple: rgb(152, 110, 247);
 $grey: rgb(159, 162, 162);
-
-*
-{
-    // box-sizing: content-box;
-    margin: 0;
-    padding: 0;
-
-    border: none;
-}
-body
-{
-    margin: auto;
-
-    text-align: center;
-}
-div,
-ul
-{
-    display: inline-block;
-}
-li
-{
-    display: inline-block;
-
-    list-style: none;
-}
-.btn
-{
-    width: $btn-width;
-    height: $btn-height;
-
-    border: none;
-    border-radius: 5px;
-}

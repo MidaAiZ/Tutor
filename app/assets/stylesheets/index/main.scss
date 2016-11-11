@@ -17,8 +17,6 @@
     }
     section
     {
-        font-size: 36px;
-
         width: 100%;
         min-height: 200px;
         margin-bottom: $wide-margin;
@@ -93,6 +91,8 @@
                         border: 1px solid $grey;
                         &:hover
                         {
+                            cursor: pointer;
+
                             color: $green;
                         }
                     }
@@ -130,12 +130,53 @@
             background-color: $grey;
         }
     }
-    .bottom
+    .informs
     {
         width: 100%;
         height: 300px;
 
         background-color: $grey;
+        .panel
+        {
+            // float: left;
+            width: ($primary-width - 2*$wide-margin)*.33;
+
+            text-align: left;
+
+            border: 1px solid $grey;
+            &:nth-child(1),
+            &:nth-last-child(2),
+            {
+                margin-right: $wide-margin;
+            }
+            .header
+            {
+                font-size: $big-fonts-size;
+
+                width: 100%;
+                min-height: 30px;
+                padding: $narrow-margin;
+
+                border-bottom: 1px solid $grey;
+            }
+            .body
+            {
+                width: 100%;
+                min-height: 200px;
+                ul
+                {
+                    width: 100%;
+                    li
+                    {
+                        width: $primary-width/3 - 2*$wide-margin;
+                        margin: $narrow-margin $narrow-margin 0;
+                        padding: $narrow-padding;
+
+                        background-color: $blue;
+                    }
+                }
+            }
+        }
     }
     .box-header
     {

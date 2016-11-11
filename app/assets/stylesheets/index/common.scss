@@ -2,6 +2,52 @@
 
 @import 'base/base';
 
+
+*
+{
+    margin: 0;
+    padding: 0;
+
+    border: none;
+}
+body
+{
+    margin: auto;
+
+    text-align: center;
+}
+div,
+ul
+{
+    display: inline-block;
+}
+ul,
+ol
+{
+    margin-bottom: 0;
+}
+li
+{
+    display: inline-block;
+
+    list-style: none;
+}
+.table
+{
+    .vertical-middle
+    {
+        td
+        {
+            vertical-align: middle;
+        }
+    }
+}
+.btn
+{
+    border: none;
+    border-radius: 5px;
+}
+
 nav
 {
     width: 100%;
