@@ -13,61 +13,20 @@
 		</thead>
 		<tbody>
 			<ul class='students-collection'>
-				<li class='students-list'>
-					<tr class='vertical-middle'>
-						<td>XIAOMING</td>
-						<td>FEMALE</td>
-						<td>NANJING</td>
-						<td>COMPUTER</td>
-						<td><button class='btn btn-sm  btn-primary'>VIEW</button></td>
-					</tr>
-			</li>
-			<li class='students-list'>
-				<tr class='vertical-middle'>
-					<td>XIAOMING</td>
-					<td>MALE</td>
-					<td>NANJING</td>
-					<td>COMPUTER</td>
-					<td><button class='btn btn-sm  btn-primary'>VIEW</button></td>
-				</tr>
-			</li>
-			<li class='students-list'>
-				<tr class='vertical-middle'>
-					<td>XIAOMING</td>
-					<td>FEMALE</td>
-					<td>NANJING</td>
-					<td>COMPUTER</td>
-					<td><button class='btn btn-sm  btn-primary'>VIEW</button></td>
-				</tr>
-			</li>
-			<li class='students-list'>
-				<tr class='vertical-middle'>
-					<td>XIAOMING</td>
-					<td>FEMALE</td>
-					<td>NANJING</td>
-					<td>COMPUTER</td>
-					<td><button class='btn btn-sm  btn-primary'>VIEW</button></td>
-				</tr>
-			</li>
-			<li class='students-list'>
-				<tr class='vertical-middle'>
-					<td>XIAOMING</td>
-					<td>FEMALE</td>
-					<td>NANJING</td>
-					<td>COMPUTER</td>
-					<td><button class='btn btn-sm  btn-primary'>VIEW</button></td>
-				</tr>
-			</li>
-			<li class='students-list'>
-				<tr class='vertical-middle'>
-					<td>XIAOMING</td>
-					<td>FEMALE</td>
-					<td>NANJING</td>
-					<td>COMPUTER</td>
-					<td><button class='btn btn-sm  btn-primary'>VIEW</button></td>
-				</tr>
-			</li>
-		</ul>
+				<% if !@students.nil? %>
+				 <% @students.each do |student| %>
+					<li class='students-list'>
+						<tr class='vertical-middle'>
+							<td><%= student.name%></td>
+							<td><%= student.sex%></td>
+							<td><%= student.address%></td>
+							<td><%= student.school%></td>
+							<td><button class='btn btn-sm  btn-primary'><%= link_to 'View', student%></button></td>
+						</tr>
+					</li>
+				<% end %>
+			 <% end %>
+			</ul>
 		</tbody>
 	</table>
 </div>
