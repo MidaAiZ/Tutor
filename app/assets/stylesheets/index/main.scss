@@ -4,38 +4,26 @@
     position: relative;
 
     width: $primary-width;
-    height: 100%;
     margin: $wide-margin;
     padding: 0;
     .slider-box
     {
         overflow: hidden;
 
-        width: 100%;
-        height: 400px;
         margin: $wide-margin auto;
 
         background-color: rgb(57, 57, 57);
+
+        @include set-bounds(100%,400px);
         .carousel
         {
-            width: 100%;
-            height: 100%;
             .carousel-inner
             {
-                width: 100%;
-                height: 100%;
-                // .carousel-indicators
-                // {
-                //     width: 100%;
-                // }
                 .item
                 {
-                    width: 100%;
-                    height: 400px;
                     img
                     {
-                        width: $primary-width;
-                        height: 100%;
+                        @include set-bounds($primary-width,100%);
                     }
                 }
 
@@ -52,18 +40,16 @@
     }
     section
     {
-        width: 100%;
-        min-height: 200px;
         margin-bottom: $wide-margin;
 
         color: white;
-        border-radius: 5px;
+        border-radius: $default-radius;
+
+        @include set-width-min-height(100%,200px);
         // box-shadow: 5px 5px $narrow-margin $grey;
     }
     .serch-field
     {
-        width: 100%;
-        height: auto;
         padding: $narrow-padding;
 
         background-color: $pink;
@@ -74,6 +60,8 @@
             {
                 width: 100%;
                 height: 50px;
+
+                @include set-bounds(100%,50px);
             }
             .condition-menu
             {
@@ -89,7 +77,7 @@
 
                     text-align: left;
 
-                    border: 1px solid $grey;
+                    border: $default-border;
                     label
                     {
                         font-size: $middle-fonts-size;
@@ -123,7 +111,7 @@
 
                         text-align: center;
 
-                        border: 1px solid $grey;
+                        border: $default-border;
                         &:hover
                         {
                             cursor: pointer;
@@ -139,12 +127,12 @@
     {
         float: left;
 
-        width: $primary-width - .75*($primary-width) - $wide-margin;
-        height: 700px;
         margin: 0 $wide-margin $wide-margin 0;
 
-        border-radius: 5px;
+        border-radius: $default-radius;
         background-color: $mint-green;
+
+        @include set-bounds( $primary-width - .75*($primary-width)-$wide-margin,700px);
     }
 
     .right-panel
@@ -168,7 +156,6 @@
     .informs
     {
         width: 100%;
-        height: 300px;
 
         background-color: $grey;
         .panel
@@ -178,7 +165,7 @@
 
             text-align: left;
 
-            border: 1px solid $grey;
+            border: $default-border;
             &:nth-child(1),
             &:nth-last-child(2),
             {
@@ -188,19 +175,17 @@
             {
                 font-size: $big-fonts-size;
 
-                width: 100%;
-                min-height: 30px;
                 padding: $narrow-margin;
 
-                border-bottom: 1px solid $grey;
+                border-bottom: $default-border;
+
+                @include set-width-min-height(100%,50px);
             }
             .body
             {
-                width: 100%;
-                min-height: 200px;
+                @include set-width-min-height(100%,200px);
                 ul
                 {
-                    width: 100%;
                     li
                     {
                         width: $primary-width/3 - 2*$wide-margin;
@@ -215,10 +200,9 @@
     }
     .box-header
     {
-        width: 100%;
-        min-height: 50px;
-
         text-align: left;
+
+        @include set-width-min-height(100%,50px);
 
         h2
         {
@@ -226,7 +210,7 @@
             margin: 0;
             padding: $narrow-padding;
 
-            border-bottom: 1px solid $grey;
+            border-bottom: $default-border;
         }
     }
     .box-body
@@ -234,31 +218,28 @@
         width: 100%;
         .collection
         {
-            width: auto;
             margin: auto;
             .list-item
             {
                 float: left;
 
-                width: 200px;
-                height: 200px;
                 margin: $wide-margin;
 
-                border: 1px solid $grey;
+                border: $default-border;
                 background-color: white;
+
+                @include set-bounds(200px,200px);
                 img
                 {
-                    width: 100%;
-                    height: 80%;
-
                     background: $yellow;
+
+                    @include set-bounds(100%,80%);
                 }
                 .information
                 {
-                    width: 100%;
-                    height: 20%;
-
                     background-color: $purple;
+
+                    @include set-bounds(100%,20%);
                 }
             }
         }
