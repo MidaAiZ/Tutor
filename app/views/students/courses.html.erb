@@ -1,0 +1,9 @@
+<ul>
+	<% if !@courses.nil? %>
+	 <% @courses.each do |c| %>
+		 <p><%= c.name %></P>
+	     <p><%= c.tutor %></P>
+		 <p><%= c.type %></P>
+	 <% end %>
+	<% end %>
+</ul>

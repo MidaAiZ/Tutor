@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  tutor: MyString
+  type: 
+  begintime: 2016-11-13 16:10:40
+  endtime: 2016-11-13 16:10:40
+  price: 1
+  place: MyString
+
+two:
+  name: MyString
+  tutor: MyString
+  type: 
+  begintime: 2016-11-13 16:10:40
+  endtime: 2016-11-13 16:10:40
+  price: 1
+  place: MyString

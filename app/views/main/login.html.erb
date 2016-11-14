@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(:accounts) do |f| %>
+
+      <%= f.label :account_num %>
+      <input type='text' name='acount_num'>
+
+      <%= f.label :password %>
+      <%= f.password_field :pwd %>
+
+      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

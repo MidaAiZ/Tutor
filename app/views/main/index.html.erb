@@ -1,6 +1,5 @@
-<%= render 'navbar' %>
-
 <div class='container'>
+	<div><%= session[:user_id] %></div>
 	<section class='slider-box'>
 		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 	  <!-- Indicators -->
@@ -45,11 +44,19 @@
 		  </a>
 		</div>
 	</section>
-	<section class='serch-field'>
+	<!-- <section class='serch-field'>
 		<%= render 'sercher' %>
-	</section>
+	</section> -->
 
 	<div class='left-panel'>
+		<div class='sercher'>
+			<form>
+				<input type='serch'>
+				<button class="btn btn-primary"><sapn class='glyphicon glyphicon-search'></sapn></button>
+			</form>
+		</div>
+		<div class='flowshow'></div>
+		<div class='news'></div>
 	</div>
 	<div class='right-panel'>
 		<section class='teachers'>
@@ -67,5 +74,4 @@
 
 </div>
 
-<div class='bottom-nav'>
 </div>

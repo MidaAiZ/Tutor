@@ -1,0 +1,61 @@
+<%= form_for(@account) do |f| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+      <ul>
+      <% @account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :acount_num %><br>
+    <%= f.text_field :acount_num %>
+  </div>
+  <div class="field">
+    <%= f.label :pwd %><br>
+    <%= f.text_field :pwd %>
+  </div>
+  <div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :realname %><br>
+    <%= f.text_field :realname %>
+  </div>
+  <div class="field">
+    <%= f.label :sex %><br>
+    <%= f.text_field :sex %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.number_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.number_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :born_date %><br>
+    <%= f.datetime_select :born_date %>
+  </div>
+  <div class="field">
+    <%= f.label :is_teacher %><br>
+    <%= f.check_box :is_teacher %>
+  </div>
+  <div class="field">
+    <%= f.label :is_vip %><br>
+    <%= f.check_box :is_vip %>
+  </div>
+  <div class="field">
+    <%= f.label :is_access %><br>
+    <%= f.check_box :is_access %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

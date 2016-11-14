@@ -23,7 +23,7 @@
                 {
                     img
                     {
-                        @include set-bounds($primary-width,100%);
+                        @include set-bounds($primary-width,400px);
                     }
                 }
 
@@ -128,22 +128,61 @@
         float: left;
 
         margin: 0 $wide-margin $wide-margin 0;
+        padding: $narrow-padding;
 
         border-radius: $default-radius;
-        background-color: $mint-green;
+        background-color: $blue;
 
-        @include set-bounds( $primary-width - .75*($primary-width)-$wide-margin,700px);
+        @include set-left-panel-bounds;
+        > div
+        {
+            margin-bottom: $narrow-margin;
+
+            border: $default-border;
+            &:last-child
+            {
+                margin-bottom: 0;
+            }
+        }
+        .sercher
+        {
+            @include set-bounds(100%,50px);
+            form
+            {
+                @include set-bounds(100%,100%);
+                input[type='serch']
+                {
+                    float: left;
+
+                    border: $red-border;
+                    border-radius: $default-radius;
+
+                    @include set-bounds(80%,100%);
+                }
+                button
+                {
+                    float: left;
+
+                    @include set-bounds(20%,100%);
+                }
+            }
+        }
+        .flowshow
+        {
+            @include set-bounds(100%,300px);
+        }
+        .news
+        {
+            @include set-bounds(100%,400px);
+        }
     }
 
     .right-panel
     {
-        float: right;
+        float: left;
 
-        width: 75%;
-        .teachers
-        {
-            background-color: $green;
-        }
+        @include set-right-panel-bounds;
+        .teachers,
         .students
         {
             background-color: $blue;
@@ -157,15 +196,16 @@
     {
         width: 100%;
 
-        background-color: $grey;
         .panel
         {
+            float: left;
             // float: left;
-            width: ($primary-width - 2*$wide-margin)*.33;
+
+            width: ($primary-width - 2*$wide-margin)/3;
 
             text-align: left;
 
-            border: $default-border;
+            border: $blue-border;
             &:nth-child(1),
             &:nth-last-child(2),
             {
@@ -177,7 +217,7 @@
 
                 padding: $narrow-margin;
 
-                border-bottom: $default-border;
+                border-bottom: $blue-border;
 
                 @include set-width-min-height(100%,50px);
             }
@@ -193,6 +233,10 @@
                         padding: $narrow-padding;
 
                         background-color: $blue;
+                        &:last-child
+                        {
+                            margin-bottom: $narrow-margin;
+                        }
                     }
                 }
             }
@@ -202,15 +246,27 @@
     {
         text-align: left;
 
-        @include set-width-min-height(100%,50px);
+        border-bottom: $default-border;
+
+        @include set-width-min-height(100%,100%);
 
         h2
         {
-            width: 50%;
+            display: inline-block;
+
             margin: 0;
             padding: $narrow-padding;
+        }
+        .more
+        {
+            float: right;
 
-            border-bottom: $default-border;
+            margin: $narrow-padding $wide-margin 0 0;
+            padding: $narrow-padding/2;
+
+            opacity: .7;
+            border-radius: $wide-radius;
+            background-color: black;
         }
     }
     .box-body
@@ -219,25 +275,38 @@
         .collection
         {
             margin: auto;
+            padding-top: $wide-padding;
+            padding-left: $wide-padding;
             .list-item
             {
+                position: relative;
+
                 float: left;
 
-                margin: $wide-margin;
+                margin-right: $wide-margin;
+                margin-bottom: $wide-margin;
 
                 border: $default-border;
                 background-color: white;
 
-                @include set-bounds(200px,200px);
-                img
+                @include set-teacher-box-bounds;
+                // @include set-bounds(150px,150px);
+                a
                 {
-                    background: $yellow;
+                    img
+                    {
+                        background: $pink;
 
-                    @include set-bounds(100%,80%);
+                        @include set-teacher-box-bounds;
+                    }
                 }
                 .information
                 {
-                    background-color: $purple;
+                    position: relative;
+                    bottom: 20%;
+
+                    opacity: .7;
+                    background-color: black;
 
                     @include set-bounds(100%,20%);
                 }

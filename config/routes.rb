@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'login' => 'main#login', as: :login
+  get 'register' => 'main#register', as: :register
+  post 'login' => 'accounts#login'
+  post 'register' => 'accounts#register'
+  get 'logout' => 'main#logout', as: :logout
+  delete 'logout' => 'accounts#logout'
+  get 'students/:id/courses' => 'students#courses', as: :student_courses
+  get 'students/:id/courses/:course_id' => 'students#course', as: :student_course
+
+  post 'courses/:id/entry' => 'courses#entry', as: :entry_course
+  resources :courses
+  resources :accounts
   resources :teachers
   resources :students
   # The priority is based upon order of creation: first created -> highest priority.

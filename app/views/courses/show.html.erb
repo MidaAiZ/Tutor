@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @course.name %>
+</p>
+
+<p>
+  <strong>Tutor:</strong>
+  <%= @course.tutor %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @course.type %>
+</p>
+
+<p>
+  <strong>Begintime:</strong>
+  <%= @course.begintime %>
+</p>
+
+<p>
+  <strong>Endtime:</strong>
+  <%= @course.endtime %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @course.price %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @course.place %>
+</p>
+
+<%= link_to '报名', entry_course_path(@course), method: :post, class: 'btn btn-primary'%>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>

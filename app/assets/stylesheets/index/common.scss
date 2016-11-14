@@ -34,6 +34,14 @@ li
 
     list-style: none;
 }
+a
+{
+    color: white;
+    &:hover
+    {
+        color: $grey;
+    }
+}
 .table
 {
     .vertical-middle

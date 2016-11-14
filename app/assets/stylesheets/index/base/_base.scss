@@ -1,8 +1,7 @@
 //bounds
 $primary-width: 980px;
-$primary-bgcolor: rgb(43, 43, 45);
 $nav-width: 100%;
-$nav-height: 150px;
+$nav-height: 100px;
 $wide-margin: 20px;
 $narrow-margin: 10px;
 $wide-padding: 20px;
@@ -14,8 +13,11 @@ $middle-fonts-size: 20px;
 $big-fonts-size: 30px;
 $default-radius: 5px;
 $wide-radius: 10px;
+$left-proportion: .3;
+$right-proportion: .7;
 
 // color
+$primary-bgcolor: rgb(43, 43, 45);
 $pink: rgb(246, 104, 90);
 $blue: rgb(62, 175, 217);
 $green: rgb(56, 226, 109);
@@ -26,20 +28,36 @@ $purple: rgb(152, 110, 247);
 $grey: rgb(159, 162, 162);
 
 //border
-$default-border: 1px solid $grey;
+$default-border: 1px solid white;
 $wide-border: 3px solid $grey;
 $blue-border: 1px solid $blue;
 $red-border: 1px solid red;
 $golden-borer: 1px solid $orringe;
 
 //functions
-@mixin set-bounds($width: 100%,$height:100%)
+@mixin set-bounds ($width: 100%,$height:100%)
 {
     width: $width;
     height: $height;
 }
-@mixin  set-width-min-height ($width: 100%,$min-height: 100%)
+@mixin set-width-min-height ($width: 100%,$min-height: 100%)
 {
     width: $width;
     min-height: $min-height;
+}
+@mixin set-left-panel-bounds
+{
+    width: $primary-width*$left-proportion - $wide-margin;
+}
+@mixin set-right-panel-bounds
+{
+    width: $primary-width*$right-proportion;
+}
+@mixin set-lefy-panel-height
+{
+}
+@mixin set-teacher-box-bounds
+{
+    width: ($primary-width*$right-proportion - 2*$wide-padding - 3*$wide-margin)/4;
+    height: ($primary-width*$right-proportion - 2*$wide-padding - 3*$wide-margin)/4;
 }
