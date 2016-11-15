@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy, :course, :courses]
-
+  before_action :set_student, only: [:edit, :update, :destroy, :course, :courses, :appoint]
+ layout 'details'
   # GET /students
   # GET /students.json
   def index
@@ -10,6 +10,7 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+      @student = Student.find(params[:id])
   end
 
   # GET /students/new
@@ -37,6 +38,12 @@ class StudentsController < ApplicationController
     end
   end
 
+  def appoint
+     @course = Course.create(teacher_id: params[:id])
+     byebug
+     @student.courses << @course
+     redirect_to teacher_path(params[:id])
+  end
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update
@@ -66,13 +73,13 @@ class StudentsController < ApplicationController
   end
 
   def course
-      @course = @student.courses(params[:id])
+      @course = @student.courses(params[:course_id])
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
-      @student = Student.find(params[:id])
+      @student = @account.student
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

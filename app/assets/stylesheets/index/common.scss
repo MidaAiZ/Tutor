@@ -57,6 +57,13 @@ a
     border: none;
     border-radius: $default-radius;
 }
+.back
+{
+    display: block;
+    float: left;
+
+    margin-bottom: $wide-margin;
+}
 
 nav
 {
@@ -77,13 +84,19 @@ nav
             font-size: 48px;
             line-height: $nav-height;
 
-            width: 20%;
+            float: left;
+
+            // margin-left: $wide-margin;
+            p
+            {
+                margin-bottom: 0;
+            }
         }
-        ul
+        ul.right
         {
             float: right;
 
-            margin: ($nav-height - $btn-height)/2 $wide-margin;
+            margin: ($nav-height - $btn-height)/2 0;
             li
             {
                 display: inline-block;
@@ -91,13 +104,18 @@ nav
                 margin: 0 $narrow-padding/2;
                 padding: $narrow-padding;
 
+                border-radius: $default-radius;
                 background-color: rgb(252, 176, 45);
 
-                @include set-bounds($btn-width,$btn-height);
+                @include set-bounds(auto,$btn-height);
+                &:last-child
+                {
+                    margin-right: 0;
+                }
                 a
                 {
-                    font-size: $big-fonts-size;
-                    line-height: 100%;
+                    font-size: $middle-fonts-size;
+                    line-height: $btn-height - 2*$narrow-padding;
 
                     color: white;
                 }
@@ -105,9 +123,111 @@ nav
         }
     }
 }
+.container
+{
+    position: relative;
+
+    width: $primary-width;
+    margin: $wide-margin;
+    padding: 0;
+    .list-box
+    {
+        border: $blue-border;
+        border-radius: $default-radius;
+
+        @include set-width-min-height(100%,600px);
+        .thead
+        {
+            font-size: $middle-fonts-size;
+            th
+            {
+                text-align: center;
+            }
+        }
+    }
+}
 .bottom-nav
 {
+    position: relative;
+    bottom: 0;
+
     background-color: $primary-bgcolor;
 
-    @include set-bounds(100%,150px);
+    @include set-bounds(100%,$nav-height);
+}
+
+.sercher
+{
+    width: 100%;
+    padding: $narrow-padding;
+    div.condition-group
+    {
+        width: 100%;
+
+        border-top: $wide-border;
+        .condition-header
+        {
+            float: right;
+
+            @include set-bounds(10%,30px);
+        }
+        .condition-menu
+        {
+            width: 100%;
+            .father-condition
+            {
+                position: relative;
+
+                display: block;
+
+                width: 100%;
+                margin: 0;
+
+                text-align: left;
+
+                border: $default-border;
+                label
+                {
+                    font-size: $middle-fonts-size;
+
+                    float: left;
+
+                    margin: $narrow-margin;
+                    padding: $narrow-padding;
+                }
+                .clearfix
+                {
+                    width: 90%;
+                    margin: auto;
+                }
+                .all-condition
+                {
+                    float: left;
+
+                    padding: $narrow-padding;
+                }
+                .son-condition
+                {
+                    width: 90%;
+                    padding: $narrow-padding;
+                }
+                .condition-item
+                {
+                    font-size: $small-fonts-size;
+
+                    padding: $narrow-padding;
+
+                    text-align: center;
+
+                    border: $default-border;
+                    &:hover
+                    {
+                        cursor: pointer;
+
+                        color: $green;
+                    }
+                }
+            }
+        }
+    }
 }

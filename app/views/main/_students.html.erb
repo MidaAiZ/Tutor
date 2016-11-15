@@ -1,6 +1,6 @@
 <div class='box-header'>
 	<h2>Students</h2>
-	<%= link_to 'more', students_path, class: :more %>
+	<%= link_to 'more', students_path, class: ['more btn-primary'] %>
 </div>
 <div class='box-body'>
 	<table class='table .table-hover'>
@@ -22,7 +22,7 @@
 							<td><%= student.sex%></td>
 							<td><%= student.address%></td>
 							<td><%= student.school%></td>
-							<td><button class='btn btn-sm  btn-primary'><%= link_to 'View', student%></button></td>
+							<td><%= link_to 'View', student, class: ['btn btn-sm btn-primary']%></td>
 						</tr>
 					</li>
 				<% end %>

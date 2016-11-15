@@ -1,0 +1,33 @@
+<nav>
+	<div class='navbar'>
+	  <div class='logo'>
+		<p>海明教育</p>
+	  </div>
+	  <ul class='right'>
+		<li><%= link_to '首页', root_path %></li>
+		<% if !@account.id.nil? %>
+			<li><%= link_to '个人中心', usercenter_path(@account) %></li>
+		  <% else %>
+			<li><%= link_to '个人中心', login_path %></li>
+		  <% end %>
+		<% if @account.is_teacher %>
+		  <li>
+		  	<a><%= link_to '管理学生' %></a>
+		  </li>
+		<% end %>
+		<% if session[:user_id] %>
+		  <li>
+			<%= link_to logout_path, method: :delete do %>
+			  <i class="glyphicon glyphicon-log-out"></i> 退出
+			<% end %>
+		  </li>
+		<% else %>
+			<li>
+			  <%= link_to login_path do %>
+				<i class="glyphicon glyphicon-log-in"></i> 登录
+			  <% end %>
+			</li>
+		<% end %>
+	  </ul>
+  </div>
+</nav>

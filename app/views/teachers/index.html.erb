@@ -1,35 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Teachers</h1>
+<div class='box-header'>
+	<h2>Teachers</h2>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Sex</th>
-      <th>Address</th>
-      <th>School</th>
-      <th>Intro</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= render 'layouts/sercher' %>
 
-  <tbody>
-    <% @teachers.each do |teacher| %>
-      <tr>
-        <td><%= teacher.name %></td>
-        <td><%= teacher.sex %></td>
-        <td><%= teacher.address %></td>
-        <td><%= teacher.school %></td>
-        <td><%= teacher.intro %></td>
-        <td><%= link_to 'Show', teacher %></td>
-        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class='box-body'>
+	<ul class='collection'>
+		<% if !@teachers.nil? %>
+		 <% @teachers.each do |teacher| %>
+			 <li class='list-item'>
+				<a href="<%= teacher_path(teacher) %>"><img src='' alt=''></a>
+	 			<div class='information'><%= teacher.name %></div>
+	 		</li>
+		 <% end %>
+		 <% end %>
+	</ul>
+</div>
 
 <br>
-
-<%= link_to 'New Teacher', new_teacher_path %>

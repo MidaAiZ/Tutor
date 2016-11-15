@@ -1,9 +1,22 @@
-<ul>
-	<% if !@courses.nil? %>
-	 <% @courses.each do |c| %>
-		 <p><%= c.name %></P>
-	     <p><%= c.tutor %></P>
-		 <p><%= c.type %></P>
-	 <% end %>
-	<% end %>
-</ul>
+<table class='table'>
+	<thead>
+		<tr>
+			<td>name</td>
+			<td>teacher</td>
+			<td>type</td>
+			<td></td>
+		</tr>
+	</thead>
+	<tbody>
+		<% if !@courses.nil? %>
+		 <% @courses.each do |c| %>
+		  <tr>
+			 <td><%= c.name %></td>
+		     <td><%= c.tutor %></td>
+			 <td><%= c.type %></td>
+			 <td><%= link_to '详情', course_path(c), class: [:btn, 'btn-primary'] %></td>
+		  </tr>
+		 <% end %>
+		<% end %>
+	</tbody>
+</table>

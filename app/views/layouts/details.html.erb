@@ -10,7 +10,10 @@
 <body>
     <%= render 'layouts/nav' %>
     <div class='container'>
-        <%= yield %>
+		<button class='back btn btn-sm btn-primary'>Back</button>
+		<div class='list-box'>
+        	<%= yield %>
+		</div>
     </div>
 
 <!-- <div class='bottom-nav'> -->

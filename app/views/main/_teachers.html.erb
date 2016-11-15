@@ -1,13 +1,13 @@
 <div class='box-header'>
 	<h2>Teachers</h2>
-	<%= link_to 'more', teachers_path, class: :more %>
+	<%= link_to 'more', teachers_path, class: ['more btn-primary'] %>
 </div>
 <div class='box-body'>
 	<ul class='collection'>
 		<% if !@teachers.nil? %>
 		 <% @teachers.each do |teacher| %>
 			 <li class='list-item'>
-				<a href="<%= teacher_path(teacher) %>"><img src='' alt=''></a>
+				<a  class=‘thumbnail’ href="<%= teacher_path(teacher) %>"><img src='' alt=''></a>
 	 			<div class='information'><%= teacher.name %></div>
 	 		</li>
 		 <% end %>

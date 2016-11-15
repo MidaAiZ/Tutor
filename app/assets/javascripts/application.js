@@ -15,3 +15,9 @@
 //= require turbolinks
 //= require_tree .
 // = require bootstrap/dropdown
+
+$(document).ready(function() {
+    $('.back').bind('click', function() {
+        history.back();
+    })
+});

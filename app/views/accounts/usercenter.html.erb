@@ -1,0 +1,54 @@
+<div class='base_head'>
+	<div class='user-ico'><img src=''><a href='#'>更换</a></div>
+	<ul>
+	  <li><span>昵称：</span><span><%= @account.username %></span><a href='#'>修改</a></li>
+	  <li><span>会员状态：</span><span><%= @account.is_vip %></span><a href='#'>开通会员</a></li>
+	</ul>
+	<div class='phone'>
+		<img src='' alt='phone'>
+		<span><%= @account.phone %></span><a href='#'>修改手机号</a>
+	</div>
+	<div class='email'>
+		<img src='' alt='email'>
+		<span><%= @account.email %></span><a href='#'>修改邮箱</a>
+	</div>
+</div>
+<div class='base-body'>
+  <table class='table'>
+	  <th>
+		  <tr>姓名</tr>
+		  <td><%= @account.realname %></td>
+		  <td><a href=''>修改</a></td>
+	  </th>
+	  <th>
+		  <tr>性别</tr>
+		  <td><%= @account.sex %></td>
+		  <td><a href=''>修改</a></td>
+	  </th>
+	  <th>
+		  <tr>生日</tr>
+		  <td><%= @account.born_date %></td>
+		  <td><a href=''>修改</a></td>
+	  </th>
+	  <th>
+		  <tr>居住地</tr>
+		  <td><%= @account.student.address %></td>
+		  <td><a href=''>修改</a></td>
+	  </th>
+	  <th>
+		  <tr>学校</tr>
+		  <td><%= @account.student.school %></td>
+		  <td><a href=''>修改</a></td>
+	  </th>
+	  <th>
+		  <tr>年级</tr>
+		  <td><%= @account.student.grade %></td>
+		  <td><a href=''>修改</a></td>
+	  </th>
+	  <th>
+		  <tr>自我介绍</tr>
+		  <td><%= @account.student.intro %></td>
+		  <td><a href=''>修改</a></td>
+	  </th>
+  </table>
+</div>

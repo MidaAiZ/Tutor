@@ -9,9 +9,15 @@
 </head>
 <body>
     <%= render 'layouts/nav' %>
-    <div class='container'>
-        <%= yield %>
-    </div>
+    <div class='tab'>
+	  <ul>
+		  <li><a href='#'>基本信息</a></li>
+		  <li><a href='#'>我的课程</a></li>
+		  <li><a href='#'>更多</a></li>
+	  </ul>
+   </div>
+
+    <%= yield %>
 
 <!-- <div class='bottom-nav'> -->
 </body>

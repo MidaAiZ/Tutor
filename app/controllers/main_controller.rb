@@ -1,15 +1,15 @@
 class MainController < ApplicationController
   def index
-      @students = Student.order(created_at: :desc).limit(10)
+      @students = Student.order(created_at: :desc).limit(5)
       @teachers = Teacher.order(created_at: :desc).limit(8)
+      @courses = Course.order(created_at: :desc).limit(5)
+      if session[:user_id]
+        @account = Account.find(session[:user_id])
+      else
+        @account = Account.new
+      end
   end
   def login
-      @account = Account.find_by(params[:id])
-      if !@account.nil?
-          session[:user_id] = @account.id;
-      else
-          redirect_to login
-      end
   end
   def logout
       session[:user_id] = nil

@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy, :entry]
-
+  before_action :check_login, only: [:entry, :update]
+  # layout 'collection'
   # GET /courses
   # GET /courses.json
   def index
@@ -52,10 +53,9 @@ class CoursesController < ApplicationController
   end
 
   def entry
-    @student = Account.find(session[:user_id]).student;
-    byebug
+    @student = @account.student;
     @student.courses << @course
-    redirect_to student_courses_path(@student.id)
+    redirect_to student_courses_path(@student)
   end
   # DELETE /courses/1
   # DELETE /courses/1.json

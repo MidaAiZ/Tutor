@@ -1,315 +1,267 @@
 @import 'base/base';
-.container
+
+.slider-box
 {
-    position: relative;
+    overflow: hidden;
 
-    width: $primary-width;
-    margin: $wide-margin;
-    padding: 0;
-    .slider-box
+    margin: $wide-margin auto;
+
+    background-color: rgb(57, 57, 57);
+
+    @include set-bounds(100%,400px);
+    .carousel
     {
-        overflow: hidden;
-
-        margin: $wide-margin auto;
-
-        background-color: rgb(57, 57, 57);
-
-        @include set-bounds(100%,400px);
-        .carousel
+        .carousel-inner
         {
-            .carousel-inner
+            .item
             {
-                .item
+                img
                 {
-                    img
-                    {
-                        @include set-bounds($primary-width,400px);
-                    }
+                    @include set-bounds($primary-width,400px);
                 }
+            }
 
-                .carousel-control
-                {
-                    display: none;
-                }
-                &:hover .carousel-control
-                {
-                    display: inline-block;
-                }
+            .carousel-control
+            {
+                display: none;
+            }
+            &:hover .carousel-control
+            {
+                display: inline-block;
             }
         }
     }
-    section
+}
+section
+{
+    margin-bottom: $wide-margin;
+
+    color: white;
+    border-radius: $default-radius;
+
+    @include set-width-min-height(100%,200px);
+    // box-shadow: 5px 5px $narrow-margin $grey;
+}
+
+.left-panel
+{
+    float: left;
+
+    margin: 0 $wide-margin $wide-margin 0;
+    padding: $narrow-padding;
+
+    border-radius: $default-radius;
+    background-color: $blue;
+
+    @include set-left-panel-bounds;
+    > div
     {
-        margin-bottom: $wide-margin;
+        margin-bottom: $narrow-margin;
 
-        color: white;
-        border-radius: $default-radius;
-
-        @include set-width-min-height(100%,200px);
-        // box-shadow: 5px 5px $narrow-margin $grey;
-    }
-    .serch-field
-    {
-        padding: $narrow-padding;
-
-        background-color: $pink;
-        div.condition-group
+        border: $default-border;
+        &:last-child
         {
-            width: 100%;
-            .condition-header
+            margin-bottom: 0;
+        }
+    }
+    .sercher
+    {
+        @include set-bounds(100%,50px);
+        form
+        {
+            @include set-bounds(100%,100%);
+            input[type='serch']
             {
-                width: 100%;
-                height: 50px;
+                float: left;
 
-                @include set-bounds(100%,50px);
+                border: $red-border;
+                border-radius: $default-radius;
+
+                @include set-bounds(80%,100%);
             }
-            .condition-menu
+            button
             {
-                width: 100%;
-                .father-condition
-                {
-                    position: relative;
+                float: left;
 
-                    display: block;
+                @include set-bounds(20%,100%);
+            }
+        }
+    }
+    .flowshow
+    {
+        @include set-bounds(100%,300px);
+    }
+    .news
+    {
+        @include set-bounds(100%,400px);
+        > ul
+        {
+            @include set-bounds(100%,100%);
+            li
+            {
+                padding: $narrow-padding;
+
+                text-align: left;
+
+                border: $default-border;
+
+                @include set-bounds(100%,auto);
+                a
+                {
+                    font-size: $small-fonts-size;
+
+                    display: inline-block;
 
                     width: 100%;
-                    margin: 0;
-
-                    text-align: left;
-
-                    border: $default-border;
-                    label
+                    &:hover
                     {
-                        font-size: $middle-fonts-size;
-
+                        color: white;
+                    }
+                    p
+                    {
+                        display: inline-block;
                         float: left;
+                        overflow: hidden;
 
-                        margin: $narrow-margin;
-                        padding: $narrow-padding;
-                    }
-                    .clearfix
-                    {
-                        width: 90%;
-                        margin: auto;
-                    }
-                    .all-condition
-                    {
-                        float: left;
+                        width: 50%;
 
-                        padding: $narrow-padding;
-                    }
-                    .son-condition
-                    {
-                        width: 90%;
-                        padding: $narrow-padding;
-                    }
-                    .condition-item
-                    {
-                        font-size: $small-fonts-size;
-
-                        padding: $narrow-padding;
-
-                        text-align: center;
-
-                        border: $default-border;
-                        &:hover
-                        {
-                            cursor: pointer;
-
-                            color: $green;
-                        }
+                        text-overflow: ellipsis;
                     }
                 }
             }
         }
     }
-    .left-panel
+}
+
+.right-panel
+{
+    float: left;
+
+    @include set-right-panel-bounds;
+    .teachers,
+    .students
     {
-        float: left;
-
-        margin: 0 $wide-margin $wide-margin 0;
-        padding: $narrow-padding;
-
-        border-radius: $default-radius;
         background-color: $blue;
-
-        @include set-left-panel-bounds;
-        > div
-        {
-            margin-bottom: $narrow-margin;
-
-            border: $default-border;
-            &:last-child
-            {
-                margin-bottom: 0;
-            }
-        }
-        .sercher
-        {
-            @include set-bounds(100%,50px);
-            form
-            {
-                @include set-bounds(100%,100%);
-                input[type='serch']
-                {
-                    float: left;
-
-                    border: $red-border;
-                    border-radius: $default-radius;
-
-                    @include set-bounds(80%,100%);
-                }
-                button
-                {
-                    float: left;
-
-                    @include set-bounds(20%,100%);
-                }
-            }
-        }
-        .flowshow
-        {
-            @include set-bounds(100%,300px);
-        }
-        .news
-        {
-            @include set-bounds(100%,400px);
-        }
-    }
-
-    .right-panel
-    {
-        float: left;
-
-        @include set-right-panel-bounds;
-        .teachers,
-        .students
-        {
-            background-color: $blue;
-        }
-        .informs
-        {
-            background-color: $grey;
-        }
     }
     .informs
     {
-        width: 100%;
-
-        .panel
-        {
-            float: left;
-            // float: left;
-
-            width: ($primary-width - 2*$wide-margin)/3;
-
-            text-align: left;
-
-            border: $blue-border;
-            &:nth-child(1),
-            &:nth-last-child(2),
-            {
-                margin-right: $wide-margin;
-            }
-            .header
-            {
-                font-size: $big-fonts-size;
-
-                padding: $narrow-margin;
-
-                border-bottom: $blue-border;
-
-                @include set-width-min-height(100%,50px);
-            }
-            .body
-            {
-                @include set-width-min-height(100%,200px);
-                ul
-                {
-                    li
-                    {
-                        width: $primary-width/3 - 2*$wide-margin;
-                        margin: $narrow-margin $narrow-margin 0;
-                        padding: $narrow-padding;
-
-                        background-color: $blue;
-                        &:last-child
-                        {
-                            margin-bottom: $narrow-margin;
-                        }
-                    }
-                }
-            }
-        }
+        background-color: $grey;
     }
-    .box-header
+}
+.informs
+{
+    width: 100%;
+
+    .panel
     {
+        float: left;
+        // float: left;
+
+        width: ($primary-width - 2*$wide-margin)/3;
+
         text-align: left;
 
-        border-bottom: $default-border;
-
-        @include set-width-min-height(100%,100%);
-
-        h2
+        border: $blue-border;
+        &:nth-child(1),
+        &:nth-last-child(2),
         {
-            display: inline-block;
-
-            margin: 0;
-            padding: $narrow-padding;
+            margin-right: $wide-margin;
         }
-        .more
+        .header
         {
-            float: right;
+            font-size: $big-fonts-size;
 
-            margin: $narrow-padding $wide-margin 0 0;
-            padding: $narrow-padding/2;
+            padding: $narrow-margin;
 
-            opacity: .7;
-            border-radius: $wide-radius;
-            background-color: black;
+            border-bottom: $blue-border;
+
+            @include set-width-min-height(100%,50px);
         }
-    }
-    .box-body
-    {
-        width: 100%;
-        .collection
+        .body
         {
-            margin: auto;
-            padding-top: $wide-padding;
-            padding-left: $wide-padding;
-            .list-item
+            @include set-width-min-height(100%,200px);
+            ul
             {
-                position: relative;
-
-                float: left;
-
-                margin-right: $wide-margin;
-                margin-bottom: $wide-margin;
-
-                border: $default-border;
-                background-color: white;
-
-                @include set-teacher-box-bounds;
-                // @include set-bounds(150px,150px);
-                a
+                li
                 {
-                    img
-                    {
-                        background: $pink;
+                    width: $primary-width/3 - 2*$wide-margin;
+                    margin: $narrow-margin $narrow-margin 0;
+                    padding: $narrow-padding;
 
-                        @include set-teacher-box-bounds;
+                    background-color: $blue;
+                    &:last-child
+                    {
+                        margin-bottom: $narrow-margin;
                     }
                 }
-                .information
+            }
+        }
+    }
+}
+.box-header
+{
+    text-align: left;
+
+    border-bottom: $default-border;
+
+    @include set-width-min-height(100%,100%);
+
+    h2
+    {
+        display: inline-block;
+
+        margin: 0;
+        padding: $narrow-padding;
+    }
+    .more
+    {
+        float: right;
+
+        margin: $narrow-padding $wide-margin 0 0;
+        padding: $narrow-padding/2;
+
+        opacity: .7;
+        color: white;
+        border-radius: $wide-radius;
+    }
+}
+.box-body
+{
+    width: 100%;
+    .collection
+    {
+        margin: auto;
+        padding-top: $wide-padding;
+        padding-left: $wide-padding;
+        .list-item
+        {
+            position: relative;
+
+            float: left;
+
+            margin-right: $wide-margin;
+            margin-bottom: $wide-margin;
+
+            border: $default-border;
+
+            @include set-teacher-box-bounds;
+            // @include set-bounds(150px,150px);
+            a
+            {
+                img
                 {
-                    position: relative;
-                    bottom: 20%;
-
-                    opacity: .7;
-                    background-color: black;
-
-                    @include set-bounds(100%,20%);
+                    @include set-teacher-box-bounds;
                 }
+            }
+            .information
+            {
+                position: relative;
+                bottom: 20%;
+
+                opacity: .7;
+                background-color: black;
+
+                @include set-bounds(100%,20%);
             }
         }
     }

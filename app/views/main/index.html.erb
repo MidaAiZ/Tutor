@@ -1,4 +1,3 @@
-<div class='container'>
 	<div><%= session[:user_id] %></div>
 	<section class='slider-box'>
 		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -44,9 +43,6 @@
 		  </a>
 		</div>
 	</section>
-	<!-- <section class='serch-field'>
-		<%= render 'sercher' %>
-	</section> -->
 
 	<div class='left-panel'>
 		<div class='sercher'>
@@ -56,7 +52,21 @@
 			</form>
 		</div>
 		<div class='flowshow'></div>
-		<div class='news'></div>
+		<div class='news'>
+			<ul>
+			   <% if !@courses.nil? %>
+				 <% @courses.each do |course| %>
+				  <li class='course-list'>
+					<a href='<%= course_path(course)%>'>
+						<h4>course.name</h4>
+						<p class='c-type'><%= course.type %></p>
+						<p class='c-tutor'><%= course.tutor %></p>
+					</a>
+				</li>
+				<% end %>
+			  <% end %>
+			</ul>
+		</div>
 	</div>
 	<div class='right-panel'>
 		<section class='teachers'>
@@ -71,7 +81,5 @@
 	<div class='informs'>
 		<%= render 'informs' %>
 	</div>
-
-</div>
 
 </div>

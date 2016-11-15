@@ -1,6 +1,7 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_account, only: [:index, :show, :edit, :update, :destroy]
+  #index动作后期要删除
+  layout 'account_center', only: [:usercenter]
   # GET /accounts
   # GET /accounts.json
   def index
@@ -62,6 +63,9 @@ class AccountsController < ApplicationController
     end
   end
 
+  def usercenter
+  end
+
   def login
       @account = Account.find_by(acount_num: params[:acount_num])
       if @account
@@ -73,7 +77,11 @@ class AccountsController < ApplicationController
       end
   end
   def logout
-      session[:user_id] = nil
+      respond_to do |format|
+        session[:user_id] = nil
+        format.html { redirect_to root_path, notice: 'Account was logout.' }
+        format.json { render :show, status: :created, location: @account }
+        end
   end
   def register
   end
@@ -81,7 +89,7 @@ class AccountsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_account
-      @account = Account.find(params[:id])
+      @account = Account.find(session[:user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
