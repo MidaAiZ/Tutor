@@ -9,15 +9,18 @@
 </head>
 <body>
     <%= render 'layouts/nav' %>
-    <div class='tab'>
-	  <ul>
-		  <li><a href='#'>基本信息</a></li>
-		  <li><a href='#'>我的课程</a></li>
-		  <li><a href='#'>更多</a></li>
-	  </ul>
-   </div>
+    <div class='container'>
+        <div class='user-info-tab'>
+    	  <ul>
+    		  <li class='tab-list active'><a href='#'>基本信息</a></li>
+    		  <li class='tab-list'><a href='#'>我的课程</a></li>
+    		  <li class='tab-list'><a href='#'>更多</a></li>
+    	  </ul>
+       </div>
 
-    <%= yield %>
+       <%= yield %>
+
+   </div>
 
 <!-- <div class='bottom-nav'> -->
 </body>

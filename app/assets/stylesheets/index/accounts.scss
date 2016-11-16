@@ -1,3 +1,165 @@
 // Place all the styles related to the accounts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'base/base';
+
+.user-info-tab
+{
+    width: 100%;
+    height: 40px;
+    margin-bottom: $narrow-margin;
+    padding: 0 $narrow-padding;
+
+    border-bottom: $grey-border;
+
+    ul
+    {
+        font-size: middle-fonts-size;
+
+        float: left;
+
+
+        .tab-list
+        {
+            line-height: 40px;
+
+            margin-right: $wide-margin;
+            a:hover
+            {
+                color: $green;
+            }
+        }
+        .active
+        {
+            border-bottom: $bottom-border;
+        }
+    }
+}
+
+.user-info
+{
+    width: 100%;
+
+    border: $grey-border;
+    .info-box
+    {
+        width: 100%;
+        padding: $wide-padding;
+
+        text-align: left;
+        .ico-box
+        {
+            float: left;
+
+            text-align: center;
+            .info-ico
+            {
+                display: block;
+
+                width: 80px;
+                height: 80px;
+
+                background-color: $blue;
+            }
+            a
+            {
+                margin-top: $narrow-margin;
+            }
+        }
+        .fix-ico-right
+        {
+            .fix-item
+            {
+                display: block;
+
+                margin-left: $wide-margin;
+                padding-bottom: $narrow-padding;
+
+                text-align: left;
+                span
+                {
+                    margin-right: $narrow-margin;
+                }
+                a
+                {
+                    color: $green;
+                }
+                .state-ture
+                {
+                    padding: 3px $narrow-padding;
+
+                    color: $green;
+                    border: $green-border;
+                }
+                .state-false
+                {
+                    padding: 3px $narrow-padding;
+
+                    color: $notice;
+                    border: $notice-border;
+                }
+            }
+        }
+    }
+    .login-info
+    {
+        height: 150px;
+
+        border-bottom: $grey-border;
+    }
+    .phone-email
+    {
+        height: auto;
+    }
+
+    .phone,
+    .email
+    {
+        float: left;
+
+        @include set-bounds(50%,100%);
+    }
+    .email
+    {
+        padding-left: $wide-padding;
+
+        border-left: $grey-border;
+    }
+}
+.detail-info
+{
+    width: 100%;
+    margin-top: $wide-margin;
+
+    border: $grey-border;
+    ul
+    {
+        @include set-bounds(100%,auto);
+        .info-item
+        {
+            line-height: 40px;
+
+            padding: 0 $wide-padding;
+
+            text-align: left;
+
+            @include set-bounds(100%,40px);
+            &:nth-child(odd)
+            {
+                background-color: $grey;
+            }
+            span
+            {
+                display: inline-block;
+
+                width: 15%;
+            }
+            .revise
+            {
+                float: right;
+
+                color: $green;
+            }
+        }
+    }
+}
