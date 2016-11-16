@@ -1,43 +1,59 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @student.name %>
-</p>
+<div class='user-info'>
+	<div class='student-info info-box'>
+		<div class='ico-box'>
+			<%=  image_tag 'index/avatar.jpg', class: ['info-ico'] %>
+		</div>
+		<ul class='fix-ico-right'>
+			  <li class='fix-item'><span>帐号：</span><span><%= @student.account.acount_num %></span></li>
+			  <li class='fix-item'><span>昵称：</span><span><%= @student.account.username %></span></li>
+			  <li class='fix-item'><span>会员状态：</span>
+				  <% if @student.account.is_vip %>
+						   <span>已开通</span>
+						<% else %>
+						   <span>暂未开通</span>
+				  <% end %>
+			  </li>
+			  <li class='fix-item'><span>电话</span><span><%= @student.account.acount_num %></li>
+			 <li class='fix-item'><span>邮箱</span><span><%= @student.account.email %></li>
+		</ul>
+	</div>
+</div>
+<div class='detail-info'>
+  <ul>
+	  <li class='info-item'>
+		  <span>姓名</span>
+		  <em><%= @student.account.realname %></em>
+	  </li>
+	  <li class='info-item'>
+		  <span>性别</span>
+		  <em><%= @student.sex %></em>
+	  </li>
+	  <li class='info-item'>
+		  <span>生日</span>
+		  <em><%= @student.account.born_date%></em>
+	  </li>
+	  <li class='info-item'>
+		  <span>地址</span>
+		  <em><%= @student.address %></em>
+	  </li>
+	  <li class='info-item'>
+		  <span>学校</span>
+		  <em><%= @student.school %></em>
+	  </li>
+	  <li class='info-item'>
+		  <span>年级</span>
+		  <em><%= @student.grade %></em>
+	  </li>
+  </ul>
+</div>
 
-<p>
-  <strong>Num:</strong>
-  <%= @student.num %>
-</p>
-
-<p>
-  <strong>Sex:</strong>
-  <%= @student.sex %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @student.address %>
-</p>
-
-<p>
-  <strong>School:</strong>
-  <%= @student.school %>
-</p>
-
-<p>
-  <strong>Grade:</strong>
-  <%= @student.grade %>
-</p>
-
-<p>
-  <strong>Class:</strong>
-  <%= @student.student_class %>
-</p>
-
-<p>
-  <strong>Intro:</strong>
-  <%= @student.intro %>
-</p>
+<div class='intro-box'>
+	<div class='intro-head'><span>自我介绍</span></div>
+	<div class='intro-content'>
+		<span><%= @student.intro %>假装我是自我介绍<span>
+	</div>
+</div>
 
 <%= link_to 'Edit', edit_student_path(@student) %>

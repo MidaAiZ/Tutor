@@ -241,8 +241,6 @@ section
             margin-right: $wide-margin;
             margin-bottom: $wide-margin;
 
-            border: $default-border;
-
             @include set-teacher-box-bounds;
             // @include set-bounds(150px,150px);
             a

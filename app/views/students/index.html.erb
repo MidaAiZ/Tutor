@@ -8,6 +8,7 @@
             <td class='td'>sex</td>
             <td class='td'>address</td>
             <td class='td'>subject</td>
+                <td class='td'>account</td>
         </tr>
     </thead>
     <tbody>
@@ -16,10 +17,11 @@
              <% @students.each do |student| %>
                 <li class='students-list'>
                     <tr class='vertical-middle'>
-                        <td><%= student.name%></td>
-                        <td><%= student.sex%></td>
-                        <td><%= student.address%></td>
-                        <td><%= student.school%></td>
+                        <td><%= student.name %></td>
+                        <td><%= student.sex %></td>
+                        <td><%= student.address %></td>
+                        <td><%= student.school %></td>
+                        <td><%= !student.account.nil? %></td>
                         <td><%= link_to 'View', student, class: ['btn btn-sm btn-primary']%></td>
                     </tr>
                 </li>
