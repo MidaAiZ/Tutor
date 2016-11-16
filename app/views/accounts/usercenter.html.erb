@@ -5,7 +5,7 @@
 		</div>
 		<ul class='fix-ico-right'>
 			  <li class='fix-item'><span>帐号：</span><span><%= @account.acount_num %></span></li>
-			  <li class='fix-item'><span>昵称：</span><span><%= @account.username %></span><a href='#' class='revise'>修改</a></li>
+			  <li class='fix-item'><span>昵称：</span><span><%= @account.username %></span><a href='#'>修改</a></li>
 			  <li class='fix-item'><span>会员状态：</span>
 				  <% if @account.is_vip %>
 						   <span>已开通</span>
@@ -83,4 +83,12 @@
 		  <a class='revise'>修改</a>
 	  </li>
   </ul>
+</div>
+
+<div class='intro-box'>
+	<div class='intro-head'><span>自我介绍</span></div>
+	<div class='intro-content'>
+		<p><a class='revise'>修改</a></p>
+		<span><%= @account.student.intro %>假装我是自我介绍<span>
+	</div>
 </div>

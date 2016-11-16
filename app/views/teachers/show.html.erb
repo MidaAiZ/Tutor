@@ -1,28 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @teacher.name %>
-</p>
+<div class='teacher-info'>
+    <div class='info-box'>
+        <div class='ico-box'>
+			<img src='<%= %>' class='info-ico'>
+        </div>
+		<ul class='fix-ico-right'>
+			  <li class='fix-item'><span>姓名：</span><span><%= @teacher.name %></span></li>
+			  <li class='fix-item'><span>地址：</span><span><%= @teacher.address %></span></li>
+              <li class='fix-item'><span>评分：</span>
+                  <span class='glyphicon glyphicon-star'></span>
+                  <span class='glyphicon glyphicon-star'></span>
+                  <span class='glyphicon glyphicon-star'></span>
+                  <span class='glyphicon glyphicon-star'></span>
+                  <span class='glyphicon glyphicon-star'></span>
+              </li>
+		</ul>
+    </div>
+</div>
+<div class='detail-info'>
+    <ul>
+        <li class='info-item'>
+          <span>Name:</span>
+          <em><%= @teacher.name %></em>
+        </li>
+        <li class='info-item'>
+          <span>Sex:</span>
+          <em><%= @teacher.sex %></em>
+        </li>
+        <li class='info-item'>
+          <span>Address:</span>
+          <em><%= @teacher.address %></em>
+        </li>
+        <li class='info-item'>
+          <span>School:</span>
+          <em><%= @teacher.school %></em>
+        </li>
+    </ul>
+</div>
 
-<p>
-  <strong>Sex:</strong>
-  <%= @teacher.sex %>
-</p>
+<div class='intro-box'>
+	<div class='intro-head'><span>自我介绍</span></div>
+	<div class='intro-content'>
+		<span><%= @teacher.intro %>假装我是自我介绍<span>
+	</div>
+</div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @teacher.address %>
-</p>
-
-<p>
-  <strong>School:</strong>
-  <%= @teacher.school %>
-</p>
-
-<p>
-  <strong>Intro:</strong>
-  <%= @teacher.intro %>
-</p>
-
-<%= link_to '预约',appoint_path(@teacher) , class: ['btn btn-sm btn-danger'], method: :post %> 
+<%= link_to '我要预约',appoint_path(@teacher) , class: ['btn btn-sm btn-danger'], method: :post %>

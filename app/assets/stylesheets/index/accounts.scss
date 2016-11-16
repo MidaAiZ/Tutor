@@ -36,7 +36,8 @@
     }
 }
 
-.user-info
+.user-info,
+.teacher-info
 {
     width: 100%;
 
@@ -98,6 +99,14 @@
                     color: $notice;
                     border: $notice-border;
                 }
+                .glyphicon-star
+                {
+                    font-size: big-fonts-size;
+
+                    margin-right: 0;
+
+                    color: $star;
+                }
             }
         }
     }
@@ -110,6 +119,8 @@
     .phone-email
     {
         height: auto;
+
+        background-color: $grey + 15;
     }
 
     .phone,
@@ -154,12 +165,42 @@
 
                 width: 15%;
             }
-            .revise
-            {
-                float: right;
-
-                color: $green;
-            }
         }
     }
+}
+.intro-box
+{
+    margin: $wide-margin 0;
+    padding: $wide-padding;
+
+    text-align: left;
+
+    border: $grey-border;
+    background-color: $grey + 15;
+
+    @include set-width-min-height(100%,150px);
+    .intro-head
+    {
+        float: left;
+
+        border-right: $grey-border;
+
+        @include set-width-min-height(10%,150px - 2*$wide-padding);
+    }
+    .intro-content
+    {
+        padding-left: $wide-padding;
+
+        @include set-width-min-height(90%,150px - 2*$wide-padding);
+        span
+        {
+            // word-spacing: 10;
+        }
+    }
+}
+.revise
+{
+    float: right;
+
+    color: $green;
 }
