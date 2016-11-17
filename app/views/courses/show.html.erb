@@ -1,41 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @course.name %>
-</p>
+<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Tutor:</strong>
-  <%= @course.tutor %>
-</p>
+<div class='course-info'>
+	<div class='course-info info-box'>
+		<div class='ico-box'>
+			<%=  image_tag 'index/avatar.jpg', class: ['info-ico'] %>
+		</div>
+		<ul class='fix-ico-right'>
+			  <li class='fix-item'><span>课程名：</span>
+                <%= link_to teacher_path(@course.teacher) do %>
+                   <span><%= @course.name%></span>
+                <% end %>
+              </li>
+			  <li class='fix-item'><span>讲师：</span><span><%= @course.tutor %></span></li>
+			  <li class='fix-item'><span>课程类型：</span><span><%= @course.category %></span></li>
+			  <li class='fix-item'><span>开班日期:</span><span><%= @course.begintime %></li>
+			  <li class='fix-item'><span>结束日期:</span><span><%= @course.endtime %></li>
+              <li class='fix-item'><span>地点:</span><span><%= @course.place %></li>
+              <li class='fix-item'><span>上课时间:</span><span><%= @course.class_time %></li>
+              <li class='fix-item'><span>课时长:</span><span><%= @course.class_hour %></li>
+              <li class='fix-item'><span>课时数:</span><span><%= @course.times %></li>
+              <li class='fix-item'><span>课程评分:</span><span><%= @course.score %></li>
+              <li class='fix-item'><span>价格:</span><span><%= @course.price %></li>
+		</ul>
+	</div>
+</div>
 
-<p>
-  <strong>Type:</strong>
-  <%= @course.type %>
-</p>
+<div class='intro-box'>
+	<div class='intro-head'><span>课程介绍</span></div>
+	<div class='intro-content'>
+		<span><%= @course.intro %>假装是课程介绍<span>
+	</div>
+</div>
 
-<p>
-  <strong>Begintime:</strong>
-  <%= @course.begintime %>
-</p>
 
-<p>
-  <strong>Endtime:</strong>
-  <%= @course.endtime %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @course.price %>
-</p>
-
-<p>
-  <strong>Place:</strong>
-  <%= @course.place %>
-</p>
-
-<%= link_to '报名', entry_course_path(@course), method: :post, class: 'btn btn-primary'%>
+<%= link_to '我要报名', entry_course_path(@course), method: :post, class: 'btn btn-primary'%>
 
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>

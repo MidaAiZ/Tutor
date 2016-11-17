@@ -1,18 +1,57 @@
+<% if session[:user_id].nil? %>
+	<!-- Modal -->
+	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			<h4 class="modal-title" id="myModalLabel">登录</h4>
+		  </div>
+		  <div class="modal-body">
+				 <%= form_for @account, url: {controller: 'accounts',action: "login"} do |f| %>
+				<div class='field'>
+					<%= f.label :account_num %>
+					<input type='text' name='acount_num'>
+				</div>
+				<div class='field'>
+					<%= f.label :password %>
+					<%= f.password_field :pwd %>
+				</div>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			<%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+			  <% end %>
+		  </div>
+		</div>
+	  </div>
+	</div>
+<% end %>
 <nav>
 	<div class='navbar'>
 	  <div class='logo'>
 		<p>海明教育</p>
 	  </div>
 	  <ul class='right'>
-		<li><%= link_to '首页', root_path %></li>
+		<li><%= link_to root_path do %>
+			<i class="glyphicon glyphicon-home"></i>首页
+			<% end %>
+		</li>
 		<% if !@account.id.nil? %>
-			<li><%= link_to '个人中心', usercenter_path(@account) %></li>
+			<li><%= link_to usercenter_path(@account) do %>
+				<i class="glyphicon glyphicon-cog"></i> 个人中心
+			<% end %>
+			</li>
 		  <% else %>
-			<li><%= link_to '个人中心', login_path %></li>
+			<li>
+				<a data-toggle='modal', data-target='#login'>
+			      <i class="glyphicon glyphicon-cog"></i> 个人中心
+		        </a>
+	        </li>
 		  <% end %>
 		<% if @account.is_teacher %>
 		  <li>
-		  	<a><%= link_to '管理学生' %></a>
+		  	<%= link_to '管理学生' %>
 		  </li>
 		<% end %>
 		<% if session[:user_id] %>
@@ -23,9 +62,14 @@
 		  </li>
 		<% else %>
 			<li>
-			  <%= link_to login_path do %>
-				<i class="glyphicon glyphicon-log-in"></i> 登录
+			  <%= link_to new_account_path do %>
+				<i class="glyphicon glyphicon-filter"></i> 注册
 			  <% end %>
+			</li>
+			<li>
+			  <a data-toggle='modal', data-target='#login'>
+				<i class="glyphicon glyphicon-log-in"></i> 登录
+			</a>
 			</li>
 		<% end %>
 	  </ul>

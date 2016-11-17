@@ -15,9 +15,13 @@
 //= require turbolinks
 //= require_tree .
 // = require bootstrap/dropdown
+//= require bootstrap/modal.js
 
 $(document).ready(function() {
     $('.back').bind('click', function() {
         history.back();
-    })
+    });
+    $('#login').modal({
+        'show': false
+    });
 });

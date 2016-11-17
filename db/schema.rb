@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114162847) do
+ActiveRecord::Schema.define(version: 20161116074224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,15 +39,21 @@ ActiveRecord::Schema.define(version: 20161114162847) do
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.string   "tutor"
-    t.string   "type"
     t.datetime "begintime"
     t.datetime "endtime"
     t.integer  "price"
     t.string   "place"
     t.integer  "teacher_id"
     t.integer  "student_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "category"
+    t.string   "class_time"
+    t.integer  "class_hour"
+    t.integer  "times"
+    t.boolean  "is_public",  default: false
+    t.string   "intro"
+    t.float    "score"
   end
 
   create_table "courses_students", force: :cascade do |t|

@@ -65,20 +65,62 @@ a
     margin-bottom: $wide-margin;
 }
 
+.modal-dialog
+{
+    margin-top: 200px;
+    .modal-header
+    {
+        display: block;
+    }
+    .modal-body
+    {
+        display: block;
+
+        // min-width: 500px;
+        form
+        {
+            margin: 80px;
+            .field
+            {
+                display: block;
+
+                width: auto;
+                height: auto;
+                margin: $wide-margin 0;
+
+                text-align: right;
+                label
+                {
+                    margin-right: $wide-margin;
+                }
+                input
+                {
+                    width: 200px;
+                    height: 40px;
+
+                    border: $green-border;
+                }
+            }
+        }
+    }
+}
+
 nav
 {
     width: 100%;
+    height: $nav-height;
 
     background-color: $primary-bgcolor;
     .navbar
     {
         width: $primary-width;
-        height: $nav-height;
+        height: 100%;
         margin: auto;
 
         white-space: nowrap;
 
         color: white;
+        border: none;
         .logo
         {
             font-size: 48px;
@@ -102,10 +144,9 @@ nav
                 display: inline-block;
 
                 margin: 0 $narrow-padding/2;
-                padding: $narrow-padding;
 
                 border-radius: $default-radius;
-                background-color: rgb(252, 176, 45);
+                background-color: $green;
 
                 @include set-bounds(auto,$btn-height);
                 &:last-child
@@ -115,7 +156,11 @@ nav
                 a
                 {
                     font-size: $middle-fonts-size;
-                    line-height: $btn-height - 2*$narrow-padding;
+                    line-height: $btn-height;
+
+                    padding: $narrow-padding;
+
+                    cursor: pointer;
 
                     color: white;
                 }

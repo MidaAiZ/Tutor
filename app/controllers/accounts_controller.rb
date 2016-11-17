@@ -31,11 +31,11 @@ class AccountsController < ApplicationController
         @student = Student.create(account_id: @account.id)
         @account.student_id = @student.id
         @account.save
-        format.html { redirect_to @account, notice: 'Account was successfully created.' }
-        format.json { render :show, status: :created, location: @account }
+        format.html { redirect_to login_path, notice: 'Account was successfully created.' }
+        # format.json { render :show, status: :created, location: @account }
       else
         format.html { render :new }
-        format.json { render json: @account.errors, status: :unprocessable_entity }
+        # format.json { render json: @account.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,12 +69,15 @@ class AccountsController < ApplicationController
 
   def login
       @account = Account.find_by(acount_num: params[:acount_num])
-      if @account
-          session[:user_num] = @account.acount_num
-          session[:user_id] = @account.id
-          redirect_to root_path
-      else
-          redirect_to login_path
+      respond_to do |format|
+          if @account
+              session[:user_num] = @account.acount_num
+              session[:user_id] = @account.id
+              format.html { redirect_to root_path, notice: 'Account was successfully login.' }
+          else
+              format.html { redirect_to login_path, notice: 'Account was successfully fail.' }
+              format.json { render :index }
+         end
       end
   end
   def logout
