@@ -8,20 +8,20 @@
 			<h4 class="modal-title" id="myModalLabel">登录</h4>
 		  </div>
 		  <div class="modal-body">
-				 <%= form_for @account, url: {controller: 'accounts',action: "login"} do |f| %>
+				 <%= form_tag "/login", id: 'loginform', method: "post" do %>
 				<div class='field'>
-					<%= f.label :account_num %>
-					<input type='text' name='acount_num'>
+					<%= label_tag :account_num, 'account' %>
+					<%= text_field_tag(:acount_num) %>
 				</div>
 				<div class='field'>
-					<%= f.label :password %>
-					<%= f.password_field :pwd %>
+					<%= label_tag :password, 'password' %>
+					<%= password_field_tag (:pwd) %>
 				</div>
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-			<%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
-			  <% end %>
+			<a id='submit', class="btn btn-large btn-primary" onsubmit="">Sign in</a>
+			<% end %>
 		  </div>
 		</div>
 	  </div>
@@ -30,7 +30,7 @@
 <nav>
 	<div class='navbar'>
 	  <div class='logo'>
-		<p>海明教育</p>
+		<p>明新教育</p>
 	  </div>
 	  <ul class='right'>
 		<li><%= link_to root_path do %>
@@ -56,7 +56,7 @@
 		<% end %>
 		<% if session[:user_id] %>
 		  <li>
-			<%= link_to logout_path, method: :delete do %>
+			<%= link_to logout_path, method: :delete, data: {conform: 'are you sure'}  do %>
 			  <i class="glyphicon glyphicon-log-out"></i> 退出
 			<% end %>
 		  </li>

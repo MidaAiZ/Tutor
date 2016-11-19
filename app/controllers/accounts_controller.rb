@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: [:index, :show, :edit, :update, :destroy]
+  before_action :set_account, only: [:show, :edit, :update, :destroy]
   #index动作后期要删除
   layout 'account_center', only: [:usercenter]
   # GET /accounts
@@ -68,15 +68,16 @@ class AccountsController < ApplicationController
   end
 
   def login
-      @account = Account.find_by(acount_num: params[:acount_num])
+      @account = Account.find_by(acount_num: params[:acount_num], pwd: params[:pwd])
       respond_to do |format|
           if @account
               session[:user_num] = @account.acount_num
               session[:user_id] = @account.id
               format.html { redirect_to root_path, notice: 'Account was successfully login.' }
+              format.json { render :login }
           else
               format.html { redirect_to login_path, notice: 'Account was successfully fail.' }
-              format.json { render :index }
+              format.json { render :login }
          end
       end
   end

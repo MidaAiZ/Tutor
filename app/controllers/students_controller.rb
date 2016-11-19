@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:edit, :update, :destroy, :course, :courses, :appoint]
+  before_action :check_login, only: [:course, :courses, :appoint]
  layout 'details'
   # GET /students
   # GET /students.json

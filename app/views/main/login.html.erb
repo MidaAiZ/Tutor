@@ -1,14 +1,15 @@
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(:accounts) do |f| %>
-
-      <%= f.label :account_num %>
-      <input type='text' name='acount_num'>
-
-      <%= f.label :password %>
-      <%= f.password_field :pwd %>
-
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
-    <% end %>
+      <%= form_tag "/login", method: "post" do %>
+     <div class='field'>
+         <%= label_tag :account_num, 'account' %>
+         <%= text_field_tag(:acount_num) %>
+     </div>
+     <div class='field'>
+         <%= label_tag :password, 'password' %>
+         <%= password_field_tag (:pwd) %>
+     </div>
+     <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
+     <% end %>
   </div>
 </div>
