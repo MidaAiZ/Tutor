@@ -15,6 +15,7 @@
 //= require_tree .
 // = require bootstrap/dropdown
 //= require bootstrap/modal.js
+//= require bootstrap/tab.js
 
 $(document).ready(function() {
     $('.back').bind('click', function() {

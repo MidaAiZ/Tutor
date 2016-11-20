@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tutor</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <%= render 'layouts/nav' %>
+    <div class='container'>
+        <div id='usercenter-tab' class='user-info-tab tab'>
+    	  <ul>
+    		  <li class='tab-list <%= check_current('index')%>'><%= link_to'基本信息', ucenter_path %></li>
+    		  <li class='tab-list <%= check_current('courses')%>'><%= link_to '我的课程', ucenter_courses_path %></li>
+    		  <li class='tab-list <%= check_current('messages')%>'><%= link_to '我的消息', ucenter_messages_path %></li>
+              <li class='tab-list <%= check_current('more')%>'><%= link_to '更多', ucenter_more_path %></li>
+    	  </ul>
+       </div>
+
+       <%= yield %>
+
+   </div>
+
+<!-- <div class='bottom-nav'> -->
+</body>
+</html>

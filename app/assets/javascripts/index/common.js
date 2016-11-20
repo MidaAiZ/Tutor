@@ -2,6 +2,10 @@
 $(document).ready(function() {
     $('.dropdown-toggle').dropdown('toggle');
     $('#submit').click(check_login);
+    $('#course_tab li a').click(function(e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
 })
 
 function check_login() {

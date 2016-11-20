@@ -38,7 +38,7 @@
 			<% end %>
 		</li>
 		<% if !@account.id.nil? %>
-			<li><%= link_to usercenter_path(@account) do %>
+			<li><%= link_to ucenter_path(@account) do %>
 				<i class="glyphicon glyphicon-cog"></i> 个人中心
 			<% end %>
 			</li>
@@ -51,7 +51,7 @@
 		  <% end %>
 		<% if @account.is_teacher %>
 		  <li>
-		  	<%= link_to '管理学生', teacher_courses_path(@account)%>
+		  	<%= link_to '教师中心', teacher_courses_path(@account)%>
 		  </li>
 		<% end %>
 		<% if session[:user_id] %>

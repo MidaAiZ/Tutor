@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
   #index动作后期要删除
-  layout 'account_center', only: [:usercenter]
+ 
   # GET /accounts
   # GET /accounts.json
   def index
@@ -62,9 +62,6 @@ class AccountsController < ApplicationController
       format.html { redirect_to accounts_url, notice: 'Account was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def usercenter
   end
 
   def login

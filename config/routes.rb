@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+
+  scope :usercenter, as: :ucenter do
+      get '/' => 'usercenter#index'
+
+      get 'courses' => 'usercenter#courses'
+
+      get 'messages' => 'usercenter#messages'
+
+      get 'more' => 'usercenter#more'
+
+  end
+
   get 'login' => 'main#login', as: :login
   get 'register' => 'main#register', as: :register
   post 'login' => 'accounts#login'
@@ -10,7 +22,6 @@ Rails.application.routes.draw do
   get 'teachers/:teacher_id/courses' => 'teachers#courses', as: :teacher_courses
 
   post 'courses/:id/entry' => 'courses#entry', as: :entry_course
-  get 'account/usercenter' => 'accounts#usercenter', as: :usercenter
   resources :courses
   resources :accounts do
   end

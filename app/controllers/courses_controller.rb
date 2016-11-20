@@ -27,16 +27,19 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
-    @course.is_public = false
+    @teacher = Teacher.find(params[:course][:teacher_id])
+    if @teacher == @account.teacher
+      redirect_to  appoint_path(@teacher.id), notice: '预约失败！无法预约自己' and return
+    end
     respond_to do |format|
       if @course.save
         @student = @account.student
         @student.courses << @course
-        Teacher.find(params[:course][:teacher_id]).courses << @course
+        @teacher.courses << @course
         format.html { redirect_to @course, notice: 'Course was successfully created.' }
         format.json { render :show, status: :created, location: @course }
       else
-        format.html { render :new }
+        format.html { render :new, notice: '预约失败' }
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
