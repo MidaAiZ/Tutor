@@ -20,7 +20,7 @@
     <% @courses.each do |course| %>
       <tr>
         <td><%= course.name %></td>
-        <td><%= course.tutor %></td>
+        <td><%= course.teacher.id %></td>
         <td><%= course.category %></td>
         <td><%= course.begintime %></td>
         <td><%= course.endtime %></td>

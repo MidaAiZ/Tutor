@@ -62,6 +62,7 @@ class TeachersController < ApplicationController
   end
 
 def courses
+    @teacher = @account.teacher
     @courses = @account.teacher.courses
 end
 
