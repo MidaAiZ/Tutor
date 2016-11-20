@@ -1,5 +1,5 @@
 if @account
-  json.access :ture
+  json.access :true
 else
   json.access :false
 end

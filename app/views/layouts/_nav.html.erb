@@ -8,7 +8,7 @@
 			<h4 class="modal-title" id="myModalLabel">登录</h4>
 		  </div>
 		  <div class="modal-body">
-				 <%= form_tag "/login", id: 'loginform', method: "post" do %>
+			   <%= form_tag 'login', id: 'loginform', method: "post" do %>
 				<div class='field'>
 					<%= label_tag :account_num, 'account' %>
 					<%= text_field_tag(:acount_num) %>
@@ -20,9 +20,9 @@
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-			<a id='submit', class="btn btn-large btn-primary" onsubmit="">Sign in</a>
-			<% end %>
+			<a id='submit', class="btn btn-large btn-primary">Sign in</a>
 		  </div>
+		  <% end %>
 		</div>
 	  </div>
 	</div>

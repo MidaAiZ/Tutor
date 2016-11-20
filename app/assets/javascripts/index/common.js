@@ -2,16 +2,15 @@
 $(document).ready(function() {
     $('.dropdown-toggle').dropdown('toggle');
     $('#submit').click(check_login);
-    // $('#loginform').submit(function() {
-    //     check_login();
-    // })
 })
 
 function check_login() {
     postAjax(
-        $('#loginform').serialize(), 'login').done(function(res) {
-        if (res.access !== 'false') {
+        $('#loginform').serialize(), '/login').done(function(res) {
+        if (res.access == 'true') {
             window.location.reload();
+        } else {
+
         }
     }).fail(function(res) {
         console.log('fail');

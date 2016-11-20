@@ -7,9 +7,7 @@
 		</div>
 		<ul class='fix-ico-right'>
 			  <li class='fix-item'><span>课程名：</span>
-                <%= link_to teacher_path(@course.teacher) do %>
-                   <span><%= @course.name%></span>
-                <% end %>
+                  <span><%= @course.name%></span>
               </li>
 			  <li class='fix-item'><span>讲师：</span><span><%= link_to @course.teacher.name, @course.teacher %></span></li>
 			  <li class='fix-item'><span>课程类型：</span><span><%= @course.category %></span></li>
@@ -32,7 +30,10 @@
 	</div>
 </div>
 
-
-<%= link_to '我要报名', entry_course_path(@course), method: :post, class: 'btn btn-primary'%>
-
-<%= link_to 'Edit', edit_course_path(@course), class: ['btn btn-primary btn-sm'] %>
+<% if !@account.id.nil? %>
+	<% if !@account.student.courses.include?(@course) %>
+	   <%= link_to '我要报名', entry_course_path(@course), method: :post, class: 'btn btn-primary'%>
+	<% end %>
+<% else %>
+    <%= link_to '我要报名', entry_course_path(@course), method: :post, class: 'btn btn-primary'%>
+<% end %>
