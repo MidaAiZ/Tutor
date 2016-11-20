@@ -20,9 +20,8 @@
         {
             line-height: 40px;
 
-            margin-top: -3px;
+            margin-top: -4px;
             padding: 0 $wide-padding;
-            // margin-right: $wide-margin;
             a:hover
             {
                 color: $green;
@@ -68,8 +67,12 @@
                 border: none;
                 border-radius: 0;
 
-                &:hover
+                &:hover,
+                &:active,
+                &:focus
                 {
+                    text-decoration: none;
+
                     color: black;
                     border: none;
                     background-color: $grey;
@@ -86,7 +89,7 @@
                 color: white;
                 border: none;
                 border-left: $wide-green-border;
-                background-color: $green+50;
+                background-color: $green+30;
             }
         }
     }
