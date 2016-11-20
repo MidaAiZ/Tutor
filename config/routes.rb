@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   get 'login' => 'main#login', as: :login
   get 'register' => 'main#register', as: :register
-  post '*login' => 'accounts#login'
+  post 'login' => 'accounts#login'
   post 'register' => 'accounts#register'
   delete 'logout' => 'accounts#logout', as: :logout
   get 'students/:id/courses' => 'students#courses', as: :student_courses
   get 'students/:id/courses/:course_id' => 'students#course', as: :student_course
-  post 'appoint/:id' => 'students#appoint', as: :appoint
+  get 'teachers/:teacher_id/courses/new' => 'courses#new', as: :appoint
+  get 'teachers/:teacher_id/courses' => 'teachers#courses', as: :teacher_courses
 
   post 'courses/:id/entry' => 'courses#entry', as: :entry_course
   get 'account/usercenter' => 'accounts#usercenter', as: :usercenter

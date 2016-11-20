@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p id="notice"><%= notice %></p>
-
 <div class='course-info'>
 	<div class='course-info info-box'>
 		<div class='ico-box'>
@@ -13,7 +11,7 @@
                    <span><%= @course.name%></span>
                 <% end %>
               </li>
-			  <li class='fix-item'><span>讲师：</span><span><%= @course.tutor %></span></li>
+			  <li class='fix-item'><span>讲师：</span><span><%= link_to @course.teacher.name, @course.teacher %></span></li>
 			  <li class='fix-item'><span>课程类型：</span><span><%= @course.category %></span></li>
 			  <li class='fix-item'><span>开班日期:</span><span><%= @course.begintime %></li>
 			  <li class='fix-item'><span>结束日期:</span><span><%= @course.endtime %></li>
@@ -37,4 +35,4 @@
 
 <%= link_to '我要报名', entry_course_path(@course), method: :post, class: 'btn btn-primary'%>
 
-<%= link_to 'Edit', edit_course_path(@course), class: ['btn btn-primary btn-sm'] %> 
+<%= link_to 'Edit', edit_course_path(@course), class: ['btn btn-primary btn-sm'] %>

@@ -1,45 +1,55 @@
-<%= form_for(@course) do |f| %>
-  <% if @course.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+  <div class='form-panel'>
+      <%= form_for(@course) do |f| %>
+        <% if @course.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@course.errors.count, "error") %> prohibited this account from being saved:</h2>
 
-      <ul>
-      <% @course.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <ul>
+            <% @course.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+          <div class='form-header'>
+              <h2>New Account</h2>
+          </div>
+          <div class='form-body'>
+              <div class="field">
+                  <%= f.label :name %>
+                  <%= f.text_field :name %>
+              </div>
+              <div class="field">
+                  <%= f.label :student_name %>
+                  <input type='text' name='student_name' value='<% @account.student.name %>' >
+              </div>
+              <div class="field">
+                <%= f.label :category %>
+                <%= f.text_field :category %>
+              </div>
+              <div class="field">
+                <%= f.label :price %>
+                <%= f.text_field :price %>
+              </div>
+              <div class="field">
+                <%= f.label :place %>
+                <%= f.text_field :place %>
+              </div>
+              <div class="field">
+                <%= f.label :begintime %>
+                <%= f.date_select :begintime %>
+              </div>
+              <div class="field">
+                <%= f.label :endtime %>
+                <%= f.date_select :endtime %>
+              </div>
+                <%= f.hidden_field 'teacher_id',value: @teacher.id %>
+          </div>
+          <div class='form-footer'>
+              <div class="actions">
+                <button class='btn' type="submit">提交</button>
+              </div>
+          </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :tutor %><br>
-    <%= f.text_field :tutor %>
-  </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
-  </div>
-  <div class="field">
-    <%= f.label :begintime %><br>
-    <%= f.datetime_select :begintime %>
-  </div>
-  <div class="field">
-    <%= f.label :endtime %><br>
-    <%= f.datetime_select :endtime %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :place %><br>
-    <%= f.text_field :place %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

@@ -51,7 +51,7 @@
 		  <% end %>
 		<% if @account.is_teacher %>
 		  <li>
-		  	<%= link_to '管理学生' %>
+		  	<%= link_to '管理学生', teacher_courses_path(@account)%>
 		  </li>
 		<% end %>
 		<% if session[:user_id] %>

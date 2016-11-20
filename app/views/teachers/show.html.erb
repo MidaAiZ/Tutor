@@ -45,5 +45,4 @@
 		<span><%= @teacher.intro %>假装我是自我介绍<span>
 	</div>
 </div>
-
-<%= link_to '我要预约',appoint_path(@teacher) , class: ['btn btn-sm btn-danger'], method: :post %>
+<%= link_to '我要预约', appoint_path(@teacher.id), class: ['btn btn-sm btn-danger'] %>

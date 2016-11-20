@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy, :entry]
-  before_action :check_login, only: [:entry, :update]
+  before_action :check_login, only: [:new, :create, :entry, :update]
   # layout 'collection'
   # GET /courses
   # GET /courses.json
@@ -16,6 +16,7 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    @teacher = Teacher.find(params[:teacher_id])
   end
 
   # GET /courses/1/edit
@@ -26,9 +27,12 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
-
+    @course.is_public = false
     respond_to do |format|
       if @course.save
+        @student = @account.student
+        @student.courses << @course
+        Teacher.find(params[:course][:teacher_id]).courses << @course
         format.html { redirect_to @course, notice: 'Course was successfully created.' }
         format.json { render :show, status: :created, location: @course }
       else
@@ -75,6 +79,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :tutor, :type, :begintime, :endtime, :price, :place)
+      params.require(:course).permit(:name, :tutor, :category, :begintime, :endtime, :price, :place, :teacher_id)
     end
 end

@@ -1,5 +1,5 @@
 class TeachersController < ApplicationController
-  before_action :set_teacher, only: [:show, :edit, :update, :destroy]
+  before_action :set_teacher, only: [:show, :edit, :update, :destroy, :courses]
   layout 'details'
   # GET /teachers
   # GET /teachers.json
@@ -60,6 +60,10 @@ class TeachersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+def courses
+    @courses = @teacher.courses
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
