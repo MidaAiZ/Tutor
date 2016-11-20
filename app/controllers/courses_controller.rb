@@ -57,6 +57,9 @@ class CoursesController < ApplicationController
   end
 
   def entry
+    if @account.teacher == @course.teacher
+        redirect_to course_path(@course), notice: '不能报名自己开设的课程' and return
+    end
     @student = @account.student;
     @student.courses << @course
     redirect_to student_courses_path(@student)
