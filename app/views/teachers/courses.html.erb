@@ -15,11 +15,11 @@
                 <li class='students-list'>
                     <tr class='vertical-middle'>
                         <td><%= c.name %></td>
-                        <td><%= c.tutor %></td>
+                        <td><%= c.category %></td>
                         <td><%= c.begintime %></td>
                         <td><%= c.price %></td>
                         <td><%= c.place %></td>
-                        <td><%= link_to 'View', student, class: ['btn btn-sm btn-primary']%></td>
+                        <td><%= link_to 'View', course_path(c), class: ['btn btn-sm btn-primary']%></td>
                     </tr>
                 </li>
             <% end %>

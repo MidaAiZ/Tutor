@@ -1,5 +1,5 @@
 class TeachersController < ApplicationController
-  before_action :set_teacher, only: [:show, :edit, :update, :destroy, :courses]
+  before_action :set_teacher, only: [:show, :edit, :update, :destroy]
   layout 'details'
   # GET /teachers
   # GET /teachers.json
@@ -62,7 +62,7 @@ class TeachersController < ApplicationController
   end
 
 def courses
-    @courses = @teacher.courses
+    @courses = @account.teacher.courses
 end
 
   private
