@@ -6,6 +6,30 @@ $(document).ready(function() {
         e.preventDefault()
         $(this).tab('show')
     })
+    $('*[role=revise]').click(function() {
+        $(this).parent()
+            .siblings("*[role='info-cotent']")
+            .find("*[role='info']")
+            .hide()
+            .siblings()
+            .show()
+        $(this).hide().siblings()
+            .show()
+
+    })
+    $("*[role='cancel'], *[role='conform']").click(function() {
+
+        $(this).parent()
+            .css('display', 'none')
+            .siblings()
+            .show()
+            .parent()
+            .siblings("*[role='info-cotent']")
+            .find("*[role='info']")
+            .show()
+            .siblings()
+            .hide()
+    })
 })
 
 function check_login() {

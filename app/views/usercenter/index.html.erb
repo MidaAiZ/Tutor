@@ -54,41 +54,104 @@
   <ul>
 	  <li class='info-item'>
 		  <span>姓名</span>
-		  <em><%= @account.realname %></em>
-		  <a class='revise'>修改</a>
+		  <div role='info-cotent'>
+			  <em role='info'><%= @account.realname %></em>
+    		  <input type='text-field' class='edit' role='edit'>
+		  </div>
+		  <div class='revise-group' role='revise-group'>
+		  	 <a class='revise' role='revise'>修改</a>
+			 <div class='control-group'>
+			 	<a class='revise' role='cancel'>取消</a>
+				<a class='revise' role='conform'>确定</a>
+			 </div>
+		  </div>
 	  </li>
 	  <li class='info-item'>
 		  <span>性别</span>
-		  <em><%= @account.sex %></em>
-		  <a class='revise'>修改</a>
+		 <div role='info-cotent'>
+			 <em role='info'><%= @account.sex %></em>
+			 <input type='text-field' class='edit' role='edit'>
+		 </div>
+		 <div class='revise-group' role='revise-group'>
+			<a class='revise' role='revise'>修改</a>
+			<div class='control-group'>
+			   <a class='revise' role='cancel'>取消</a>
+			   <a class='revise' role='conform'>确定</a>
+			</div>
+		 </div>
 	  </li>
 	  <li class='info-item'>
 		  <span>生日</span>
-		  <em><%= @account.born_date%></em>
-		  <a class='revise'>修改</a>
+		  <div role='info-cotent'>
+			  <em role='info'><%= @account.born_date %></em>
+    		  <input type='text-field' class='edit' role='edit'>
+		  </div>
+		  <div class='revise-group' role='revise-group'>
+		  	 <a class='revise' role='revise'>修改</a>
+			 <div class='control-group'>
+			 	<a class='revise' role='cancel'>取消</a>
+				<a class='revise' role='conform'>确定</a>
+			 </div>
+		  </div>
 	  </li>
 	  <li class='info-item'>
 		  <span>地址</span>
-		  <em><%= @account.student.address %></em>
-		  <a class='revise'>修改</a>
+		 <div role='info-cotent'>
+			 <em role='info'><%= @account.student.address %></em>
+			 <input type='text-field' class='edit' role='edit'>
+		 </div>
+		 <div class='revise-group' role='revise-group'>
+			<a class='revise' role='revise'>修改</a>
+			<div class='control-group'>
+			   <a class='revise' role='cancel'>取消</a>
+			   <a class='revise' role='conform'>确定</a>
+			</div>
+		 </div>
 	  </li>
 	  <li class='info-item'>
 		  <span>学校</span>
-		  <em><%= @account.student.school %></em>
-		  <a class='revise'>修改</a>
+		  <div role='info-cotent'>
+			  <em role='info'><%= @account.student.school %></em>
+    		  <input type='text-field' class='edit' role='edit'>
+		  </div>
+		  <div class='revise-group' role='revise-group'>
+		  	 <a class='revise' role='revise'>修改</a>
+			 <div class='control-group'>
+			 	<a class='revise' role='cancel'>取消</a>
+				<a class='revise' role='conform'>确定</a>
+			 </div>
+		  </div>
 	  </li>
 	  <li class='info-item'>
 		  <span>年级</span>
-		  <em><%= @account.student.grade %></em>
-		  <a class='revise'>修改</a>
+		  <div role='info-cotent'>
+			  <em role='info'><%= @account.student.grade %></em>
+    		  <input type='text-field' class='edit' role='edit'>
+		  </div>
+		  <div class='revise-group' role='revise-group'>
+		  	 <a class='revise' role='revise'>修改</a>
+			 <div class='control-group'>
+			 	<a class='revise' role='cancel'>取消</a>
+				<a class='revise' role='conform'>确定</a>
+			 </div>
+		  </div>
 	  </li>
   </ul>
 </div>
 
-<div class='intro-box'>
+<div class='intro-box detail-info'>
 	<div class='intro-head'><span>自我介绍</span></div>
 	<div class='intro-content'>
-		<p><a class='revise'>修改</a></p>
-		<span><%= @account.student.intro %>假装我是自我介绍<span>
+		<div class='revise-group' role='revise-group'>
+		   <a class='revise' role='revise'>修改</a>
+		   <div class='control-group'>
+			  <a class='revise' role='cancel'>取消</a>
+			  <a class='revise' role='conform'>确定</a>
+		   </div>
+		</div>
+		<div role='info-cotent'>
+			<em role='info'><span><%= @account.student.intro %>假装我是自我介绍</span></em>
+			<textarea class='edit' role='edit'><%= @account.student.intro %></textarea>
+		</div>
 	</div>
 </div>

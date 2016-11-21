@@ -34,7 +34,7 @@
 	  </div>
 	  <ul class='right'>
 		<li><%= link_to root_path do %>
-			<i class="glyphicon glyphicon-home"></i>首页
+			<i class="glyphicon glyphicon-home"></i> 首页
 			<% end %>
 		</li>
 		<% if !@account.id.nil? %>
@@ -51,7 +51,9 @@
 		  <% end %>
 		<% if @account.is_teacher %>
 		  <li>
-		  	<%= link_to '教师中心', teacher_courses_path(@account)%>
+			  <%= link_to teacher_courses_path(@account) do %>
+  				<i class="glyphicon glyphicon-user"></i> 教师中心
+  			<% end %>
 		  </li>
 		<% end %>
 		<% if session[:user_id] %>
