@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
       get 'more' => 'usercenter#more'
 
+      post 'revise' => 'usercenter#revise'
+
   end
 
   get 'login' => 'main#login', as: :login
