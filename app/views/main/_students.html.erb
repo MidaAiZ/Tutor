@@ -1,9 +1,11 @@
 <div class='box-header'>
 	<h2>Students</h2>
-	<%= link_to 'more', students_path, class: ['more btn-primary'] %>
+	<%= link_to students_path, class: ['more'] do%>
+	 <span class='glyphicon glyphicon-th-list'></span>
+	<% end %>
 </div>
 <div class='box-body'>
-	<table class='table .table-hover'>
+	<table class='table'>
 		<thead>
 			<tr class='tr'>
 				<td class='td'>Name</td>

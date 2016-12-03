@@ -18,10 +18,10 @@ class UsercenterController < ApplicationController
 
   def revise
     respond_to do |format|
-      if @account.update(account_params)
-        format.json { render json: @account}
+      if @account.update(params[:revise].keys.first => params[:revise].values.first)
+        format.json { render :revise }
       else
-        format.json { render json: @account }
+        format.json { render :revise }
       end
     end
   end
@@ -32,7 +32,8 @@ class UsercenterController < ApplicationController
        @current = params[:action]
   end
   def account_params
-    params.permit(:realname)
+    #   params[:revise].keys.first => params[:revise].values.first
+    params.require(:revise).permit()
   end
 
 end

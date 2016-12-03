@@ -43,7 +43,7 @@ $(document).ready(function() {
     $("*[role='cancel'], *[role='conform']").click(function() {
 
             $(this).parent()
-                .css('display', 'none')
+                .hide()
                 .siblings()
                 .show()
                 .parent()
@@ -51,22 +51,20 @@ $(document).ready(function() {
                 .find("*[role='info']")
                 .show()
                 .siblings()
-                .hide()
+                .hide();
         })
         //后台交互 改变内容
     $("*[role='conform']").click(function() {
         var $reviseEle = $(this).parent().siblings().parent().siblings("*[role='info-cotent']");
-        var inputType = $reviseEle.find("*[role='edit']").attr('type'),
-            name = $reviseEle.find("*[role='info']").attr('name'),
-            value = $reviseEle.find("*[role='edit']").val();
+        var $inputEle = $reviseEle.find("*[role='edit']").clone();
 
-        var $ajaxForm = setAjaxForm(inputType, name, value);
+        var $ajaxForm = setAjaxForm($inputEle);
 
         reviseInfo($ajaxForm, $(this));
     })
 })
 
-//登录功能后台交互
+//登录功能ajax后台交互
 function check_login() {
     postAjax(
         $('#loginform').serialize(), '/login').done(function(res) {
@@ -80,22 +78,20 @@ function check_login() {
     });
 }
 
-//个人中心修改后台交互
+//个人中心修改ajax后台交互
 function reviseInfo($ajaxForm, ele) {
-    console.log($ajaxForm)
     postAjax($ajaxForm.serialize(), 'usercenter/revise').done(function(res) {
-        console.log(res)
-        ele.parent()
+        var $reviseEle = ele.parent()
             .siblings()
             .parent()
             .siblings("*[role='info-cotent']")
             .find("*[role='info']")
-            .text(res.realname);
-
+        attr = $reviseEle.data('attr');
+        $reviseEle.text(res[attr]);
     }).fail(function(res) {
 
     });
-    $ajaxForm.empty();
+    $ajaxForm.remove();
 }
 
 
@@ -108,9 +104,8 @@ function postAjax(data, url) {
 }
 
 //构建用于ajax交互的表单
-function setAjaxForm(inputType, name, value) {
-    var $form = $("<form id='ajaxForm'></form>"),
-        input = '<input type=' + inputType + ' name=' + name + ' value=' + value + '>';
-    $form.append($(input));
+function setAjaxForm($inputEle) {
+    var $form = $("<form id='ajaxForm'></form>");
+    $form.append($inputEle);
     return $form;
 }

@@ -148,6 +148,11 @@ section
         background-color: $grey;
     }
 }
+.courses
+{
+    background-color: $grey;
+}
+
 .informs
 {
     width: 100%;
@@ -204,7 +209,7 @@ section
 
     border-bottom: $default-border;
 
-    @include set-width-min-height(100%,100%);
+    @include set-width-min-height(100%,50px);
 
     h2
     {
@@ -220,9 +225,12 @@ section
         margin: $narrow-padding $wide-margin 0 0;
         padding: $narrow-padding/2;
 
-        opacity: .7;
+        opacity: .8;
         color: white;
-        border-radius: $wide-radius;
+        &:hover
+        {
+            opacity: 1;
+        }
     }
 }
 .box-body
@@ -240,16 +248,38 @@ section
 
             margin-right: $wide-margin;
             margin-bottom: $wide-margin;
-
-            @include set-teacher-box-bounds;
-            // @include set-bounds(150px,150px);
-            a
+            .sign
             {
-                img
+                position: absolute;
+                right: $narrow-margin;
+
+                background-color: $green;
+            }
+            &.teacher
+            {
+                @include set-teacher-box-bounds;
+                a img
                 {
                     @include set-teacher-box-bounds;
                 }
+                .sign
+                {
+                    @include set-bounds(30px,40px);
+                }
             }
+            &.course
+            {
+                @include set-course-box-bounds;
+                a img
+                {
+                    @include set-course-box-bounds;
+                }
+                .sign
+                {
+                    @include set-bounds(40px,50px);
+                }
+            }
+            // @include set-bounds(150px,150px);
             .information
             {
                 position: relative;

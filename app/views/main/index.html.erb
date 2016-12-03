@@ -53,19 +53,6 @@
 		</div>
 		<div class='flowshow'></div>
 		<div class='news'>
-			<ul>
-			   <% if !@courses.nil? %>
-				 <% @courses.each do |course| %>
-				  <li class='course-list'>
-					<a href='<%= course_path(course)%>'>
-						<h4>course.name</h4>
-						<p class='course-category'><%= course.category %></p>
-						<p class='course-tutor'><%= course.tutor %></p>
-					</a>
-				</li>
-				<% end %>
-			  <% end %>
-			</ul>
 		</div>
 	</div>
 	<div class='right-panel'>
@@ -76,6 +63,10 @@
 		<section class='students'>
 			<%= render 'students'%>
 		</section>
+	</div>
+
+	<div class='courses'>
+		<%= render 'courses' %>
 	</div>
 
 	<div class='informs'>

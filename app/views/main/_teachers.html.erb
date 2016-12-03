@@ -1,12 +1,17 @@
 <div class='box-header'>
 	<h2>Teachers</h2>
-	<%= link_to 'more', teachers_path, class: ['more btn-primary'] %>
+	<%= link_to teachers_path, class: ['more'] do%>
+		<span class='glyphicon glyphicon-th-list'></span>
+	<% end %>
 </div>
 <div class='box-body'>
 	<ul class='collection'>
 		<% if !@teachers.nil? %>
 		 <% @teachers.each do |teacher| %>
-			 <li class='list-item'>
+			 <li class='list-item teacher'>
+				 <div class='sign'>
+
+ 				</div>
 				<%= link_to teacher_path(teacher), class: :ico do %>
 					<%=  image_tag 'index/avatar.jpg' %>
 				<% end %>

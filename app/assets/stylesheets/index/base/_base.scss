@@ -8,13 +8,18 @@ $wide-padding: 20px;
 $narrow-padding: 10px;
 $btn-width: 100px;
 $btn-height: 45px;
-$small-fonts-size: 10px;
-$middle-fonts-size: 20px;
-$big-fonts-size: 30px;
 $default-radius: 5px;
 $wide-radius: 10px;
 $left-proportion: .3;
 $right-proportion: .7;
+
+//fonts
+$small-fonts-size: 10px;
+$middle-fonts-size: 20px;
+$big-fonts-size: 30px;
+$light-fonts-color: fff;
+$dark-fonts-color: rgb(32, 33, 34);
+$grey-font-color: grey;
 
 // color
 $primary-bgcolor: rgb(43, 43, 45);
@@ -65,4 +70,9 @@ $bottom-border: 3px solid $green;
 {
     width: ($primary-width*$right-proportion - 2*$wide-padding - 3*$wide-margin)/4;
     height: ($primary-width*$right-proportion - 2*$wide-padding - 3*$wide-margin)/4;
+}
+@mixin set-course-box-bounds
+{
+    width: ($primary-width - 2*$wide-padding - 3*$wide-margin)/4;
+    height: ($primary-width - 2*$wide-padding - 3*$wide-margin)/4;
 }

@@ -1,0 +1,27 @@
+
+<div class='box-header'>
+	<h2>Courses</h2>
+	<%= link_to courses_path, class: ['more'] do%>
+	  <span class='glyphicon glyphicon-th-list'></span>
+    <% end %>
+</div>
+<div class='box-body'>
+	<ul class='collection'>
+		 <% if !@courses.nil? %>
+		    <% @courses.each do |course| %>
+			  <li class='list-item course'>
+				<div class='sign'>
+
+				</div>
+				<%= link_to course_path(course), class: :ico do %>
+   					<%=  image_tag 'index/avatar.jpg' %>
+   				<% end %>
+				<div class='information'>
+					<span><%= link_to course.score %></span>
+					<p><%= course.name %></p>
+				</div>
+			  </li>
+			<% end %>
+		 <% end %>
+	</ul>
+</div>
