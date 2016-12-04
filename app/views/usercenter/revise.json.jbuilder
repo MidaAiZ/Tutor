@@ -1,1 +1,1 @@
-json.extract! @account, params[:revise].keys.first
+json.extract! @account.student, params[:revise].keys.first

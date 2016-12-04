@@ -7,7 +7,7 @@
 		</div>
 		<ul class='fix-ico-right'>
 			  <li class='fix-item'><span>教师姓名：</span><span><%= @teacher.name %></span></li>
-			  
+
 			  <li class='fix-item'><span>会员状态：</span>
 				  <% if @account.is_vip %>
 						   <span>已开通</span>
@@ -57,56 +57,56 @@
 	  <li class='info-item'>
 		  <span>性别</span>
 		 <div role='info-cotent'>
-			 <em role='info' name='revise[sex]' data-attr='sex'><%= @account.sex %></em>
+			 <em role='info' name='revise[sex]' data-attr='sex'><%= @teacher.sex %></em>
 			 <input type='text-field' name='revise[sex]' class='edit' role='edit'>
 		 </div>
 		 <div class='revise-group' role='revise-group'>
 			<a class='revise' role='revise'>修改</a>
 			<div class='control-group'>
 			   <a class='revise' role='cancel'>取消</a>
-			   <a class='revise' role='conform'>确定</a>
+			   <a class='revise' role='conform' data-target='teacenter'>确定</a>
+			</div>
+		 </div>
+	  </li>
+	  <li class='info-item'>
+		 <span>生日</span>
+		 <div role='info-cotent'>
+			 <em role='info' data-attr='bornday'><%= @account.teacher.bornday %></em>
+			 <input type='date' name='revise[bornday]' role='edit' class='edit'>
+		 </div>
+		 <div class='revise-group' role='revise-group'>
+			<a class='revise' role='revise'>修改</a>
+			<div class='control-group'>
+			   <a class='revise' role='cancel'>取消</a>
+			   <a class='revise' role='conform' data-target='teacenter'>确定</a>
 			</div>
 		 </div>
 	  </li>
 	  <li class='info-item'>
 		  <span>地址</span>
 		 <div role='info-cotent'>
-			 <em role='info' data-attr='address'><%= @account.student.address %></em>
+			 <em role='info' data-attr='address'><%= @account.teacher.address %></em>
 			 <input type='text-field' name='revise[address]' class='edit' role='edit'>
 		 </div>
 		 <div class='revise-group' role='revise-group'>
 			<a class='revise' role='revise'>修改</a>
 			<div class='control-group'>
 			   <a class='revise' role='cancel'>取消</a>
-			   <a class='revise' role='conform'>确定</a>
+			   <a class='revise' role='conform' data-target='teacenter'>确定</a>
 			</div>
 		 </div>
 	  </li>
 	  <li class='info-item'>
 		  <span>学校</span>
 		  <div role='info-cotent'>
-			  <em role='info' data-attr='school'><%= @account.student.school %></em>
+			  <em role='info' data-attr='school'><%= @account.teacher.school %></em>
     		  <input type='text-field' name='revise[school]' class='edit' role='edit'>
 		  </div>
 		  <div class='revise-group' role='revise-group'>
 		  	 <a class='revise' role='revise'>修改</a>
 			 <div class='control-group'>
 			 	<a class='revise' role='cancel'>取消</a>
-				<a class='revise' role='conform'>确定</a>
-			 </div>
-		  </div>
-	  </li>
-	  <li class='info-item'>
-		  <span>年级</span>
-		  <div role='info-cotent'>
-			  <em role='info' data-attr='grade'><%= @account.student.grade %></em>
-    		  <input type='text-field' name='revise[grade]' class='edit' role='edit'>
-		  </div>
-		  <div class='revise-group' role='revise-group'>
-		  	 <a class='revise' role='revise'>修改</a>
-			 <div class='control-group'>
-			 	<a class='revise' role='cancel'>取消</a>
-				<a class='revise' role='conform'>确定</a>
+				<a class='revise' role='conform' data-target='teacenter'>确定</a>
 			 </div>
 		  </div>
 	  </li>
@@ -120,11 +120,11 @@
 		   <a class='revise' role='revise'>修改</a>
 		   <div class='control-group'>
 			  <a class='revise' role='cancel'>取消</a>
-			  <a class='revise' role='conform'>确定</a>
+			  <a class='revise' role='conform' data-target='teacenter'>确定</a>
 		   </div>
 		</div>
 		<div role='info-cotent'>
-			<em role='info' data-attr='intro'><span><%= @account.student.intro %>假装我是自我介绍</span></em>
+			<em role='info' data-attr='intro'><span><%= @account.teacher.intro %>假装我是自我介绍</span></em>
 			<textarea class='edit' name='revise[intro]' role='edit'><%= @account.student.intro %></textarea>
 		</div>
 	</div>

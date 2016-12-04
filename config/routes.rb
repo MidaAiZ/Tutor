@@ -2,25 +2,18 @@ Rails.application.routes.draw do
 
 scope :teachercenter, as: :teacenter do
     get '/' => 'teachercenter#index'
-
     get 'courses' => 'teachercenter#courses'
-
     get 'students' => 'teachercenter#students'
-
     get 'comments' => 'teachercenter#comments'
+    post 'revise' => 'teachercenter#revise'
 end
 
   scope :usercenter, as: :ucenter do
       get '/' => 'usercenter#index'
-
       get 'courses' => 'usercenter#courses'
-
       get 'messages' => 'usercenter#messages'
-
       get 'more' => 'usercenter#more'
-
       post 'revise' => 'usercenter#revise'
-
   end
 
   get 'login' => 'main#login', as: :login

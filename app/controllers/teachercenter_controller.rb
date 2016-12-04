@@ -19,7 +19,16 @@ class TeachercenterController < ApplicationController
       @students = @teacher.students
   end
 
-  
+  def revise
+    respond_to do |format|
+      if @account.teacher.update(params[:revise].keys.first => params[:revise].values.first)
+        format.json { render :revise }
+      else
+        format.json { render :revise }
+      end
+    end
+  end
+
   private
 
   def set_teacher

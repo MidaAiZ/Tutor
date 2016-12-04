@@ -11,20 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116074224) do
+ActiveRecord::Schema.define(version: 20161204160527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
-    t.string   "acount_num"
+    t.string   "number"
     t.string   "pwd"
     t.string   "username"
-    t.string   "realname"
-    t.string   "sex"
     t.integer  "phone"
     t.integer  "email"
-    t.datetime "born_date"
     t.boolean  "is_teacher"
     t.boolean  "is_vip"
     t.boolean  "is_access"
@@ -33,8 +30,6 @@ ActiveRecord::Schema.define(version: 20161116074224) do
     t.integer  "student_id"
     t.integer  "teacher_id"
   end
-
-  add_index "accounts", ["acount_num"], name: "index_accounts_on_acount_num", using: :btree
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -65,7 +60,6 @@ ActiveRecord::Schema.define(version: 20161116074224) do
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
-    t.integer  "num"
     t.string   "sex"
     t.string   "address"
     t.string   "school"
@@ -75,6 +69,7 @@ ActiveRecord::Schema.define(version: 20161116074224) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "account_id"
+    t.date     "bornday"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -86,6 +81,8 @@ ActiveRecord::Schema.define(version: 20161116074224) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "account_id"
+    t.date     "bornday"
+    t.float    "score"
   end
 
   add_foreign_key "accounts", "students"

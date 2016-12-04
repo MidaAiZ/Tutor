@@ -59,8 +59,11 @@ $(document).ready(function() {
         var $inputEle = $reviseEle.find("*[role='edit']").clone();
 
         var $ajaxForm = setAjaxForm($inputEle);
-
-        reviseInfo($ajaxForm, $(this));
+        if ($(this).data('target') === 'ucenter') {
+            reviseInfo($ajaxForm, 'usercenter/revise', $(this));
+        } else if ($(this).data('target') === 'teacenter') {
+            reviseInfo($ajaxForm, 'teachercenter/revise', $(this));
+        }
     })
 })
 
@@ -79,8 +82,8 @@ function check_login() {
 }
 
 //个人中心修改ajax后台交互
-function reviseInfo($ajaxForm, ele) {
-    postAjax($ajaxForm.serialize(), 'usercenter/revise').done(function(res) {
+function reviseInfo($ajaxForm, url, ele) {
+    postAjax($ajaxForm.serialize(), url).done(function(res) {
         var $reviseEle = ele.parent()
             .siblings()
             .parent()

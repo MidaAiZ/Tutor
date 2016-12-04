@@ -18,7 +18,7 @@ class UsercenterController < ApplicationController
 
   def revise
     respond_to do |format|
-      if @account.update(params[:revise].keys.first => params[:revise].values.first)
+      if @account.student.update(params[:revise].keys.first => params[:revise].values.first)
         format.json { render :revise }
       else
         format.json { render :revise }
