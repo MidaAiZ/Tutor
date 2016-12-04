@@ -1,0 +1,11 @@
+
+	<div id='usercenter-tab' class='user-info-tab tab'>
+	  <ul>
+		  <li class='tab-list <%= check_current('index')%>'><%= link_to'教师信息', teacenter_path %></li>
+		  <li class='tab-list <%= check_current('courses')%>'><%= link_to '我的课程', teacenter_courses_path %></li>
+		  <li class='tab-list <%= check_current('students')%>'><%= link_to '我的学生', teacenter_students_path %></li>
+		  <li class='tab-list <%= check_current('comments')%>'><%= link_to '查看评价', teacenter_comments_path %></li>
+	  </ul>
+   </div>
+
+   <%= yield %>

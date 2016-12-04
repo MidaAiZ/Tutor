@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+scope :teachercenter, as: :teacenter do
+    get '/' => 'teachercenter#index'
+
+    get 'courses' => 'teachercenter#courses'
+
+    get 'students' => 'teachercenter#students'
+
+    get 'comments' => 'teachercenter#comments'
+end
+
   scope :usercenter, as: :ucenter do
       get '/' => 'usercenter#index'
 
@@ -21,7 +31,6 @@ Rails.application.routes.draw do
   get 'students/:id/courses' => 'students#courses', as: :student_courses
   get 'students/:id/courses/:course_id' => 'students#course', as: :student_course
   get 'teachers/:teacher_id/courses/new' => 'courses#new', as: :appoint
-  get 'teachers/:teacher_id/courses' => 'teachers#courses', as: :teacher_courses
 
   post 'courses/:id/entry' => 'courses#entry', as: :entry_course
   resources :courses

@@ -1,0 +1,99 @@
+<%= render 'teacher_tab' %>
+
+<div class='courses_panel'>
+	<%= render 'course_tab' %>
+	<div class='tab-content course-content'>
+		<table id='all' class='table tab-pane fade in active' role="tabpanel">
+			<thead>
+				<tr>
+					<td>name</td>
+					<td>student</td>
+					<td>type</td>
+					<td>all</td>
+				</tr>
+			</thead>
+			<tbody>
+				<% if !@courses.nil? %>
+				 <% @courses.each do |c| %>
+				  <tr>
+					 <td><%= c.name %></td>
+				     <td><% c.students.each do |s| %><%= s.id %><% end %></td>
+					 <td><%= c.category %></td>
+					 <td><%= link_to '详情', course_path(c), class: [:btn, 'btn-primary'] %></td>
+				  </tr>
+				 <% end %>
+				<% end %>
+			</tbody>
+		</table>
+
+		<table id='now' class='table tab-pane fade' role="tabpanel">
+			<thead>
+				<tr>
+					<td>name</td>
+					<td>teacher</td>
+					<td>type</td>
+					<td>now</td>
+				</tr>
+			</thead>
+			<tbody>
+				<% if !@courses.nil? %>
+				 <% @courses.each do |c| %>
+				  <tr>
+					 <td><%= c.name %></td>
+				     <td><%= c.tutor %></td>
+					 <td><%= c.category %></td>
+					 <td><%= link_to '详情', course_path(c), class: [:btn, 'btn-primary'] %></td>
+				  </tr>
+				 <% end %>
+				<% end %>
+			</tbody>
+		</table>
+
+		<table id='over' class='table tab-pane fade' role="tabpanel">
+			<thead>
+				<tr>
+					<td>name</td>
+					<td>teacher</td>
+					<td>type</td>
+					<td>over</td>
+				</tr>
+			</thead>
+			<tbody>
+				<% if !@courses.nil? %>
+				 <% @courses.each do |c| %>
+				  <tr>
+					 <td><%= c.name %></td>
+				     <td><%= c.tutor %></td>
+					 <td><%= c.category %></td>
+					 <td><%= link_to '详情', course_path(c), class: [:btn, 'btn-primary'] %></td>
+				  </tr>
+				 <% end %>
+				<% end %>
+			</tbody>
+		</table>
+
+		<table id='appoint' class='table tab-pane fade' role="tabpanel">
+			<thead>
+				<tr>
+					<td>name</td>
+					<td>teacher</td>
+					<td>type</td>
+					<td>appoint</td>
+				</tr>
+			</thead>
+			<tbody>
+				<% if !@courses.nil? %>
+				 <% @courses.each do |c| %>
+				  <tr>
+					 <td><%= c.name %></td>
+				     <td><%= c.tutor %></td>
+					 <td><%= c.category %></td>
+					 <td><%= link_to '详情', course_path(c), class: [:btn, 'btn-primary'] %></td>
+				  </tr>
+				 <% end %>
+				<% end %>
+			</tbody>
+		</table>
+
+	</div>
+</div>

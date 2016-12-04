@@ -38,6 +38,7 @@ section
 
     color: white;
     border-radius: $default-radius;
+    background-color: $blue;
 
     @include set-width-min-height(100%,200px);
     // box-shadow: 5px 5px $narrow-margin $grey;
@@ -94,42 +95,6 @@ section
     .news
     {
         @include set-bounds(100%,400px);
-        > ul
-        {
-            @include set-bounds(100%,100%);
-            li
-            {
-                padding: $narrow-padding;
-
-                text-align: left;
-
-                border: $default-border;
-
-                @include set-bounds(100%,auto);
-                a
-                {
-                    font-size: $small-fonts-size;
-
-                    display: inline-block;
-
-                    width: 100%;
-                    &:hover
-                    {
-                        color: white;
-                    }
-                    p
-                    {
-                        display: inline-block;
-                        float: left;
-                        overflow: hidden;
-
-                        width: 50%;
-
-                        text-overflow: ellipsis;
-                    }
-                }
-            }
-        }
     }
 }
 
@@ -138,19 +103,10 @@ section
     float: left;
 
     @include set-right-panel-bounds;
-    .teachers,
-    .students
-    {
-        background-color: $blue;
-    }
     .informs
     {
         background-color: $grey;
     }
-}
-.courses
-{
-    background-color: $grey;
 }
 
 .informs

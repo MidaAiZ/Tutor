@@ -1,0 +1,2 @@
+module TeachercenterHelper
+end
