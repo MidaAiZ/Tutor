@@ -24,4 +24,7 @@ $(document).ready(function() {
     $('#login').modal({
         'show': false
     });
+    $('#appoint-course').modal({
+        'show': false
+    });
 });

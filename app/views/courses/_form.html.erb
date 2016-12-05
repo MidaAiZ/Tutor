@@ -36,15 +36,7 @@
                 <%= f.label :place %>
                 <%= f.text_field :place %>
               </div>
-              <div class="field">
-                <%= f.label :begintime %>
-                <%= f.date_select :begintime %>
-              </div>
-              <div class="field">
-                <%= f.label :endtime %>
-                <%= f.date_select :endtime %>
-              </div>
-                <%= f.hidden_field 'teacher_id',value: @teacher.id %>
+              <%= f.hidden_field 'teacher_id',value: @teacher.id %>
           </div>
           <div class='form-footer'>
               <div class="actions">

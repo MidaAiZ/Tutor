@@ -5,6 +5,9 @@ scope :teachercenter, as: :teacenter do
     get 'courses' => 'teachercenter#courses'
     get 'students' => 'teachercenter#students'
     get 'comments' => 'teachercenter#comments'
+    get 'course/new' => 'teachercenter#new_course'
+    get 'courses/:course_id' => 'teachercenter#course', as: :course
+    post 'course/create' => 'teachercenter#create_course'
     post 'revise' => 'teachercenter#revise'
 end
 
@@ -26,7 +29,12 @@ end
   get 'teachers/:teacher_id/courses/new' => 'courses#new', as: :appoint
 
   post 'courses/:id/entry' => 'courses#entry', as: :entry_course
-  resources :courses
+  post 'courses/create' => 'courses#create', as: :create_course
+
+  resources :courses do
+
+  end
+
   resources :accounts do
   end
   resources :teachers

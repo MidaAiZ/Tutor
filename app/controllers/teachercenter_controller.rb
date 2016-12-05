@@ -30,12 +30,39 @@ class TeachercenterController < ApplicationController
     end
   end
 
+  def course
+    @course = Course.find(params[:course_id])
+  end
+
+  def new_course
+    @course = Course.new
+  end
+
+  def create_course
+    @course = Course.new(course_params)
+    @course.is_public = true
+    respond_to do |format|
+        if @course.save
+          @account.teacher.courses << @course
+          format.html { redirect_to @course, notice: 'Course was successfully created.' }
+          format.json { render :show, status: :created, location: @course }
+        else
+          format.html { render :new, notice: '创建失败！' }
+        end
+    end
+  end
+
   private
 
   def set_teacher
        @teacher = @account.teacher
   end
+
   def set_current
       @current = params[:action]
+  end
+
+  def course_params
+    params.require(:course).permit(:name, :category, :begintime, :price, :place)
   end
 end

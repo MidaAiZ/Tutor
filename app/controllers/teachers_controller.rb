@@ -10,6 +10,7 @@ class TeachersController < ApplicationController
   # GET /teachers/1
   # GET /teachers/1.json
   def show
+    @course = Course.new
   end
 
   # GET /teachers/new
@@ -60,11 +61,6 @@ class TeachersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-def courses
-    @teacher = @account.teacher
-    @courses = @account.teacher.courses
-end
 
   private
     # Use callbacks to share common setup or constraints between actions.

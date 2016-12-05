@@ -69,16 +69,17 @@ $(document).ready(function() {
 
 //登录功能ajax后台交互
 function check_login() {
-    postAjax(
-        $('#loginform').serialize(), '/login').done(function(res) {
-        if (res.access == 'true') {
-            window.location.reload();
-        } else {
+    postAjax($('#loginform').serialize(), '/login')
+        .done(function(res) {
+            if (res.access == 'true') {
+                window.location.reload();
+            } else {
 
-        }
-    }).fail(function(res) {
-        console.log('fail');
-    });
+            }
+        })
+        .fail(function(res) {
+            console.log('fail');
+        });
 }
 
 //个人中心修改ajax后台交互

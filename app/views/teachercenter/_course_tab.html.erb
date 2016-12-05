@@ -1,8 +1,14 @@
 <div class='course_tab'>
 	<ul id='course-tab' role="tablist">
-		<li role="presentation" class="active"><a href="#all" role="tab" data-toggle="tab">全部课程</a></li>
-		<li role="presentation"><a href='#now' role="tab" data-toggle="tab">进行中</a></li>
-		<li role="presentation"><a href='#over' role="tab" data-toggle="tab">已结课</a></li>
-		<li role="presentation"><a href="#appoint" role="tab" data-toggle="tab">我的预约</a></li>
+		<li role="presentation" class="active"><a href="#all" role="tab" data-toggle="tab" >全部课程</a></li>
+		<li role="presentation"><a href='#ongoing' role="tab" data-toggle="tab">进行中</a></li>
+		<li role="presentation"><a href='#finished' role="tab" data-toggle="tab">已结课</a></li>
+		<li role="presentation"><a href="#waiting" role="tab" data-toggle="tab">待处理</a></li>
 	</ul>
+	<div class='new-course'>
+		<%= link_to teacenter_course_new_path do %>
+		  <span class='glyphicon glyphicon-plus-sign'></span>
+		  <p>新建课程</p>
+		<% end %>
+	</div>
 </div>

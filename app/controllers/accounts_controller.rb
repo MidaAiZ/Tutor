@@ -65,7 +65,7 @@ class AccountsController < ApplicationController
   end
 
   def login
-      @account = Account.find_by(number: params[:acount_num], pwd: params[:pwd])
+      @account = Account.find_by(number: params[:number], pwd: params[:pwd])
       respond_to do |format|
           if @account
               session[:user_num] = @account.number

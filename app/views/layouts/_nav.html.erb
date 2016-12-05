@@ -10,8 +10,8 @@
 		  <div class="modal-body">
 			   <%= form_tag 'login', id: 'loginform', method: "post" do %>
 				<div class='field'>
-					<%= label_tag :account_num, 'account' %>
-					<%= text_field_tag(:acount_num) %>
+					<%= label_tag :number, 'account' %>
+					<%= text_field_tag(:number) %>
 				</div>
 				<div class='field'>
 					<%= label_tag :password, 'password' %>
@@ -71,7 +71,7 @@
 			<li>
 			  <a data-toggle='modal', data-target='#login'>
 				<i class="glyphicon glyphicon-log-in"></i> 登录
-			</a>
+			  </a>
 			</li>
 		<% end %>
 	  </ul>

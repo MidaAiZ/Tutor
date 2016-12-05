@@ -1,0 +1,26 @@
+@import 'base/base';
+
+.new-course
+{
+    width: 100%;
+    margin-top: $wide-margin;
+    padding: $wide-padding;
+
+    text-align: center;
+
+    a
+    {
+        color: $green;
+
+        &:hover
+        {
+            text-decoration: none;
+
+            color: $green + 15;
+        }
+        span
+        {
+            font-size: 80px;
+        }
+    }
+}
