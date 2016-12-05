@@ -65,7 +65,7 @@ class AccountsController < ApplicationController
   end
 
   def login
-      @account = Account.find_by(acount_num: params[:acount_num], pwd: params[:pwd])
+      @account = Account.find_by(number: params[:acount_num], pwd: params[:pwd])
       respond_to do |format|
           if @account
               session[:user_num] = @account.number
@@ -96,6 +96,6 @@ class AccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_params
-      params.require(:account).permit(:acount_num, :pwd, :username, :realname, :sex, :phone, :email, :born_date, :is_teacher, :is_vip, :is_access)
+      params.require(:account).permit(:number, :pwd, :username, :realname, :sex, :phone, :email, :born_date, :is_teacher, :is_vip, :is_access)
     end
 end

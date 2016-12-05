@@ -1,5 +1,5 @@
 class UsercenterController < ApplicationController
-  before_action :set_current
+  before_action :set_current, :check_login
   layout 'usercenter'
 
   def index

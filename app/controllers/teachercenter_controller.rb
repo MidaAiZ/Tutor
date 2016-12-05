@@ -1,4 +1,5 @@
 class TeachercenterController < ApplicationController
+    before_action :check_login
     before_action :set_teacher
     before_action :set_current
   def index

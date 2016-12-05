@@ -8,11 +8,8 @@
       <th>Acount num</th>
       <th>Pwd</th>
       <th>Username</th>
-      <th>Realname</th>
-      <th>Sex</th>
       <th>Phone</th>
       <th>Email</th>
-      <th>Born date</th>
       <th>Is teacher</th>
       <th>Is vip</th>
       <th>Is access</th>
@@ -24,14 +21,11 @@
   <tbody>
     <% @accounts.each do |account| %>
       <tr>
-        <td><%= account.acount_num %></td>
+        <td><%= account.number %></td>
         <td><%= account.pwd %></td>
         <td><%= account.username %></td>
-        <td><%= account.realname %></td>
-        <td><%= account.sex %></td>
         <td><%= account.phone %></td>
         <td><%= account.email %></td>
-        <td><%= account.born_date %></td>
         <td><%= account.is_teacher %></td>
         <td><%= account.is_vip %></td>
         <td><%= account.is_access %></td>
