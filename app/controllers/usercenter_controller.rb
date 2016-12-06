@@ -1,6 +1,5 @@
 class UsercenterController < ApplicationController
   before_action :set_current, :check_login
-  layout 'usercenter'
 
   def index
   end
@@ -18,7 +17,7 @@ class UsercenterController < ApplicationController
 
   def revise
     respond_to do |format|
-      if @account.student.update(params[:revise].keys.first => params[:revise].values.first)
+      if @account.student.update(revise_params)
         format.json { render :revise }
       else
         format.json { render :revise }
@@ -32,8 +31,10 @@ class UsercenterController < ApplicationController
        @current = params[:action]
   end
   def account_params
-    #   params[:revise].keys.first => params[:revise].values.first
+    #
     params.require(:revise).permit()
   end
-
+  def revise_params
+      {params[:revise].keys.first => params[:revise].values.first}
+  end
 end

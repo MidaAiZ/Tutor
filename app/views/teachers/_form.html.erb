@@ -1,3 +1,4 @@
+<div class='form-panel'>
 <%= form_for(@teacher) do |f| %>
   <% if @teacher.errors.any? %>
     <div id="error_explanation">
@@ -11,27 +12,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class='form-header'>
+      <h2>New Teacher</h2>
   </div>
-  <div class="field">
-    <%= f.label :sex %><br>
-    <%= f.text_field :sex %>
+  <div class='form-body'>
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :sex %>
+        <%= f.text_field :sex %>
+      </div>
+      <div class="field">
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+      </div>
+      <div class="field">
+        <%= f.label :school %>
+        <%= f.text_field :school %>
+      </div>
+      <div class="field">
+        <%= f.label :intro %>
+        <%= f.text_field :intro %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :school %><br>
-    <%= f.text_field :school %>
-  </div>
-  <div class="field">
-    <%= f.label :intro %><br>
-    <%= f.text_field :intro %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class='form-footer'>
+      <div class="actions">
+        <%= f.submit ['注册'], class: 'btn btn-primary' %>
+      </div>
   </div>
 <% end %>
+</div>

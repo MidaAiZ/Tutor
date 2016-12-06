@@ -38,13 +38,14 @@
 
                     text-align: right;
                 }
-                input[type='text']
+                input[type='text'],
+                input[type='password']
                 {
                     width: 200px;
                     height: 40px;
                     padding-left: $narrow-padding;
 
-                    border: $green-border;
+                    border: $input-border;
                 }
                 select
                 {

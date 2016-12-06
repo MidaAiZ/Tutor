@@ -36,42 +36,40 @@
         }
     }
 }
-.detail-info
+.edit
 {
-    .edit
+    display: none;
+}
+.revise
+{
+    &:hover
     {
-        display: none;
-    }
-    .revise
-    {
-        &:hover
-        {
-            cursor: pointer;
+        cursor: pointer;
 
-            color: $green;
-        }
-    }
-    input[type='text-field']
-    {
-        width: 100px;
-        height: 30px;
-
-        border: $green-border;
-    }
-    .revise-group
-    {
-        float: right;
-    }
-    .control-group
-    {
-        display: none;
-    }
-    textarea
-    {
-        min-width: 500px;
-        min-height: 120px;
+        color: $green;
     }
 }
+input[type='text-field']
+{
+    width: 100px;
+    height: 30px;
+
+    border: $green-border;
+}
+.revise-group
+{
+    float: right;
+}
+.control-group
+{
+    display: none;
+}
+textarea
+{
+    min-width: 500px;
+    min-height: 120px;
+}
+
 .courses_panel
 {
     padding: $wide-padding 0;

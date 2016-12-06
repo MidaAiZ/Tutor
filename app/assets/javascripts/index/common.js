@@ -59,11 +59,11 @@ $(document).ready(function() {
         var $inputEle = $reviseEle.find("*[role='edit']").clone();
 
         var $ajaxForm = setAjaxForm($inputEle);
-        if ($(this).data('target') === 'ucenter') {
-            reviseInfo($ajaxForm, 'usercenter/revise', $(this));
-        } else if ($(this).data('target') === 'teacenter') {
-            reviseInfo($ajaxForm, 'teachercenter/revise', $(this));
-        }
+        // if ($(this).data('target') === 'ucenter') {
+        reviseInfo($ajaxForm, $(this).data('target'), $(this));
+        // } else if ($(this).data('target') === 'teacenter') {
+        // reviseInfo($ajaxForm, 'teachercenter/revise', $(this));
+        // }
     })
 })
 

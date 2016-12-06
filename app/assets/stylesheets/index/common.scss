@@ -64,7 +64,14 @@ a
 
     margin-bottom: $wide-margin;
 }
-
+.fix-right
+{
+    float: right;
+}
+.fix-left
+{
+    float: left;
+}
 .modal-dialog
 {
     margin-top: 200px;
@@ -172,7 +179,7 @@ nav
     padding: 0;
     .list-box
     {
-        border: $blue-border;
+        border: $grey-border;
         border-radius: $default-radius;
 
         @include set-width-min-height(100%,600px);

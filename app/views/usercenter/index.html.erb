@@ -1,3 +1,5 @@
+<%= render 'menu_tab' %>
+
 <div class='user-info'>
 	<div class='login-info info-box'>
 		<div class='ico-box'>
@@ -5,7 +7,6 @@
 		</div>
 		<ul class='fix-ico-right'>
 			  <li class='fix-item'><span>帐号：</span><span><%= @account.number %></span></li>
-			  <li class='fix-item'><span>昵称：</span><span><%= @account.username %></span><a href='#'>修改</a></li>
 			  <li class='fix-item'><span>会员状态：</span>
 				  <% if @account.is_vip %>
 						   <span>已开通</span>
@@ -62,7 +63,7 @@
 		  	 <a class='revise' role='revise'>修改</a>
 			 <div class='control-group'>
 			 	<a class='revise' role='cancel'>取消</a>
-				<a class='revise' role='conform' data-target='ucenter'>确定</a>
+				<a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
 			 </div>
 		  </div>
 	  </li>
@@ -76,7 +77,7 @@
 			<a class='revise' role='revise'>修改</a>
 			<div class='control-group'>
 			   <a class='revise' role='cancel'>取消</a>
-			   <a class='revise' role='conform' data-target='ucenter'>确定</a>
+			   <a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
 			</div>
 		 </div>
 	  </li>
@@ -90,7 +91,7 @@
 		  	 <a class='revise' role='revise'>修改</a>
 			 <div class='control-group'>
 			 	<a class='revise' role='cancel'>取消</a>
-				<a class='revise' role='conform' data-target='ucenter'>确定</a>
+				<a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
 			 </div>
 		  </div>
 	  </li>
@@ -104,7 +105,7 @@
 			<a class='revise' role='revise'>修改</a>
 			<div class='control-group'>
 			   <a class='revise' role='cancel'>取消</a>
-			   <a class='revise' role='conform' data-target='ucenter'>确定</a>
+			   <a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
 			</div>
 		 </div>
 	  </li>
@@ -118,7 +119,7 @@
 		  	 <a class='revise' role='revise'>修改</a>
 			 <div class='control-group'>
 			 	<a class='revise' role='cancel'>取消</a>
-				<a class='revise' role='conform' data-target='ucenter'>确定</a>
+				<a class='revise' role='conform' data-target='usercenter/revise' >确定</a>
 			 </div>
 		  </div>
 	  </li>
@@ -132,7 +133,7 @@
 		  	 <a class='revise' role='revise'>修改</a>
 			 <div class='control-group'>
 			 	<a class='revise' role='cancel'>取消</a>
-				<a class='revise' role='conform'>确定</a>
+				<a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
 			 </div>
 		  </div>
 	  </li>
@@ -146,7 +147,7 @@
 		   <a class='revise' role='revise'>修改</a>
 		   <div class='control-group'>
 			  <a class='revise' role='cancel'>取消</a>
-			  <a class='revise' role='conform'>确定</a>
+			  <a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
 		   </div>
 		</div>
 		<div role='info-cotent'>

@@ -6,8 +6,21 @@
 			<%=  image_tag 'index/avatar.jpg', class: ['info-ico'] %><a href='#' class='btn btn-primary btn-sm'>更换</a>
 		</div>
 		<ul class='fix-ico-right'>
-			  <li class='fix-item'><span>教师姓名：</span><span><%= @teacher.name %></span></li>
 
+			  <li class='fix-item'>
+				 <span>教师姓名：</span>
+				 <div role='info-cotent'>
+					 <em role='info' name='revise[name]' data-attr='name'><%= @teacher.name %></em>
+					 <input type='text-field' name='revise[name]' class='edit' role='edit'>
+				 </div>
+				 <div class='' role='revise-group'>
+					<a class='revise' role='revise'>修改</a>
+					<div class='control-group clearfix'>
+					   <a class='revise' role='cancel'>取消</a>
+					   <a class='revise' role='conform' data-target='teachercenter/revise'>确定</a>
+					</div>
+				 </div>
+			  </li>
 			  <li class='fix-item'><span>会员状态：</span>
 				  <% if @account.is_vip %>
 						   <span>已开通</span>
@@ -64,7 +77,7 @@
 			<a class='revise' role='revise'>修改</a>
 			<div class='control-group'>
 			   <a class='revise' role='cancel'>取消</a>
-			   <a class='revise' role='conform' data-target='teacenter'>确定</a>
+			   <a class='revise' role='conform' data-target='teachercenter/revise'>确定</a>
 			</div>
 		 </div>
 	  </li>
@@ -78,7 +91,7 @@
 			<a class='revise' role='revise'>修改</a>
 			<div class='control-group'>
 			   <a class='revise' role='cancel'>取消</a>
-			   <a class='revise' role='conform' data-target='teacenter'>确定</a>
+			   <a class='revise' role='conform' data-target='teachercenter/revise'>确定</a>
 			</div>
 		 </div>
 	  </li>
@@ -92,7 +105,7 @@
 			<a class='revise' role='revise'>修改</a>
 			<div class='control-group'>
 			   <a class='revise' role='cancel'>取消</a>
-			   <a class='revise' role='conform' data-target='teacenter'>确定</a>
+			   <a class='revise' role='conform' data-target='teachercenter/revise'>确定</a>
 			</div>
 		 </div>
 	  </li>
@@ -106,7 +119,7 @@
 		  	 <a class='revise' role='revise'>修改</a>
 			 <div class='control-group'>
 			 	<a class='revise' role='cancel'>取消</a>
-				<a class='revise' role='conform' data-target='teacenter'>确定</a>
+				<a class='revise' role='conform' data-target='teachercenter/revise'>确定</a>
 			 </div>
 		  </div>
 	  </li>
@@ -120,11 +133,11 @@
 		   <a class='revise' role='revise'>修改</a>
 		   <div class='control-group'>
 			  <a class='revise' role='cancel'>取消</a>
-			  <a class='revise' role='conform' data-target='teacenter'>确定</a>
+			  <a class='revise' role='conform' data-target='teachercenter/revise'>确定</a>
 		   </div>
 		</div>
 		<div role='info-cotent'>
-			<em role='info' data-attr='intro'><span><%= @account.teacher.intro %>假装我是自我介绍</span></em>
+			<em role='info' data-attr='intro'><span><%= @account.teacher.intro %></span></em>
 			<textarea class='edit' name='revise[intro]' role='edit'><%= @account.student.intro %></textarea>
 		</div>
 	</div>

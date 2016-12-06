@@ -15,6 +15,9 @@ class TeachersController < ApplicationController
 
   # GET /teachers/new
   def new
+    if @account.teacher
+        redirect_to teacenter_path and return
+    end
     @teacher = Teacher.new
   end
 
@@ -25,11 +28,19 @@ class TeachersController < ApplicationController
   # POST /teachers
   # POST /teachers.json
   def create
-    @teacher = Teacher.new(teacher_params)
 
+    if @account.teacher
+        respond_to do |format|
+          format.html { redirect_to teacenter_path, notice: 'Teacher has been existed.' }
+        end
+        return
+    end
+    @teacher = Teacher.new(teacher_params)
+    @teacher.account = @account
     respond_to do |format|
       if @teacher.save
-        format.html { redirect_to @teacher, notice: 'Teacher was successfully created.' }
+        @account.update(is_teacher: true)
+        format.html { redirect_to teacenter_path, notice: 'Teacher was successfully created.' }
         format.json { render :show, status: :created, location: @teacher }
       else
         format.html { render :new }

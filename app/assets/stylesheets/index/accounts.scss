@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'base/base';
 
-
+//scss需要更改
 .user-info,
 .teacher-info,
 .student-info,
@@ -171,5 +171,7 @@
 
 .revise
 {
+    padding-left: $narrow-padding;
+
     color: $green;
 }

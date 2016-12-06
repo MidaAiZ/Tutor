@@ -23,21 +23,18 @@ $grey-font-color: grey;
 
 // color
 $primary-bgcolor: rgb(43, 43, 45);
-$pink: rgb(246, 104, 90);
 $blue: rgb(62, 175, 217);
-$green: #699f00;
-$mint-green: rgb(37, 217, 152);
+$green: #5cb85c;
 $notice: rgb(238, 110, 63);
 $star: rgb(255, 188, 87);
-$purple: rgb(152, 110, 247);
 $grey: #eaeaea;
 
 //border
 $default-border: 1px solid white;
+$input-border: 1px solid #777;
 $grey-border: 1px solid $grey;
 $wide-border: 3px solid $grey;
 $blue-border: 1px solid $blue;
-$hidden-border: 3px solid white;
 $red-border: 1px solid red;
 $green-border: 1px solid $green;
 $wide-green-border: 3px solid $green;
