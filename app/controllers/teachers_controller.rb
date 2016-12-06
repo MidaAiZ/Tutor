@@ -36,10 +36,11 @@ class TeachersController < ApplicationController
         return
     end
     @teacher = Teacher.new(teacher_params)
-    @teacher.account = @account
     respond_to do |format|
       if @teacher.save
-        @account.update(is_teacher: true)
+        @account.teacher = @teacher
+        @account.is_teacher = true
+        @account.save
         format.html { redirect_to teacenter_path, notice: 'Teacher was successfully created.' }
         format.json { render :show, status: :created, location: @teacher }
       else

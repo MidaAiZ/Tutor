@@ -29,12 +29,11 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     @teacher = Teacher.find(params[:course][:teacher_id])
     if @teacher == @account.teacher
-      redirect_to  appoint_path(@teacher.id), notice: '预约失败！无法预约自己' and return
+       redirect_to  appoint_path(@teacher.id), notice: '预约失败！无法预约自己' and return
     end
     respond_to do |format|
-      if @course.save
-        @student = @account.student
-        @student.courses << @course
+      if @course.save && @teacher
+        @account.student.courses << @course
         @teacher.courses << @course
         format.html { redirect_to @course, notice: 'Course was successfully created.' }
         format.json { render :show, status: :created, location: @course }

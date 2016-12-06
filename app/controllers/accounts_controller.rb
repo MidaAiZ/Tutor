@@ -28,9 +28,7 @@ class AccountsController < ApplicationController
     @account = Account.new(account_params)
     respond_to do |format|
       if @account.save
-        @student = Student.create(account_id: @account.id)
-        @account.student_id = @student.id
-        @account.save
+        Student.create(account_id: @account.id)
         format.html { redirect_to login_path, notice: 'Account was successfully created.' }
         # format.json { render :show, status: :created, location: @account }
       else
