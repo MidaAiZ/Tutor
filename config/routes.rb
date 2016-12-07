@@ -14,6 +14,7 @@ end
   scope :usercenter, as: :ucenter do
       get '/' => 'usercenter#index'
       get 'courses' => 'usercenter#courses'
+      get 'course/:course_id' => 'usercenter#course', as: :course
       get 'messages' => 'usercenter#messages'
       get 'more' => 'usercenter#more'
       post 'revise' => 'usercenter#revise'

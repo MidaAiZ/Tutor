@@ -22,7 +22,7 @@
   					  <td><%= c.name %></td>
   				      <td><% c.students.each do |s| %><%= s.id %><% end %></td>
   					  <td><%= c.category %></td>
-  					  <td><%= link_to '详情', teacenter_course_path(c), class: [:btn, 'btn-primary'] %></td>
+  					  <td><%= link_to '详情', ucenter_course_path(c), class: [:btn, 'btn-primary'] %></td>
   				     </tr>
   				   <% end %>
   				 <% end %>

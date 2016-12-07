@@ -5,7 +5,8 @@ class TeachercenterController < ApplicationController
   def index
   end
 
-  def courses
+  def course
+      @course = courses.find(params[:course_id])
   end
 
   def comments
@@ -22,7 +23,7 @@ class TeachercenterController < ApplicationController
 
   def revise
     respond_to do |format|
-      if @account.teacher.update(params[:revise].keys.first => params[:revise].values.first)
+      if @account.teacher.update(revise_params)
         format.json { render :revise }
       else
         format.json { render :revise }
@@ -64,5 +65,9 @@ class TeachercenterController < ApplicationController
 
   def course_params
     params.require(:course).permit(:name, :category, :begintime, :price, :place)
+  end
+
+  def revise_params
+      {params[:revise].keys.first => params[:revise].values.first}
   end
 end

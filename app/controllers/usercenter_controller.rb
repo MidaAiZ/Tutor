@@ -8,6 +8,10 @@ class UsercenterController < ApplicationController
       @courses = @account.student.courses
   end
 
+  def course
+      @course = courses.find(params[:course_id])
+  end
+
   def messages
 
   end
