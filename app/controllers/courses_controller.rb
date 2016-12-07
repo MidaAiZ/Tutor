@@ -5,7 +5,7 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    @courses = Course.where(is_public: true)
   end
 
   # GET /courses/1
@@ -27,6 +27,7 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
+    @course.is_public = false
     @teacher = Teacher.find(params[:course][:teacher_id])
     if @teacher == @account.teacher
        redirect_to  appoint_path(@teacher.id), notice: '预约失败！无法预约自己' and return
@@ -59,12 +60,16 @@ class CoursesController < ApplicationController
   end
 
   def entry
-    if @account.teacher == @course.teacher
+    if @course.is_public == false
+        redirect_to course_path(@course), notice: '此课程非公开课，无法报名' and return
+    elsif @account.teacher == @course.teacher
         redirect_to course_path(@course), notice: '不能报名自己开设的课程' and return
+    elsif @account.student.courses.include?(@course)
+        redirect_to ucenter_course_path(@course), notice: '您已报名过该课程，不能重复报名' and return
     end
     @student = @account.student;
-    @student.courses << @course
-    redirect_to student_courses_path(@student)
+    @account.student.courses << @course
+    redirect_to ucenter_course_path(@course), notice: '报名成功！'
   end
   # DELETE /courses/1
   # DELETE /courses/1.json
@@ -79,7 +84,7 @@ class CoursesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
-      @course = Course.find(params[:id])
+      @course = Course.find_by(id: params[:id], is_public: true)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

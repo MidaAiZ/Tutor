@@ -24,3 +24,22 @@
         }
     }
 }
+
+.courses-selection
+{
+    padding: $narrow-padding;
+
+    border: $grey-border;
+    a
+    {
+        border: $green-border;
+    }
+    .active a
+    {
+        background-color: $green;
+    }
+}
+.add-right-margin
+{
+    margin-right: $wide-margin;
+}

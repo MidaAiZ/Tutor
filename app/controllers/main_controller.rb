@@ -2,7 +2,7 @@ class MainController < ApplicationController
   def index
       @students = Student.order(created_at: :desc).limit(5)
       @teachers = Teacher.order(created_at: :desc).limit(8)
-      @courses = Course.order(created_at: :desc).limit(4)
+      @courses = Course.where(is_public: true).order(created_at: :desc).limit(4)
       if session[:user_id]
         @account = Account.find(session[:user_id])
       else
