@@ -1,10 +1,10 @@
 $(document).ready(function() {
     $('#appoint-course').modal({
         'show': false
-    });
+    }).unbind('click');
     $('#conform').click(function() {
         $('#handbook').hide();
-        $('#modal-content').removeClass('hidden');
+        $('#modal-content').removeClass('hidden').hide().slideDown(1000);;
     })
     $('#agree').click(function() {
             if ($(this).attr('checked')) {

@@ -1,4 +1,4 @@
-<div class='form-panel'>
+<div class='form-panel hidden' id='new-course-form'>
 	<%= form_for @course, url: {action: "create_course"} do |f| %>
 	  <% if @course.errors.any? %>
 		<div id="error_explanation">
@@ -43,4 +43,25 @@
 			</div>
 		</div>
 	<% end %>
+</div>
+
+<div class="modal fade" id="handbook-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+		  <div class='handbook'>
+	        <div class='content'>
+	          <span>这是用户手册，请先阅读！</span>
+	        </div>
+	        <div class='control-group'>
+	            <div class='field'>
+	                <input type='checkbox' id='agree-btn'><label for='agree-btn'>同意</label>
+	            </div>
+	          <button  class="btn btn-danger" data-dismiss="modal" role="back">取消</button>
+	          <button  class="btn btn-primary" id='conform-btn' disabled="disabled">确定</button>
+	        </div>
+	      </div>
+      </div>
+    </div>
+  </div>
 </div>

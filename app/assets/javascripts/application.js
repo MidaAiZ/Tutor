@@ -18,13 +18,10 @@
 //= require bootstrap/tab.js
 
 $(document).ready(function() {
-    $('.back').bind('click', function() {
+    $('*[role*=back]').bind('click', function() {
         history.back();
     });
     $('#login').modal({
-        'show': false
-    });
-    $('#appoint-course').modal({
         'show': false
     });
 });
