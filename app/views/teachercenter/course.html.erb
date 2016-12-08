@@ -1,51 +1,82 @@
 <p id="notice"><%= notice %></p>
 
-<button class='back btn btn-sm btn-primary'  role='back'>Back</button>
+<button class='back btn btn-sm btn-primary' role='back'>Back</button>
 <div class='course-info'>
 	<div class='course-info info-box'>
 		<div class='ico-box'>
 			<%=  image_tag 'index/avatar.jpg', class: ['info-ico'] %>
 		</div>
 		<ul class='fix-ico-right'>
-			  <li class='fix-item'><span>课程名：</span><span><%= @course.name%></span></li>
-			  <% if @course.is_public %>
-				<li class='fix-item'><span>报名人数：</span><span><%= @course.students.length %></span></li>
-			  <% else %>
-			    <li class='fix-item'><span>学生：</span>
-				<span><%= link_to @course.students[0].name || @course.students[0].account.number, student_path(@course.students[0]) %></span></li>
-			  <% end %>
-			  <li class='fix-item'><span>学科：</span><span><%= @course.category %></span></li>
-			  <li class='fix-item'><span>地点:</span><span><%= @course.place %></li>
-			  <li class='fix-item'><span>价格:</span><span><%= @course.price %></li>
-			  <li class='fix-item'><span>课时数:</span><span><%= @course.times %></li>
-			  <li class='fix-item'><span>上课时间:</span><span><%= @course.class_time %></li>
-			  <li class='fix-item'><span>开班日期:</span><span><%= @course.begintime %></li>
-			  <li class='fix-item'><span>课程评分:</span><span><%= @course.score %></li>
+			<li class='fix-item'>
+				<span>课程名：</span>
+				<span><%= @course.name%></span>
+			</li>
+			<% if @course.is_public %>
+			<li class='fix-item'>
+				<span>报名人数：</span>
+				<span><%= @course.students.length %></span>
+			</li>
+		<% else %>
+			<li class='fix-item'>
+				<span>学生：</span>
+				<span><%= link_to @course.students[0].name || @course.students[0].account.number, student_path(@course.students[0]) %></span>
+			</li>
+			<% end %>
+			<li class='fix-item'>
+				<span>学科：</span>
+				<span><%= @course.category %></span>
+			</li>
+			<li class='fix-item'>
+				<span>地点:</span>
+				<span><%= @course.place %></span>
+			</li>
+			<li class='fix-item'>
+				<span>价格:</span>
+				<span><%= @course.price %></span>
+			</li>
+			<li class='fix-item'>
+				<span>课时数:</span>
+				<span><%= @course.times %></span>
+			</li>
+			<li class='fix-item'>
+				<span>上课时间:</span>
+				<span><%= @course.class_time %></span>
+			</li>
+			<li class='fix-item'>
+				<span>开班日期:</span>
+				<span><%= @course.begintime %></span>
+			</li>
+			<li class='fix-item'>
+				<span>课程评分:</span>
+				<span><%= @course.score %></span>
+			</li>
 		</ul>
 	</div>
 	<% if @course.is_public %>
-		<div class='fix-left info-box'>
-			<span>报名学生：</span>
-			<ul>
-				<% @course.students.each do |s| %>
-				  <li class='item-list'><%= link_to s.name || s.account.number, student_path(s), class: 'btn btn-default' %></li>
-				<% end %>
-			</ul>
-		</div>
+	<div class='fix-left info-box'>
+		<span>报名学生：</span>
+		<ul>
+			<% @course.students.each do |s| %>
+			<li class='item-list'><%= link_to s.name || s.account.number, student_path(s), class: 'btn btn-default' %></li>
+			<% end %>
+		</ul>
+	</div>
 	<% end %>
 </div>
 
 <div class='intro-box'>
-	<div class='intro-head'><span>课程介绍</span></div>
+	<div class='intro-head'>
+		<span>课程介绍</span>
+	</div>
 	<div class='intro-content'>
-		<span><%= @course.intro %>假装是课程介绍<span>
+		<span><%= @course.intro %>假装是课程介绍</span>
 	</div>
 </div>
 
 <% if !@account.id.nil? %>
-	<% if !@account.student.courses.include?(@course) && @account.teacher != @course.teacher %>
-	   <%= link_to '我要报名', entry_course_path(@course), method: :post, class: 'btn btn-primary'%>
-	<% end %>
+<% if !@account.student.courses.include?(@course) && @account.teacher != @course.teacher %>
+<%= link_to '我要报名', entry_course_path(@course), method: :post, class: 'btn btn-primary'%>
+<% end %>
 <% else %>
-    <%= link_to '我要报名', entry_course_path(@course), method: :post, class: 'btn btn-primary'%>
+<%= link_to '我要报名', entry_course_path(@course), method: :post, class: 'btn btn-primary'%>
 <% end %>

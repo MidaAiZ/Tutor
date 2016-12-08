@@ -1,69 +1,58 @@
-@import 'base/base';
+@import "base/base";
 
-.form-panel
-{
-    width: 100%;
-    height: auto;
+.form-panel {
+  width: 100%;
+  height: auto;
 
-    // box-shadow: 5px 5px 10px rgb(147, 147, 147);
-    > form
-    {
-        .form-header,
-        .form-footer
-        {
-            width: 100%;
-            padding: $narrow-padding;
-
-            border-bottom: $grey-border;
-        }
-        .form-body
-        {
-            .field
-            {
-                display: block;
-
-                width: auto;
-                height: auto;
-                margin-bottom: $narrow-margin;
-
-                text-align: right;
-                &:first-child
-                {
-                    margin-top: $narrow-margin;
-                };
-                // text-align: left;
-                label
-                {
-                    margin-right: $wide-margin;
-
-                    text-align: right;
-                }
-                input[type='text'],
-                input[type='password']
-                {
-                    width: 200px;
-                    height: 40px;
-                    padding-left: $narrow-padding;
-
-                    border: $input-border;
-                }
-                select
-                {
-                    padding: $narrow-padding;
-
-                    border: $green-border;
-                    border-radius: $default-radius;
-                    background-color: white;
-                }
-            }
-        }
+  // box-shadow: 5px 5px 10px rgb(147, 147, 147);
+  > form {
+    .form-header,
+    .form-footer {
+      width: 100%;
+      padding: $narrow-padding;
+      border-bottom: $grey-border;
     }
-    button[type='submit']
-    {
-        padding: 5px $narrow-padding;
 
-        color: white;
-        border-radius: $default-radius;
-        background-color: $green;
+    .form-body {
+      .field {
+        display: block;
+        width: auto;
+        height: auto;
+        margin-bottom: $narrow-margin;
+        text-align: right;
+
+        &:first-child {
+          margin-top: $narrow-margin;
+        }
+
+        // text-align: left;
+        label {
+          margin-right: $wide-margin;
+          text-align: right;
+        }
+
+        input[type='text'],
+        input[type='password'] {
+          width: 200px;
+          height: 40px;
+          padding-left: $narrow-padding;
+          border: $input-border;
+        }
+
+        select {
+          padding: $narrow-padding;
+          border: $green-border;
+          border-radius: $default-radius;
+          background-color: white;
+        }
+      }
     }
+  }
+
+  button[type='submit'] {
+    padding: 5px $narrow-padding;
+    color: white;
+    border-radius: $default-radius;
+    background-color: $green;
+  }
 }

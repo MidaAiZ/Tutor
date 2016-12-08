@@ -1,45 +1,38 @@
-@import 'base/base';
+@import "base/base";
 
-.new-course
-{
-    width: 100%;
-    margin-top: $wide-margin;
-    padding: $wide-padding;
+.new-course {
+  width: 100%;
+  margin-top: $wide-margin;
+  padding: $wide-padding;
+  text-align: center;
 
-    text-align: center;
+  a {
+    color: $green;
 
-    a
-    {
-        color: $green;
-
-        &:hover
-        {
-            text-decoration: none;
-
-            color: $green + 15;
-        }
-        span
-        {
-            font-size: 80px;
-        }
+    &:hover {
+      text-decoration: none;
+      color: $green + 15;
     }
+
+    span {
+      font-size: 80px;
+    }
+  }
 }
 
-.courses-selection
-{
-    padding: $narrow-padding;
+.courses-selection {
+  padding: $narrow-padding;
+  border: $grey-border;
 
-    border: $grey-border;
-    a
-    {
-        border: $green-border;
-    }
-    .active a
-    {
-        background-color: $green;
-    }
+  a {
+    border: $green-border;
+  }
+
+  .active a {
+    background-color: $green;
+  }
 }
-.add-right-margin
-{
-    margin-right: $wide-margin;
+
+.add-right-margin {
+  margin-right: $wide-margin;
 }

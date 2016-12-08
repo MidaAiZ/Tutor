@@ -1,284 +1,245 @@
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "base/base";
 
-@import 'base/base';
-
-
-*
-{
-    margin: 0;
-    padding: 0;
-
-    border: none;
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
 }
-body
-{
-    margin: auto;
 
-    text-align: center;
+body {
+  margin: auto;
+  text-align: center;
 }
+
 div,
-ul,
-ol
-{
-    display: inline-block;
+ol,
+ul {
+  display: inline-block;
 }
-ul,
-ol
-{
-    margin-bottom: 0;
-}
-li
-{
-    display: inline-block;
 
-    list-style: none;
+ol,
+ul {
+  margin-bottom: 0;
 }
-a
-{
-    color: white;
-    &:hover
-    {
-        color: $grey;
+
+li {
+  display: inline-block;
+  list-style: none;
+}
+
+a {
+  color: white;
+
+  &:hover {
+    color: $grey;
+  }
+}
+
+.table {
+  .vertical-middle {
+    td {
+      vertical-align: middle;
     }
+  }
 }
-.table
-{
-    .vertical-middle
-    {
-        td
-        {
-            vertical-align: middle;
-        }
-    }
+
+.btn {
+  border: none;
+  border-radius: $default-radius;
 }
-.btn
-{
-    border: none;
-    border-radius: $default-radius;
+
+.back {
+  display: block;
+  float: left;
+  margin-bottom: $wide-margin;
 }
-.back
-{
+
+.fix-right {
+  float: right;
+}
+
+.fix-left {
+  float: left;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.modal-dialog {
+  margin-top: 200px;
+
+  .modal-header {
     display: block;
-    float: left;
+  }
 
-    margin-bottom: $wide-margin;
-}
-.fix-right
-{
-    float: right;
-}
-.fix-left
-{
-    float: left;
-}
-.clearfix
-{
-    clear: both;
-}
-.modal-dialog
-{
-    margin-top: 200px;
-    .modal-header
-    {
+  .modal-body {
+    display: block;
+
+    // min-width: 500px;
+    form {
+      margin: 80px;
+
+      .field {
         display: block;
-    }
-    .modal-body
-    {
-        display: block;
+        width: auto;
+        height: auto;
+        margin: $wide-margin 0;
+        text-align: right;
 
-        // min-width: 500px;
-        form
-        {
-            margin: 80px;
-            .field
-            {
-                display: block;
-
-                width: auto;
-                height: auto;
-                margin: $wide-margin 0;
-
-                text-align: right;
-                label
-                {
-                    margin-right: $wide-margin;
-                }
-                input
-                {
-                    width: 200px;
-                    height: 40px;
-
-                    border: $green-border;
-                    border-radius: $default-radius;
-                }
-            }
+        label {
+          margin-right: $wide-margin;
         }
+
+        input {
+          width: 200px;
+          height: 40px;
+          border: $green-border;
+          border-radius: $default-radius;
+        }
+      }
     }
+  }
 }
 
-nav
-{
-    width: 100%;
-    height: $nav-height;
+nav {
+  width: 100%;
+  height: $nav-height;
+  background-color: $primary-bgcolor;
 
-    background-color: $primary-bgcolor;
-    .navbar
-    {
-        width: $primary-width;
-        height: 100%;
-        margin: auto;
-
-        white-space: nowrap;
-
-        color: white;
-        border: none;
-        .logo
-        {
-            font-size: 48px;
-            line-height: $nav-height;
-
-            float: left;
-        }
-        ul.right
-        {
-            float: right;
-
-            margin: ($nav-height - $btn-height)/2 0;
-            li
-            {
-                display: inline-block;
-
-                margin: 0 $narrow-padding/2;
-
-                border-radius: $default-radius;
-                background-color: $green;
-
-                @include set-bounds(auto,$btn-height);
-                &:last-child
-                {
-                    margin-right: 0;
-                }
-                a
-                {
-                    font-size: $middle-fonts-size;
-                    line-height: $btn-height;
-
-                    padding: $narrow-padding;
-
-                    cursor: pointer;
-
-                    color: white;
-                }
-            }
-        }
-    }
-}
-.container
-{
-    position: relative;
-
+  .navbar {
     width: $primary-width;
-    margin: $wide-margin;
-    padding: 0;
-    .list-box
-    {
-        border: $grey-border;
+    height: 100%;
+    margin: auto;
+    white-space: nowrap;
+    color: white;
+    border: none;
+
+    .logo {
+      font-size: 48px;
+      line-height: $nav-height;
+      float: left;
+    }
+
+    ul.right {
+      float: right;
+      margin: (($nav-height - $btn-height) / 2) 0;
+
+      li {
+        display: inline-block;
+        margin: 0 ($narrow-padding / 2);
         border-radius: $default-radius;
+        background-color: $green;
 
-        @include set-width-min-height(100%,600px);
-        .thead
-        {
-            font-size: $middle-fonts-size;
-            th
-            {
-                text-align: center;
-            }
+        @include set-bounds(auto, $btn-height);
+
+        &:last-child {
+          margin-right: 0;
         }
+
+        a {
+          font-size: $middle-fonts-size;
+          line-height: $btn-height;
+          padding: $narrow-padding;
+          cursor: pointer;
+          color: white;
+        }
+      }
     }
-}
-.bottom-nav
-{
-    position: relative;
-    bottom: 0;
-
-    background-color: $primary-bgcolor;
-
-    @include set-bounds(100%,$nav-height);
+  }
 }
 
-.sercher
-{
+.container {
+  position: relative;
+  width: $primary-width;
+  margin: $wide-margin;
+  padding: 0;
+
+  .list-box {
+    border: $grey-border;
+    border-radius: $default-radius;
+
+    @include set-width-min-height(100%, 600px);
+
+    .thead {
+      font-size: $middle-fonts-size;
+
+      th {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.bottom-nav {
+  position: relative;
+  bottom: 0;
+  background-color: $primary-bgcolor;
+
+  @include set-bounds(100%, $nav-height);
+}
+
+.sercher {
+  width: 100%;
+  padding: $narrow-padding;
+
+  div.condition-group {
     width: 100%;
-    padding: $narrow-padding;
-    div.condition-group
-    {
-        width: 100%;
+    border-top: $wide-border;
 
-        border-top: $wide-border;
-        .condition-header
-        {
-            float: right;
+    .condition-header {
+      float: right;
 
-            @include set-bounds(10%,30px);
-        }
-        .condition-menu
-        {
-            width: 100%;
-            .father-condition
-            {
-                position: relative;
-
-                display: block;
-
-                width: 100%;
-                margin: 0;
-
-                text-align: left;
-
-                border: $default-border;
-                label
-                {
-                    font-size: $middle-fonts-size;
-
-                    float: left;
-
-                    margin: $narrow-margin;
-                    padding: $narrow-padding;
-                }
-                .clearfix
-                {
-                    width: 90%;
-                    margin: auto;
-                }
-                .all-condition
-                {
-                    float: left;
-
-                    padding: $narrow-padding;
-                }
-                .son-condition
-                {
-                    width: 90%;
-                    padding: $narrow-padding;
-                }
-                .condition-item
-                {
-                    font-size: $small-fonts-size;
-
-                    padding: $narrow-padding;
-
-                    text-align: center;
-
-                    border: $default-border;
-                    &:hover
-                    {
-                        cursor: pointer;
-
-                        color: $green;
-                    }
-                }
-            }
-        }
+      @include set-bounds(10%, 30px);
     }
+
+    .condition-menu {
+      width: 100%;
+
+      .father-condition {
+        position: relative;
+        display: block;
+        width: 100%;
+        margin: 0;
+        text-align: left;
+        border: $default-border;
+
+        label {
+          font-size: $middle-fonts-size;
+          float: left;
+          margin: $narrow-margin;
+          padding: $narrow-padding;
+        }
+
+        .clearfix {
+          width: 90%;
+          margin: auto;
+        }
+
+        .all-condition {
+          float: left;
+          padding: $narrow-padding;
+        }
+
+        .son-condition {
+          width: 90%;
+          padding: $narrow-padding;
+        }
+
+        .condition-item {
+          font-size: $small-fonts-size;
+          padding: $narrow-padding;
+          text-align: center;
+          border: $default-border;
+
+          &:hover {
+            cursor: pointer;
+            color: $green;
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,64 +1,66 @@
 <div class='form-panel hidden' id='new-course-form'>
-	<button class='back btn btn-sm btn-primary'  role='back'>Back</button>
+	<button class='back btn btn-sm btn-primary' role='back'>Back</button>
 	<%= form_for @course, url: {action: "create_course"} do |f| %>
-	  <% if @course.errors.any? %>
-		<div id="error_explanation">
-		  <h2><%= pluralize(@course.errors.count, "error") %> prohibited this account from being saved:</h2>
+	<% if @course.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@course.errors.count, "error") %>
+			prohibited this account from being saved:</h2>
 
-		  <ul>
-		  <% @course.errors.full_messages.each do |message| %>
+		<ul>
+			<% @course.errors.full_messages.each do |message| %>
 			<li><%= message %></li>
-		  <% end %>
-		  </ul>
-		</div>
-	  <% end %>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
 
-		<div class='form-header'>
-			<h2>请输入详细信息</h2>
+	<div class='form-header'>
+		<h2>请输入详细信息</h2>
+	</div>
+	<div class='form-body'>
+		<div class="field">
+			<%= f.label :name %>
+			<%= f.text_field :name %>
 		</div>
-		<div class='form-body'>
-			<div class="field">
-				<%= f.label :name %>
-				<%= f.text_field :name %>
-			</div>
-			<div class="field">
-			  <%= f.label :category %>
-			  <%= f.text_field :category %>
-			</div>
-			<div class="field">
-			  <%= f.label :price %>
-			  <%= f.text_field :price %>
-			</div>
-			<div class="field">
-			  <%= f.label :place %>
-			  <%= f.text_field :place %>
-			</div>
+		<div class="field">
+			<%= f.label :category %>
+			<%= f.text_field :category %>
 		</div>
-		<div class='form-footer'>
-			<div class="actions">
-			  <button class='btn' type="submit">提交</button>
-			</div>
+		<div class="field">
+			<%= f.label :price %>
+			<%= f.text_field :price %>
 		</div>
+		<div class="field">
+			<%= f.label :place %>
+			<%= f.text_field :place %>
+		</div>
+	</div>
+	<div class='form-footer'>
+		<div class="actions">
+			<button class='btn' type="submit">提交</button>
+		</div>
+	</div>
 	<% end %>
 </div>
 
 <div class="modal fade" id="handbook-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-		  <div class='handbook'>
-	        <div class='content'>
-	          <span>这是用户手册，请先阅读！</span>
-	        </div>
-	        <div class='control-group'>
-	            <div class='field'>
-	                <input type='checkbox' id='agree-btn'><label for='agree-btn'>同意</label>
-	            </div>
-	          <button  class="btn btn-danger" data-dismiss="modal" role="back">取消</button>
-	          <button  class="btn btn-primary" id='conform-btn' disabled="disabled">确定</button>
-	        </div>
-	      </div>
-      </div>
-    </div>
-  </div>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class='handbook'>
+					<div class='content'>
+						<span>这是用户手册，请先阅读！</span>
+					</div>
+					<div class='control-group'>
+						<div class='field'>
+							<input type='checkbox' id='agree-btn'>
+							<label for='agree-btn'>同意</label>
+						</div>
+						<button class="btn btn-danger" data-dismiss="modal" role="back">取消</button>
+						<button class="btn btn-primary" id='conform-btn' disabled="disabled">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

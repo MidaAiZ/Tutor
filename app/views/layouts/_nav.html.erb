@@ -1,14 +1,17 @@
 <% if session[:user_id].nil? %>
-	<!-- Modal -->
-	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-dialog">
+<!-- Modal -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
 		<div class="modal-content">
-		  <div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-			<h4 class="modal-title" id="myModalLabel">登录</h4>
-		  </div>
-		  <div class="modal-body">
-			   <%= form_tag 'login', id: 'loginform', method: "post" do %>
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">登录</h4>
+			</div>
+			<div class="modal-body">
+				<%= form_tag 'login', id: 'loginform', method: "post" do %>
 				<div class='field'>
 					<%= label_tag :number, 'account' %>
 					<%= text_field_tag(:number) %>
@@ -17,63 +20,70 @@
 					<%= label_tag :password, 'password' %>
 					<%= password_field_tag (:pwd) %>
 				</div>
-		  </div>
-		  <div class="modal-footer">
-			<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-			<a id='submit', class="btn btn-large btn-primary">Sign in</a>
-		  </div>
-		  <% end %>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				<a id='submit' , class="btn btn-large btn-primary">Sign in</a>
+			</div>
+			<% end %>
 		</div>
-	  </div>
 	</div>
+</div>
 <% end %>
 <nav>
 	<div class='navbar'>
-	  <div class='logo'>
-		<p>明新教育</p>
-	  </div>
-	  <ul class='right'>
-		<li><%= link_to root_path do %>
-			<i class="glyphicon glyphicon-home"></i> 首页
-			<% end %>
-		</li>
-		<% if !@account.id.nil? %>
-			<li><%= link_to ucenter_path(@account) do %>
-				<i class="glyphicon glyphicon-cog"></i> 个人中心
-			<% end %>
+		<div class='logo'>
+			<p>明新教育</p>
+		</div>
+		<ul class='right'>
+			<li><%= link_to root_path do %>
+				<i class="glyphicon glyphicon-home"></i>
+				首页
+				<% end %>
 			</li>
-		  <% else %>
-			<li>
-				<a data-toggle='modal', data-target='#login'>
-			      <i class="glyphicon glyphicon-cog"></i> 个人中心
-		        </a>
-	        </li>
-		  <% end %>
-		<% if @account.is_teacher %>
-		  <li>
-			  <%= link_to teacenter_path do %>
-  				<i class="glyphicon glyphicon-user"></i> 教师中心
-  			<% end %>
-		  </li>
-		<% end %>
-		<% if session[:user_id] %>
-		  <li>
-			<%= link_to logout_path, method: :delete, data: {conform: 'are you sure'}  do %>
-			  <i class="glyphicon glyphicon-log-out"></i> 退出
-			<% end %>
-		  </li>
+			<% if !@account.id.nil? %>
+			<li><%= link_to ucenter_path(@account) do %>
+				<i class="glyphicon glyphicon-cog"></i>
+				个人中心
+				<% end %>
+			</li>
 		<% else %>
 			<li>
-			  <%= link_to new_account_path do %>
-				<i class="glyphicon glyphicon-filter"></i> 注册
-			  <% end %>
+				<a data-toggle='modal' , data-target='#login'>
+					<i class="glyphicon glyphicon-cog"></i>
+					个人中心
+				</a>
+			</li>
+			<% end %>
+			<% if @account.is_teacher %>
+			<li>
+				<%= link_to teacenter_path do %>
+				<i class="glyphicon glyphicon-user"></i>
+				教师中心
+				<% end %>
+			</li>
+			<% end %>
+			<% if session[:user_id] %>
+			<li>
+				<%= link_to logout_path, method: :delete, data: {conform: 'are you sure'}  do %>
+				<i class="glyphicon glyphicon-log-out"></i>
+				退出
+				<% end %>
+			</li>
+		<% else %>
+			<li>
+				<%= link_to new_account_path do %>
+				<i class="glyphicon glyphicon-filter"></i>
+				注册
+				<% end %>
 			</li>
 			<li>
-			  <a data-toggle='modal', data-target='#login'>
-				<i class="glyphicon glyphicon-log-in"></i> 登录
-			  </a>
+				<a data-toggle='modal' , data-target='#login'>
+					<i class="glyphicon glyphicon-log-in"></i>
+					登录
+				</a>
 			</li>
-		<% end %>
-	  </ul>
-  </div>
+			<% end %>
+		</ul>
+	</div>
 </nav>

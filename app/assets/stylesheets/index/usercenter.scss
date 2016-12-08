@@ -1,145 +1,123 @@
-@import 'base/base';
+@import "base/base";
 
-.user-info-tab
-{
-    width: 100%;
-    height: 40px;
-    margin-bottom: $narrow-margin;
-    padding: 0 $narrow-padding;
+.user-info-tab {
+  width: 100%;
+  height: 40px;
+  margin-bottom: $narrow-margin;
+  padding: 0 $narrow-padding;
+  border-bottom: $grey-border;
 
-    border-bottom: $grey-border;
+  ul {
+    font-size: middle-fonts-size;
+    float: left;
 
-    ul
-    {
-        font-size: middle-fonts-size;
+    .tab-list {
+      line-height: 40px;
+      margin-top: -4px;
+      padding: 0 $wide-padding;
 
-        float: left;
-
-
-        .tab-list
-        {
-            line-height: 40px;
-
-            margin-top: -4px;
-            padding: 0 $wide-padding;
-            a:hover
-            {
-                color: $green;
-            }
-        }
-        .active
-        {
-            border: $grey-border ;
-            border-bottom: $bottom-border;
-            border-top-left-radius: $default-radius;
-            border-top-right-radius: $default-radius;
-        }
-    }
-}
-.edit
-{
-    display: none;
-}
-.revise
-{
-    &:hover
-    {
-        cursor: pointer;
-
+      a:hover {
         color: $green;
+      }
     }
-}
-input[type='text-field']
-{
-    width: 100px;
-    height: 30px;
 
-    border: $green-border;
-}
-.revise-group
-{
-    float: right;
-}
-.control-group
-{
-    display: none;
-}
-textarea
-{
-    min-width: 500px;
-    min-height: 120px;
-}
-
-.courses_panel
-{
-    padding: $wide-padding 0;
-
-    border: $grey-border;
-
-    @include set-bounds(100%,100%);
-    .course_tab
-    {
-        float: left;
-
-        text-align: left;
-
-        border-right: $wide-border;
-
-        @include set-width-min-height(20%,400px);
-        li
-        {
-            width: 100%;
-
-            a
-            {
-                display: inline-block;
-
-                width: 100%;
-                padding: $narrow-padding 2*$wide-padding;
-
-                border: none;
-                border-radius: 0;
-
-                &:hover,
-                &:active,
-                &:focus
-                {
-                    text-decoration: none;
-
-                    color: black;
-                    border: none;
-                    background-color: $grey;
-                }
-            }
-        }
-        li.active
-        {
-            > a,
-            > a:hover,
-            > a:active,
-            > a:focus
-            {
-                color: white;
-                border: none;
-                border-left: $wide-green-border;
-                background-color: $green+30;
-            }
-        }
+    .active {
+      border: $grey-border;
+      border-bottom: $bottom-border;
+      border-top-left-radius: $default-radius;
+      border-top-right-radius: $default-radius;
     }
-    .course-content
-    {
-        padding: 0 $wide-padding;
+  }
+}
 
-        @include set-width-min-height(80%,400px);
-        table
-        {
-            thead
-            {
-                td
-                {
-                    width: 2%;
-                }
-            }
+.edit {
+  display: none;
+}
+
+.revise {
+  &:hover {
+    cursor: pointer;
+    color: $green;
+  }
+}
+
+input[type='text-field'] {
+  width: 100px;
+  height: 30px;
+  border: $green-border;
+}
+
+.revise-group {
+  float: right;
+}
+
+.control-group {
+  display: none;
+}
+
+textarea {
+  min-width: 500px;
+  min-height: 120px;
+}
+
+.courses_panel {
+  padding: $wide-padding 0;
+  border: $grey-border;
+
+  @include set-bounds(100%, 100%);
+
+  .course_tab {
+    float: left;
+    text-align: left;
+    border-right: $wide-border;
+
+    @include set-width-min-height(20%, 400px);
+
+    li {
+      width: 100%;
+
+      a {
+        display: inline-block;
+        width: 100%;
+        padding: $narrow-padding (2 * $wide-padding);
+        border: none;
+        border-radius: 0;
+
+        &:hover,
+        &:active,
+        &:focus {
+          text-decoration: none;
+          color: black;
+          border: none;
+          background-color: $grey;
         }
+      }
     }
+
+    li.active {
+      > a,
+      > a:hover,
+      > a:active,
+      > a:focus {
+        color: white;
+        border: none;
+        border-left: $wide-green-border;
+        background-color: $green + 30;
+      }
+    }
+  }
+
+  .course-content {
+    padding: 0 $wide-padding;
+
+    @include set-width-min-height(80%, 400px);
+
+    table {
+      thead {
+        td {
+          width: 2%;
+        }
+      }
+    }
+  }
 }

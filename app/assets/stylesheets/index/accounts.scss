@@ -1,177 +1,152 @@
 // Place all the styles related to the accounts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import 'base/base';
+@import "base/base";
 
 //scss需要更改
 .user-info,
 .teacher-info,
 .student-info,
-.course-info
-{
+.course-info {
+  width: 100%;
+  border: $grey-border;
+
+  .info-box {
     width: 100%;
-
-    border: $grey-border;
-    .info-box
-    {
-        width: 100%;
-        padding: $wide-padding;
-
-        text-align: left;
-        .ico-box
-        {
-            float: left;
-
-            text-align: center;
-            .info-ico
-            {
-                display: block;
-
-                width: 80px;
-                height: 80px;
-
-                background-color: $blue;
-            }
-            a
-            {
-                margin-top: $narrow-margin;
-            }
-        }
-        .fix-ico-right
-        {
-            .fix-item
-            {
-                display: block;
-
-                margin-left: $wide-margin;
-                padding-bottom: $narrow-padding;
-
-                text-align: left;
-                span
-                {
-                    margin-right: $narrow-margin;
-                }
-                a
-                {
-                    color: $green;
-                }
-                .state-ture
-                {
-                    padding: 3px $narrow-padding;
-
-                    color: $green;
-                    border: $green-border;
-                }
-                .state-false
-                {
-                    padding: 3px $narrow-padding;
-
-                    color: $notice;
-                    border: $notice-border;
-                }
-                .glyphicon-star
-                {
-                    font-size: big-fonts-size;
-
-                    margin-right: 0;
-
-                    color: $star;
-                }
-            }
-        }
-    }
-    .login-info
-    {
-        height: 150px;
-
-        border-bottom: $grey-border;
-    }
-    .phone-email
-    {
-        height: auto;
-
-        background-color: $grey + 15;
-    }
-
-    .phone,
-    .email
-    {
-        float: left;
-
-        @include set-bounds(50%,100%);
-    }
-    .email
-    {
-        padding-left: $wide-padding;
-
-        border-left: $grey-border;
-    }
-}
-.detail-info
-{
-    width: 100%;
-    margin-top: $wide-margin;
-
-    border: $grey-border;
-    ul
-    {
-        @include set-bounds(100%,auto);
-        .info-item
-        {
-            line-height: 40px;
-
-            padding: 0 $wide-padding;
-
-            text-align: left;
-
-            @include set-bounds(100%,40px);
-            &:nth-child(odd)
-            {
-                background-color: $grey;
-            }
-            span
-            {
-                display: inline-block;
-
-                width: 15%;
-            }
-        }
-    }
-}
-.intro-box
-{
-    margin: $wide-margin 0;
     padding: $wide-padding;
-
     text-align: left;
 
-    border: $grey-border;
-    background-color: $grey + 15;
+    .ico-box {
+      float: left;
+      text-align: center;
 
-    @include set-width-min-height(100%,150px);
-    .intro-head
-    {
-        float: left;
+      .info-ico {
+        display: block;
+        width: 80px;
+        height: 80px;
+        background-color: $blue;
+      }
 
-        border-right: $grey-border;
-
-        @include set-width-min-height(10%,150px - 2*$wide-padding);
+      a {
+        margin-top: $narrow-margin;
+      }
     }
-    .intro-content
-    {
-        padding-left: $wide-padding;
 
-        @include set-width-min-height(90%,150px - 2*$wide-padding);
-        span
-        {
-            // word-spacing: 10;
+    .fix-ico-right {
+      .fix-item {
+        display: block;
+        margin-left: $wide-margin;
+        padding-bottom: $narrow-padding;
+        text-align: left;
+
+        span {
+          margin-right: $narrow-margin;
         }
+
+        a {
+          color: $green;
+        }
+
+        .state-ture {
+          padding: 3px $narrow-padding;
+          color: $green;
+          border: $green-border;
+        }
+
+        .state-false {
+          padding: 3px $narrow-padding;
+          color: $notice;
+          border: $notice-border;
+        }
+
+        .glyphicon-star {
+          font-size: big-fonts-size;
+          margin-right: 0;
+          color: $star;
+        }
+      }
     }
+  }
+
+  .login-info {
+    height: 150px;
+    border-bottom: $grey-border;
+  }
+
+  .phone-email {
+    height: auto;
+    background-color: $grey + 15;
+  }
+
+  .phone,
+  .email {
+    float: left;
+
+    @include set-bounds(50%, 100%);
+  }
+
+  .email {
+    padding-left: $wide-padding;
+    border-left: $grey-border;
+  }
 }
 
-.revise
-{
-    padding-left: $narrow-padding;
+.detail-info {
+  width: 100%;
+  margin-top: $wide-margin;
+  border: $grey-border;
 
-    color: $green;
+  ul {
+    @include set-bounds(100%, auto);
+
+    .info-item {
+      line-height: 40px;
+      padding: 0 $wide-padding;
+      text-align: left;
+
+      @include set-bounds(100%, 40px);
+
+      &:nth-child(odd) {
+        background-color: $grey;
+      }
+
+      span {
+        display: inline-block;
+        width: 15%;
+      }
+    }
+  }
+}
+
+.intro-box {
+  margin: $wide-margin 0;
+  padding: $wide-padding;
+  text-align: left;
+  border: $grey-border;
+  background-color: $grey + 15;
+
+  @include set-width-min-height(100%, 150px);
+
+  .intro-head {
+    float: left;
+    border-right: $grey-border;
+
+    @include set-width-min-height(10%, 150px - 2 * $wide-padding);
+  }
+
+  .intro-content {
+    padding-left: $wide-padding;
+
+    @include set-width-min-height(90%, 150px - 2 * $wide-padding);
+
+    span {
+      // word-spacing: 10;
+
+    }
+  }
+}
+
+.revise {
+  padding-left: $narrow-padding;
+  color: $green;
 }

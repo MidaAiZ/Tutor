@@ -10,14 +10,14 @@
 	</thead>
 	<tbody>
 		<% if !@students.nil? %>
-		 <% @students.each do |s| %>
-		  <tr>
-			 <td><%= s.id %></td>
-			 <td><%= s.sex %></td>
-			 <td><%= s.school %></td>
-			 <td><%= link_to '详情', student_path(s), class: [:btn, 'btn-primary'] %></td>
-		  </tr>
-		 <% end %>
+		<% @students.each do |s| %>
+		<tr>
+			<td><%= s.id %></td>
+			<td><%= s.sex %></td>
+			<td><%= s.school %></td>
+			<td><%= link_to '详情', student_path(s), class: [:btn, 'btn-primary'] %></td>
+		</tr>
+		<% end %>
 		<% end %>
 	</tbody>
 </table>

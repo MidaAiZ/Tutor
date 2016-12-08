@@ -1,40 +1,35 @@
 // Place all the styles related to the teachers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import 'base/base';
-.handbook
-{
-    padding: $wide-padding;
+@import "base/base";
 
-    border: $default-border;
-    .content
-    {
-        min-width: 300px;
-        min-height: 300px;
-    };
-    .control-group
-    {
-        display: block;
+.handbook {
+  padding: $wide-padding;
+  border: $default-border;
 
-        margin-top: 4*$wide-margin;
+  .content {
+    min-width: 300px;
+    min-height: 300px;
+  }
 
-        text-align: center;
-        .field
-        {
-            display: block;
+  .control-group {
+    display: block;
+    margin-top: 4 * $wide-margin;
+    text-align: center;
 
-            color: $green;
-            input:hover,
-            label:hover
-            {
-                cursor: pointer;
+    .field {
+      display: block;
+      color: $green;
 
-                color: $green - 10;
-            }
-        }
-        button
-        {
-            margin: $narrow-margin;
-        }
+      input:hover,
+      label:hover {
+        cursor: pointer;
+        color: $green - 10;
+      }
     }
+
+    button {
+      margin: $narrow-margin;
+    }
+  }
 }

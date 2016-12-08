@@ -1,15 +1,15 @@
 <div class="row">
-  <div class="span6 offset3">
-      <%= form_tag "/login", method: "post" do %>
-     <div class='field'>
-         <%= label_tag :account_num, 'account' %>
-         <%= text_field_tag(:acount_num) %>
-     </div>
-     <div class='field'>
-         <%= label_tag :password, 'password' %>
-         <%= password_field_tag (:pwd) %>
-     </div>
-     <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
-     <% end %>
-  </div>
+    <div class="span6 offset3">
+        <%= form_tag "/login", method: "post" do %>
+        <div class='field'>
+            <%= label_tag :account_num, 'account' %>
+            <%= text_field_tag(:acount_num) %>
+        </div>
+        <div class='field'>
+            <%= label_tag :password, 'password' %>
+            <%= password_field_tag (:pwd) %>
+        </div>
+        <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
+        <% end %>
+    </div>
 </div>

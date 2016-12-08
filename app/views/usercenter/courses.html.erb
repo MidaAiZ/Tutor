@@ -1,40 +1,45 @@
 <%= render 'menu_tab' %>
-
 <div class='courses_panel'>
 	<div class='course_tab'>
 		<ul id='course-tab' role="tablist">
-			<li role="presentation" class="active"><a href="#all" role="tab" data-toggle="tab">全部课程</a></li>
-			<li role="presentation"><a href='#ongoing' role="tab" data-toggle="tab">进行中</a></li>
-			<li role="presentation"><a href='#finished' role="tab" data-toggle="tab">已结课</a></li>
+			<li role="presentation" class="active">
+				<a href="#all" role="tab" data-toggle="tab">全部课程</a>
+			</li>
+			<li role="presentation">
+				<a href='#ongoing' role="tab" data-toggle="tab">进行中</a>
+			</li>
+			<li role="presentation">
+				<a href='#finished' role="tab" data-toggle="tab">已结课</a>
+			</li>
 		</ul>
 	</div>
 	<div class='tab-content course-content'>
-	  <% stage = Array['all', 'waiting', 'ongoing', 'finished'] %>
-  	  <% stage.each do |s| %>
-  		<table id='<%= s %>' class="table tab-pane<%= ' active' if s == 'all' %>" role="tabpanel">
-  			<thead>
-  				<tr>
-  					<td>name</td>
-  					<td>student</td>
-  					<td>type</td>
-  					<td><%= s %></td>
-  				</tr>
-  			</thead>
-  			<tbody>
-  			   <% if !@courses.nil? %>
-  				 <% @courses.each do |c| %>
-  				   <% if c.stage == s || s == 'all' %>
-  				     <tr>
-  					  <td><%= c.name %></td>
-  				      <td><% c.students.each do |s| %><%= s.id %><% end %></td>
-  					  <td><%= c.category %></td>
-  					  <td><%= link_to '详情', ucenter_course_path(c), class: [:btn, 'btn-primary'] %></td>
-  				     </tr>
-  				   <% end %>
-  				 <% end %>
-  			   <% end %>
-  			</tbody>
-  		</table>
-       <% end %>
+		<% stage = Array['all', 'waiting', 'ongoing', 'finished'] %>
+		<% stage.each do |s| %>
+		<table id='<%= s %>' class="table tab-pane<%= ' active' if s == 'all' %>" role="tabpanel">
+			<thead>
+				<tr>
+					<td>name</td>
+					<td>student</td>
+					<td>type</td>
+					<td><%= s %></td>
+				</tr>
+			</thead>
+			<tbody>
+				<% if !@courses.nil? %>
+				<% @courses.each do |c| %>
+				<% if c.stage == s || s == 'all' %>
+				<tr>
+					<td><%= c.name %></td>
+					<td><% c.students.each do |s| %><%= s.id %><% end %></td>
+					<td><%= c.category %></td>
+					<td><%= link_to '详情', ucenter_course_path(c), class: [:btn, 'btn-primary'] %></td>
+				</tr>
+				<% end %>
+				<% end %>
+				<% end %>
+			</tbody>
+		</table>
+		<% end %>
 	</div>
 </div>

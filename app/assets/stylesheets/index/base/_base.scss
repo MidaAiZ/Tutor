@@ -10,8 +10,8 @@ $btn-width: 100px;
 $btn-height: 45px;
 $default-radius: 5px;
 $wide-radius: 10px;
-$left-proportion: .3;
-$right-proportion: .7;
+$left-proportion: 0.3;
+$right-proportion: 0.7;
 
 //fonts
 $small-fonts-size: 10px;
@@ -42,34 +42,32 @@ $notice-border: 1px solid $notice;
 $bottom-border: 3px solid $green;
 
 //functions
-@mixin set-bounds ($width: 100%,$height:100%)
-{
-    width: $width;
-    height: $height;
+@mixin set-bounds($width: 100%, $height: 100%) {
+  width: $width;
+  height: $height;
 }
-@mixin set-width-min-height ($width: 100%,$min-height: 100%)
-{
-    width: $width;
-    min-height: $min-height;
+
+@mixin set-width-min-height($width: 100%, $min-height: 100%) {
+  width: $width;
+  min-height: $min-height;
 }
-@mixin set-left-panel-bounds
-{
-    width: $primary-width*$left-proportion - $wide-margin;
+
+@mixin set-left-panel-bounds {
+  width: $primary-width * $left-proportion - $wide-margin;
 }
-@mixin set-right-panel-bounds
-{
-    width: $primary-width*$right-proportion;
+
+@mixin set-right-panel-bounds {
+  width: $primary-width * $right-proportion;
 }
-@mixin set-lefy-panel-height
-{
+
+@mixin set-lefy-panel-height {}
+
+@mixin set-teacher-box-bounds {
+  width: ($primary-width * $right-proportion - 2 * $wide-padding - 3 * $wide-margin) / 4;
+  height: ($primary-width * $right-proportion - 2 * $wide-padding - 3 * $wide-margin) / 4;
 }
-@mixin set-teacher-box-bounds
-{
-    width: ($primary-width*$right-proportion - 2*$wide-padding - 3*$wide-margin)/4;
-    height: ($primary-width*$right-proportion - 2*$wide-padding - 3*$wide-margin)/4;
-}
-@mixin set-course-box-bounds
-{
-    width: ($primary-width - 2*$wide-padding - 3*$wide-margin)/4;
-    height: ($primary-width - 2*$wide-padding - 3*$wide-margin)/6;
+
+@mixin set-course-box-bounds {
+  width: ($primary-width - 2 * $wide-padding - 3 * $wide-margin) / 4;
+  height: ($primary-width - 2 * $wide-padding - 3 * $wide-margin) / 6;
 }

@@ -1,7 +1,7 @@
 <div class='box-header'>
 	<h2>Students</h2>
 	<%= link_to students_path, class: ['more'] do%>
-	 <span class='glyphicon glyphicon-th-list'></span>
+	<span class='glyphicon glyphicon-th-list'></span>
 	<% end %>
 </div>
 <div class='box-body'>
@@ -15,18 +15,18 @@
 			</tr>
 		</thead>
 		<tbody class='students-collection'>
-				<% if !@students.nil? %>
-				 <% @students.each do |student| %>
-						<tr class='vertical-middle students-list'>
-							<td><%= student.name%></td>
-							<td><%= student.sex%></td>
-							<td><%= student.address%></td>
-							<td><%= student.school%></td>
-							<td><%= student.account.nil? %></td>
-							<td><%= link_to 'View', student, class: ['btn btn-sm btn-primary']%></td>
-						</tr>
-				<% end %>
-			 <% end %>
+			<% if !@students.nil? %>
+			<% @students.each do |student| %>
+			<tr class='vertical-middle students-list'>
+				<td><%= student.name%></td>
+				<td><%= student.sex%></td>
+				<td><%= student.address%></td>
+				<td><%= student.school%></td>
+				<td><%= student.account.nil? %></td>
+				<td><%= link_to 'View', student, class: ['btn btn-sm btn-primary']%></td>
+			</tr>
+			<% end %>
+			<% end %>
 		</tbody>
 	</table>
 </div>
