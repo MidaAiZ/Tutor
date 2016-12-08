@@ -56,6 +56,11 @@ a {
   margin-bottom: $wide-margin;
 }
 
+.label {
+  padding: ($narrow-padding / 2) $narrow-padding;
+  border-radius: $default-radius;
+}
+
 .fix-right {
   float: right;
 }
@@ -66,6 +71,11 @@ a {
 
 .clearfix {
   clear: both;
+}
+
+.inline {
+  display: inline-block;
+  margin: $narrow-margin;
 }
 
 .modal-dialog {

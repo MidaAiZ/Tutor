@@ -36,7 +36,7 @@ class CoursesController < ApplicationController
       if @course.save && @teacher
         @account.student.courses << @course
         @teacher.courses << @course
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
+        format.html { redirect_to ucenter_course_path(@course), notice: 'Course was successfully created.' }
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new, notice: '预约失败' }

@@ -45,12 +45,40 @@ class TeachercenterController < ApplicationController
     respond_to do |format|
         if @course.save
           @account.teacher.courses << @course
-          format.html { redirect_to @course, notice: 'Course was successfully created.' }
+          format.html { redirect_to ucenter_course_path(@course), notice: 'Course was successfully created.' }
           format.json { render :show, status: :created, location: @course }
         else
           format.html { render :new, notice: '创建失败！' }
         end
     end
+  end
+
+  def dispose_course
+    @course = Course.find(params[:course_id])
+    if @account.teacher.courses.include?(@course) && @course.stage == 'waiting'
+        if params[:accept] == 'true'
+            @course.update(stage: 'ongoing')
+        elsif params[:accept] == 'false'
+            @course.update(stage: 'refused')
+        end
+        puts @course.stage
+        redirect_to teacenter_course_path(@course), notice: '操作成功！' and return
+    end
+    redirect_to teacenter_course_path(@course), notice: '操作无效！'
+    # @course = Course.find(params[:course_id])
+    # respond_to do |format|
+    #     if @account.teacher.courses.include?(@course) && @course.stage == 'waiting'
+    #         if params[:accept] == 'true'
+    #             @course.update(stage: 'ongoing')
+    #         elsif params[:accept] == 'false'
+    #             @course.update(stage: 'refused')
+    #         end
+    #         format.html { redirect_to teacenter_course_path(@course), notice: '操作成功！'}
+    #         return
+    #     end
+    #     format.html {redirect_to teacenter_course_path(@course), notice: '操作无效！'}
+    # end
+
   end
 
   private

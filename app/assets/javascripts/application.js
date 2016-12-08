@@ -20,6 +20,9 @@
 $(document).ready(function() {
     $('*[role*=back]').bind('click', function() {
         history.back();
+        if ($(this).attr('role').indexOf('double') !== -1) {
+            history.back();
+        }
     });
     $('#login').modal({
         'show': false

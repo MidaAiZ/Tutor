@@ -9,6 +9,7 @@ scope :teachercenter, as: :teacenter do
     get 'courses/:course_id' => 'teachercenter#course', as: :course
     post 'course/create' => 'teachercenter#create_course'
     post 'revise' => 'teachercenter#revise'
+    post 'dispose/appoint' => 'teachercenter#dispose_course'
 end
 
   scope :usercenter, as: :ucenter do

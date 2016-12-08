@@ -19,10 +19,11 @@
 		<table id='<%= s %>' class="table tab-pane<%= ' active' if s == 'all' %>" role="tabpanel">
 			<thead>
 				<tr>
-					<td>name</td>
-					<td>student</td>
-					<td>type</td>
-					<td><%= s %></td>
+					<td>课程名：</td>
+					<td>教师：</td>
+					<td>学科：</td>
+					<td>状态：</td>
+					<td></td>
 				</tr>
 			</thead>
 			<tbody>
@@ -31,8 +32,9 @@
 				<% if c.stage == s || s == 'all' %>
 				<tr>
 					<td><%= c.name %></td>
-					<td><% c.students.each do |s| %><%= s.id %><% end %></td>
+					<td><%= link_to c.teacher.name || c.teacher.account.number, teacher_path(c.teacher)%></td>
 					<td><%= c.category %></td>
+					<td><%= set_course_stage c.stage %></td>
 					<td><%= link_to '详情', ucenter_course_path(c), class: [:btn, 'btn-primary'] %></td>
 				</tr>
 				<% end %>

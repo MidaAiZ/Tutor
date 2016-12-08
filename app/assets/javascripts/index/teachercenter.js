@@ -53,4 +53,28 @@ $(document).ready(function() {
             $targetList[e].show();
         }
     })
+
+    //     //处理预约课程
+    // $('#course_refuse_btn').click(function() {
+    //     $.post({
+    //         data: $('#course_refuse_form').serialize(),
+    //         url: '/teachercenter/dispose_appoint_course',
+    //         dataType: 'html',
+    //         error: null,
+    //         success: function(res) {
+    //             document.write(res)
+    //         }
+    //     })
+    // })
+    // $('#course_accept_btn').click(function() {
+    //     $.post({
+    //         data: $('#course_refuse_form').serialize(),
+    //         url: '/teachercenter/dispose_appoint_course',
+    //         dataType: 'html',
+    //         error: null,
+    //         success: function(res) {
+    //             document.write(res)
+    //         }
+    //     })
+    // });
 });

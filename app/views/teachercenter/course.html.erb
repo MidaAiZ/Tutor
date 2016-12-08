@@ -1,10 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<% if notice.nil? %>
 <button class='back btn btn-sm btn-primary' role='back'>Back</button>
+<% else %>
+<button class='back btn btn-sm btn-primary' role='back double'>Back</button>
+<% end %>
 <div class='course-info'>
 	<div class='course-info info-box'>
 		<div class='ico-box'>
 			<%=  image_tag 'index/avatar.jpg', class: ['info-ico'] %>
+			<br>
+			<span class='label label-success'><%= set_course_stage @course.stage %></span>
 		</div>
 		<ul class='fix-ico-right'>
 			<li class='fix-item'>
@@ -19,7 +25,11 @@
 		<% else %>
 			<li class='fix-item'>
 				<span>学生：</span>
-				<span><%= link_to @course.students[0].name || @course.students[0].account.number, student_path(@course.students[0]) %></span>
+				<span>
+					<% if @course.students.length != 0 %>
+					<%= link_to @course.students[0].name || @course.students[0].account.number, student_path(@course.students[0]) %>
+					<% end %>
+				</span>
 			</li>
 			<% end %>
 			<li class='fix-item'>
@@ -73,10 +83,15 @@
 	</div>
 </div>
 
-<% if !@account.id.nil? %>
-<% if !@account.student.courses.include?(@course) && @account.teacher != @course.teacher %>
-<%= link_to '我要报名', entry_course_path(@course), method: :post, class: 'btn btn-primary'%>
+<% if @course.stage == 'waiting' %>
+<%= form_tag '/teachercenter/dispose/appoint', method: :post, class: 'inline' do%>
+<%= hidden_field_tag 'accept', false %>
+<%= hidden_field_tag 'course_id', @course.id %>
+<%= submit_tag '拒绝预约', class: 'btn btn-danger' %>
 <% end %>
-<% else %>
-<%= link_to '我要报名', entry_course_path(@course), method: :post, class: 'btn btn-primary'%>
+<%= form_tag '/teachercenter/dispose/appoint', method: :post, class: 'inline' do%>
+<%= hidden_field_tag 'accept', true %>
+<%= hidden_field_tag 'course_id', @course.id %>
+<%= submit_tag '接受预约', class: 'btn btn-primary' %>
+<% end %>
 <% end %>
