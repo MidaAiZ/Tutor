@@ -10,6 +10,7 @@ class UsercenterController < ApplicationController
 
   def course
       @course = courses.find(params[:course_id])
+      @comment = Comment.find_by(student_id: @account.student, course_id: @course) || Comment.new
   end
 
   def messages

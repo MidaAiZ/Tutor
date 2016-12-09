@@ -69,6 +69,10 @@ a {
   float: left;
 }
 
+.fix-center {
+  text-align: center;
+}
+
 .clearfix {
   clear: both;
 }
@@ -90,7 +94,7 @@ a {
 
     // min-width: 500px;
     form {
-      margin: 80px;
+      margin: (2 * $wide-margin) (4 * $wide-margin);
 
       .field {
         display: block;

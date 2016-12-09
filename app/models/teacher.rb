@@ -4,4 +4,7 @@ class Teacher < ActiveRecord::Base
 	has_many :students,
              through: :courses,
              source: :students
+	has_many :comments,
+	         through: :courses,
+			 source: :comments
 end

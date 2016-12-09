@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :comments
+  resources :comments
+  resources :comments
 scope :teachercenter, as: :teacenter do
     get '/' => 'teachercenter#index'
     get 'courses' => 'teachercenter#courses'

@@ -118,7 +118,8 @@
   }
 }
 
-.intro-box {
+.intro-box,
+.comment-box {
   margin: $wide-margin 0;
   padding: $wide-padding;
   text-align: left;
@@ -127,14 +128,16 @@
 
   @include set-width-min-height(100%, 150px);
 
-  .intro-head {
+  .intro-head,
+  .comment-head {
     float: left;
     border-right: $grey-border;
 
     @include set-width-min-height(10%, 150px - 2 * $wide-padding);
   }
 
-  .intro-content {
+  .intro-content,
+  .comment-content {
     padding-left: $wide-padding;
 
     @include set-width-min-height(90%, 150px - 2 * $wide-padding);

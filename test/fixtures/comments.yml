@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mark: MyString
+  manner: 1
+  level: 1
+  pattern: 1
+  content: MyString
+
+two:
+  mark: MyString
+  manner: 1
+  level: 1
+  pattern: 1
+  content: MyString

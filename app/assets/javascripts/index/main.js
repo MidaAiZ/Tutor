@@ -12,11 +12,11 @@ $(document).ready(function() {
     });
 
 
-    setLabelFlow($("li[role='flow-label']"));
+    setFlowShow($("li[role='flow-label']"));
 
 });
 
-function setLabelFlow($flowEle) {
+function setFlowShow($flowEle) {
     var flowParams = {
         width: $flowEle.parent().width(),
         height: $flowEle.parent().height(),
@@ -48,11 +48,9 @@ function setLabelFlow($flowEle) {
     }
 
     function showFlow($ele) {
-        $ele.finish(true);
         var flowSpeed = setSpeed();
         $ele.animate({
-            left: setFlowPositionX($ele),
-            marginLeft: 0
+            left: setFlowPositionX($ele)
         }, 0).animate({
             opacity: 'show',
             top: '80%'
@@ -62,12 +60,22 @@ function setLabelFlow($flowEle) {
             opacity: 'hide',
             top: 0
         }, flowSpeed * 0.2, "linear").animate({
-            opacity: 'hide',
-            top: '100%',
-            left: 0
-        }, 0);
+                opacity: 'hide',
+                top: '100%',
+                left: 0
+            }, 0,
+            function() {
+                $ele.finish(true).attr('style', '');
+            });
+        //实现鼠标进入停止动画，鼠标移出继续动画的功能
+        $ele.mouseenter(function() {
+
+        });
+        $ele.mouseout(function() {
+
+        })
         setTimeout(function() {
             showFlow($ele)
-        }, 1000 * setRandom() + flowSpeed)
+        }, 2000 * setRandom() + flowSpeed)
     }
 }

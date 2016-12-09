@@ -55,7 +55,7 @@ input[type='text-field'] {
   display: none;
 }
 
-textarea {
+textarea.edit {
   min-width: 500px;
   min-height: 120px;
 }
@@ -117,6 +117,64 @@ textarea {
         td {
           width: 2%;
         }
+      }
+    }
+  }
+}
+
+.comment-box {
+  .comment-head {}
+
+  .comment-content {
+    .fix-left {
+      width: 30%;
+
+      .field {
+        display: block;
+
+        .stars {
+          margin: $narrow-margin;
+
+          .glyphicon-star,
+          .glyphicon-star-empty {
+            color: $star;
+          }
+        }
+      }
+    }
+
+    .contents {
+      width: 70%;
+      padding: $narrow-padding $wide-padding;
+      border-left: $grey-border;
+
+      span {
+        word-break: break-all;
+      }
+    }
+  }
+}
+
+.modal-dialog {
+  .modal-body {
+    form.new_comment,
+    form.edit_comment {
+      margin: $wide-margin;
+      color: $dark-fonts-color;
+
+      .glyphicon-star,
+      .glyphicon-star-empty {
+        color: $star;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      textarea {
+        border: #ddd 1px solid;
+        width: 400px;
+        height: 100px;
       }
     }
   }
