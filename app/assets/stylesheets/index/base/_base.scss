@@ -68,6 +68,6 @@ $bottom-border: 3px solid $green;
 }
 
 @mixin set-course-box-bounds {
-  width: ($primary-width - 2 * $wide-padding - 3 * $wide-margin) / 4;
+  width: ($primary-width - 2 * $wide-padding - 3 * $wide-margin - 2px) / 4;
   height: ($primary-width - 2 * $wide-padding - 3 * $wide-margin) / 6;
 }

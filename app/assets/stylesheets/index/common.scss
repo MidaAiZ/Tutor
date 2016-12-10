@@ -73,6 +73,17 @@ a {
   text-align: center;
 }
 
+.fix-bounds {
+  width: 100%;
+  min-height: 750px;
+  position: relative;
+}
+
+.pagination {
+  position: absolute;
+  bottom: $wide-margin;
+}
+
 .clearfix {
   clear: both;
 }
@@ -80,6 +91,11 @@ a {
 .inline {
   display: inline-block;
   margin: $narrow-margin;
+}
+
+.space-block {
+  width: 100%;
+  height: 80px;
 }
 
 .modal-dialog {
@@ -211,6 +227,7 @@ nav {
 
     .condition-menu {
       width: 100%;
+      display: none;
 
       .father-condition {
         position: relative;

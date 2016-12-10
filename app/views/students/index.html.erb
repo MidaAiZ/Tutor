@@ -1,21 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <%= render 'layouts/sercher' %>
-<table class='table .table-hover'>
-    <thead>
-        <tr class='tr'>
-            <td class='td'>Name</td>
-            <td class='td'>sex</td>
-            <td class='td'>address</td>
-            <td class='td'>subject</td>
-            <td class='td'>account</td>
-        </tr>
-    </thead>
-    <tbody>
-        <ul class='students-collection'>
-            <% if !@students.nil? %>
-            <% @students.each do |student| %>
-            <li class='students-list'>
+<div class='fix-bounds'>
+    <table class='table .table-hover'>
+        <thead>
+            <tr class='tr'>
+                <td class='td'>Name</td>
+                <td class='td'>sex</td>
+                <td class='td'>address</td>
+                <td class='td'>subject</td>
+                <td class='td'>account</td>
+            </tr>
+        </thead>
+        <tbody>
+            <ul class='students-collection'>
+                <% if !@students.nil? %>
+                <% @students.each do |student| %>
                 <tr class='vertical-middle'>
                     <td><%= student.name %></td>
                     <td><%= student.sex %></td>
@@ -24,9 +24,11 @@
                     <td><%= !student.account.nil? %></td>
                     <td><%= link_to 'View', student, class: ['btn btn-sm btn-primary']%></td>
                 </tr>
-            </li>
-            <% end %>
-            <% end %>
-        </ul>
-    </tbody>
-</table>
+                <% end %>
+                <% end %>
+            </ul>
+        </tbody>
+    </table>
+    <div class='space-block'></div>
+    <%= paginate @students %>
+</div>

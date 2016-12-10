@@ -5,7 +5,8 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.where(is_public: true)
+    @nonpaged_courses = Course.where(is_public: true)
+    @courses = @nonpaged_courses.page(params[:page]).per(16)
   end
 
   # GET /courses/1

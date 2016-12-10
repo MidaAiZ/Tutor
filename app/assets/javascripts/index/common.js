@@ -1,6 +1,14 @@
 //下拉菜单
 $(document).ready(function() {
     $('.dropdown-toggle').dropdown('toggle');
+
+    $('#condition-header-1').click(function(event) {
+        event.stopPropagation();
+        $('#condition-menu-1').slideToggle(100, 'linear', function() {
+            $(this).attr('expand') === 'false' ? $(this).attr('expand', 'ture') : $(this).attr('expand', 'false');
+        });
+    });
+
     $('#course_tab li a').click(function(e) {
         e.preventDefault()
         $(this).tab('show')

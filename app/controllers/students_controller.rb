@@ -6,7 +6,8 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def index
-      @students = Student.all
+      @nonpaged_students = Student.all
+      @students = @nonpaged_students.page(params[:page]).per(15)
   end
 
   def show

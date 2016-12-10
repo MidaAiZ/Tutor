@@ -5,7 +5,9 @@ class UsercenterController < ApplicationController
   end
 
   def courses
-      @courses = @account.student.courses
+      set_student
+      @nonpaged_courses = @student.courses
+      @courses = @nonpaged_courses.page(params[:page]).per(10)
   end
 
   def course
@@ -15,7 +17,8 @@ class UsercenterController < ApplicationController
 
   def comments
       set_student
-      @comments = @student.comments 
+      @nonpaged_comments = @student.comments
+      @comments = @nonpaged_comments.page(params[:page]).per(10)
   end
 
   def messages

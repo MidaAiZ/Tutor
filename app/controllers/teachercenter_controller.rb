@@ -6,7 +6,8 @@ class TeachercenterController < ApplicationController
   end
 
   def courses
-      @courses = @teacher.courses
+      @nonpaged_courses = @teacher.courses
+      @courses = @nonpaged_courses.page(params[:page]).per(10)
   end
 
   def course
@@ -14,7 +15,8 @@ class TeachercenterController < ApplicationController
   end
 
   def comments
-      @comments = @teacher.comments
+      @nonpaged_comments = @teacher.comments
+      @comments = @nonpaged_comments.page(params[:page]).per(10)
   end
 
   def messages
@@ -32,7 +34,7 @@ class TeachercenterController < ApplicationController
   end
 
   def course
-    @course = Course.find(params[:course_id])
+    @course = courses.find(params[:course_id])
   end
 
   def new_course

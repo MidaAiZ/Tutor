@@ -1,5 +1,5 @@
 <%= render 'menu_tab' %>
-<div class='courses_panel'>
+<div class='courses_panel fix-bounds'>
 	<div class='course_tab'>
 		<ul id='course-tab' role="tablist">
 			<li role="presentation" class="active">
@@ -44,4 +44,5 @@
 		</table>
 		<% end %>
 	</div>
+	<%= paginate @courses %>
 </div>

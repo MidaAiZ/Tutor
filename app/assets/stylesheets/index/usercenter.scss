@@ -67,7 +67,6 @@ textarea.edit {
 }
 
 .courses_panel {
-  @include set-bounds(100%, 100%);
   border: $grey-border;
   padding: $wide-padding 0;
 

@@ -1,5 +1,5 @@
 <%= render 'menu_tab' %>
-<div class='box-body info-box'>
+<div class='info-box fix-bounds'>
 	<table class='table'>
 		<thead>
 			<tr class='tr'>
@@ -33,4 +33,5 @@
 			<% end %>
 		</tbody>
 	</table>
+	<%= paginate @comments %>
 </div>

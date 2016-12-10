@@ -1,4 +1,27 @@
 <%= render 'menu_tab' %>
 
-<h1>Usercenter#messages</h1>
-<p>Find me in app/views/usercenter/messages.html.erb</p>
+<div class='info-box fix-bounds'>
+	<table class='table'>
+		<thead>
+			<tr class='tr'>
+				<td class='td'>标题</td>
+				<td class='td'>来自</td>
+				<td class='td'>状态</td>
+				<td class='td'>接收时间</td>
+			</tr>
+		</thead>
+		<tbody class='collection'>
+			<% if !@messages.nil? %>
+			<% @messages.each do |m| %>
+			<tr class='vertical-middle students-list'>
+				<td><%= m.title %></td>
+				<td><%= m.sender %></td>
+				<td><%= m.isread %></td>
+				<td><%= m.updated_at.nil? ? m.updated_at.strftime("%Y-%m-%d") : m.created_at.strftime("%Y-%m-%d")  %></td>
+				<td><%= link_to '详情', teacenter_messages_path(m), class: ['btn btn-sm btn-primary']%></td>
+			</tr>
+			<% end %>
+			<% end %>
+		</tbody>
+	</table>
+</div>
