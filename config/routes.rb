@@ -6,19 +6,20 @@ Rails.application.routes.draw do
 scope :teachercenter, as: :teacenter do
     get '/' => 'teachercenter#index'
     get 'courses' => 'teachercenter#courses'
-    get 'students' => 'teachercenter#students'
     get 'comments' => 'teachercenter#comments'
+    get 'messages' => 'teachercenter#messages'
     get 'course/new' => 'teachercenter#new_course'
     get 'courses/:course_id' => 'teachercenter#course', as: :course
     post 'course/create' => 'teachercenter#create_course'
     post 'revise' => 'teachercenter#revise'
-    post 'dispose/appoint' => 'teachercenter#dispose_course'
+    post 'dispose/course' => 'teachercenter#dispose_course'
 end
 
   scope :usercenter, as: :ucenter do
       get '/' => 'usercenter#index'
       get 'courses' => 'usercenter#courses'
       get 'course/:course_id' => 'usercenter#course', as: :course
+      get 'comments' => 'usercenter#comments'
       get 'messages' => 'usercenter#messages'
       get 'more' => 'usercenter#more'
       post 'revise' => 'usercenter#revise'

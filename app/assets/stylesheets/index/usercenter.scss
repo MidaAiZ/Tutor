@@ -1,5 +1,11 @@
 @import "base/base";
 
+.info-box {
+  border: $grey-border;
+  width: 100%;
+  padding: $wide-padding;
+}
+
 .user-info-tab {
   width: 100%;
   height: 40px;
@@ -61,10 +67,9 @@ textarea.edit {
 }
 
 .courses_panel {
-  padding: $wide-padding 0;
-  border: $grey-border;
-
   @include set-bounds(100%, 100%);
+  border: $grey-border;
+  padding: $wide-padding 0;
 
   .course_tab {
     float: left;

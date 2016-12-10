@@ -77,12 +77,10 @@ class AccountsController < ApplicationController
       end
   end
   def logout
-      respond_to do |format|
-        session[:user_id] = nil
-        format.html { redirect_to root_path, notice: 'Account was logout.' }
-        format.json { render :show, status: :created, location: @account }
-        end
+    session[:user_id] = nil
+    redirect_to root_path
   end
+  
   def register
   end
 

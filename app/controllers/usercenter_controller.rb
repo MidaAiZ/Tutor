@@ -13,6 +13,11 @@ class UsercenterController < ApplicationController
       @comment = Comment.find_by(student_id: @account.student, course_id: @course) || Comment.new
   end
 
+  def comments
+      set_student
+      @comments = @student.comments 
+  end
+
   def messages
 
   end

@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
+<% if notice.nil? %>
 <button class='back btn btn-sm btn-primary' role='back'>Back</button>
+<% else %>
+<button class='back btn btn-sm btn-primary' role='back double'>Back</button>
+<% end %>
 <div class='course-info'>
 	<div class='course-info info-box'>
 		<div class='ico-box'>
@@ -55,10 +59,13 @@
 		<span><%= @course.intro %>假装是课程介绍</span>
 	</div>
 </div>
+
+<% if @course.stage == 'finished' %>
 <% if !@comment.id.nil? %>
 <div class='comment-box'>
 	<div class='comment-head'>
-		<span>我的评价</span>
+		<p>我的评价</p>
+		<a class='label btn-info' data-toggle='modal' , data-target='#comment'>修改评价</a>
 	</div>
 	<div class='comment-content'>
 		<div class='fix-left'>
@@ -106,91 +113,131 @@
 			</div>
 		</div>
 		<div class='contents'>
-			<p>评价</p>
 			<span><%= @comment.content%></span>
 		</div>
 	</div>
 </div>
 <% end %>
-
-<% if @course.stage == 'finish' && @comment.id.nil? %>
+<% if @comment.id.nil? %>
 <button data-toggle='modal' , data-target='#comment' class='btn btn-success'>评价</button>
-
+<% end %>
+<% if @course.is_public %>
+</br>
+</br>
+<div class='info-box'>
+<h4>课程评价</h4>
+<table class='table'>
+<thead>
+	<tr class='tr'>
+		<td class='td'>学生</td>
+		<td class='td'>评级</td>
+		<td class='td'>综合评分</td>
+		<td class='td'>评论时间</td>
+		<td></td>
+	</tr>
+</thead>
+<tbody class='collection'>
+	<% if @course.comments.length == 0 %>
+	<tr>
+		<td>暂无评价</td>
+	</tr>
+<% else%>
+	<% @course.comments.each do |c| %>
+	<tr class='vertical-middle students-list'>
+		<td><%= c.student.name || c.student.account.number  %></td>
+		<td><%= c.mark %></td>
+		<td>
+			<% $i = 0 %>
+			<% $i += 1 if c.manner %>
+			<% $i += 1 if c.level %>
+			<% $i += 1 if c.pattern %>
+			<% $i = 1 if $i == 0 %>
+			<%= format("%0.2f",((c.manner || 0) + (c.level || 0) + (c.pattern || 0)).to_f / $i) %>分
+		</td>
+		<td><%= c.updated_at || c.created_at %></td>
+		<td><%= link_to '详情', comment_path(c), class: ['btn btn-sm btn-primary']%></td>
+	</tr>
+	<% end %>
+	<% end %>
+</tbody>
+</table>
+</div>
+<% end %>
 <div class="modal fade" id="comment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">
-					<span aria-hidden="true">&times;</span>
-					<span class="sr-only">Close</span>
-				</button>
-				<h4 class="modal-title" id="myModalLabel">评论</h4>
-			</div>
-			<div class="modal-body">
-				<%= form_for @comment do |f|%>
-				<%= f.hidden_field :course_id, value: @course.id %>
-				<div class='form-body'>
-					<div class='fix-center'>
-						<div class="field">
-							<%= f.label :mark %>
-							<%= f.hidden_field :mark %>
-							<div class='mark-star'>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-							</div>
-						</div>
-						<div class="field">
-							<%= f.label :manner %>
-							<%= f.hidden_field :manner %>
-							<div class='mark-star'>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-							</div>
-						</div>
-						<div class="field">
-							<%= f.label :level %>
-							<%= f.hidden_field :level %>
-							<div class='mark-star'>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-							</div>
-						</div>
-						<div class="field">
-							<%= f.label :pattern %>
-							<%= f.hidden_field :pattern %>
-							<div class='mark-star'>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-								<span class='glyphicon glyphicon-star-empty' role='mark'></span>
-							</div>
-						</div>
+<div class="modal-dialog">
+<div class="modal-content">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">
+			<span aria-hidden="true">&times;</span>
+			<span class="sr-only">Close</span>
+		</button>
+		<h4 class="modal-title" id="myModalLabel">评论</h4>
+	</div>
+	<div class="modal-body">
+		<%= form_for @comment do |f|%>
+		<%= f.hidden_field :course_id, value: @course.id %>
+		<div class='form-body'>
+			<div class='fix-center'>
+				<div class="field">
+					<%= f.label :mark %>
+					<%= f.hidden_field :mark %>
+					<div class='mark-star'>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
 					</div>
-					<div class="field">
-						<textarea name="comment[content]" placeholder="请输入评论"></textarea>
+				</div>
+				<div class="field">
+					<%= f.label :manner %>
+					<%= f.hidden_field :manner %>
+					<div class='mark-star'>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
 					</div>
-				</br>
-				<div class='form-footer'>
-					<div class="actions">
-						<button class="btn btn-danger" data-dismiss='modal'>取消</button>
-						<button class='btn btn-primary' type="submit">提交</button>
+				</div>
+				<div class="field">
+					<%= f.label :level %>
+					<%= f.hidden_field :level %>
+					<div class='mark-star'>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
+					</div>
+				</div>
+				<div class="field">
+					<%= f.label :pattern %>
+					<%= f.hidden_field :pattern %>
+					<div class='mark-star'>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
+						<span class='glyphicon glyphicon-star-empty' role='mark'></span>
 					</div>
 				</div>
 			</div>
-			<% end %>
+			<div class="field">
+				<textarea name="comment[content]" placeholder="请输入评论"></textarea>
+			</div>
+		</br>
+		<div class='form-footer'>
+			<div class="actions">
+				<button class="btn btn-danger" data-dismiss='modal'>取消</button>
+				<button class='btn btn-primary' type="submit">提交</button>
+			</div>
 		</div>
 	</div>
+	<% end %>
+</div>
+</div>
 </div>
 <% elsif @course.stage == 'ongoing' %>
-<label class='label btn-danger'>Tips:完成课程后即可进行评价</label>
+<label class='label label-danger'>Tips:完成课程后即可进行评价</label>
 <% end %>

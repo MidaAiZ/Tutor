@@ -14,10 +14,9 @@ class StudentsController < ApplicationController
   end
 
   def appoint
-     @course = Course.create(teacher_id: params[:id])
-     byebug
+     @course = Course.create(teacher_id: params[:id], stage: :waiting)
      @student.courses << @course
-     redirect_to teacher_path(params[:id])
+     redirect_to ucenter_course_path(@course)
   end
 
   def courses
@@ -30,9 +29,6 @@ class StudentsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_student
-      @student = @account.student
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params

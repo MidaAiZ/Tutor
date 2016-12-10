@@ -5,25 +5,25 @@ class TeachercenterController < ApplicationController
   def index
   end
 
+  def courses
+      @courses = @teacher.courses
+  end
+
   def course
       @course = courses.find(params[:course_id])
   end
 
   def comments
-
+      @comments = @teacher.comments
   end
 
-  def courses
-      @courses = @account.teacher.courses
-  end
+  def messages
 
-  def students
-      @students = @teacher.students
   end
 
   def revise
     respond_to do |format|
-      if @account.teacher.update(revise_params)
+      if @teacher.update(revise_params)
         format.json { render :revise }
       else
         format.json { render :revise }
@@ -42,9 +42,10 @@ class TeachercenterController < ApplicationController
   def create_course
     @course = Course.new(course_params)
     @course.is_public = true
+    @course.stage = 'ongoing'
     respond_to do |format|
         if @course.save
-          @account.teacher.courses << @course
+          @teacher.courses << @course
           format.html { redirect_to ucenter_course_path(@course), notice: 'Course was successfully created.' }
           format.json { render :show, status: :created, location: @course }
         else
@@ -55,37 +56,20 @@ class TeachercenterController < ApplicationController
 
   def dispose_course
     @course = Course.find(params[:course_id])
-    if @account.teacher.courses.include?(@course) && @course.stage == 'waiting'
-        if params[:accept] == 'true'
+    if @teacher.courses.include?(@course)
+        if params[:command] == 'accept' && @course.stage == 'waiting'
             @course.update(stage: 'ongoing')
-        elsif params[:accept] == 'false'
+        elsif params[:command] == 'refuse' && @course.stage == 'waiting'
             @course.update(stage: 'refused')
+        elsif params[:command] == 'finish' && @course.stage == 'ongoing'
+            @course.update(stage: 'finished')
         end
-        puts @course.stage
         redirect_to teacenter_course_path(@course), notice: '操作成功！' and return
     end
     redirect_to teacenter_course_path(@course), notice: '操作无效！'
-    # @course = Course.find(params[:course_id])
-    # respond_to do |format|
-    #     if @account.teacher.courses.include?(@course) && @course.stage == 'waiting'
-    #         if params[:accept] == 'true'
-    #             @course.update(stage: 'ongoing')
-    #         elsif params[:accept] == 'false'
-    #             @course.update(stage: 'refused')
-    #         end
-    #         format.html { redirect_to teacenter_course_path(@course), notice: '操作成功！'}
-    #         return
-    #     end
-    #     format.html {redirect_to teacenter_course_path(@course), notice: '操作无效！'}
-    # end
-
   end
 
   private
-
-  def set_teacher
-       @teacher = @account.teacher
-  end
 
   def set_current
       @current = params[:action]

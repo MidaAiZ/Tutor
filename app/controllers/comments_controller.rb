@@ -24,21 +24,17 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @student = @account.student
-    if CoursesStudent.find_by(student_id: @student, course_id: params[:comment][:course_id]) &&
-        !Comment.find_by(student_id: @student, course_id: params[:comment][:course_id])
-        @comment = Comment.new(comment_params)
-        @comment.student_id =@student.id
-        respond_to do |format|
-          if @comment.save
-            # @account.student.comments << @comment
-            format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-            format.json { render :show, status: :created, location: @comment }
-          else
-            format.html { render :new }
-            format.json { render json: @comment.errors, status: :unprocessable_entity }
-          end
-        end
+    set_student
+    set_course
+    if  has_course? && uncomment?
+      @comment = Comment.new(comment_params)
+      @comment.student_id =@student.id
+      if @comment.save
+        # @account.student.comments << @comment
+        redirect_to ucenter_course_path(@course), notice: '评价成功！'
+      else
+        redirect_to ucenter_course_path(@course), notice: '评价失败！'
+      end
     else
         redirect_to ucenter_course_path(@course), notice: '评价失败！.'
     end
@@ -47,18 +43,16 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
-    if CoursesStudent.find_by(student_id: @student, course_id: params[:comment][:course_id])
-        respond_to do |format|
-          if @comment.update(comment_params)
-            format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-            format.json { render :show, status: :ok, location: @comment }
-          else
-            format.html { render :edit }
-            format.json { render json: @comment.errors, status: :unprocessable_entity }
-          end
-       end
-   else
-       redirect_to ucenter_course_path(@course), notice: '评价更新失败！.'
+    set_student
+    set_course
+    if has_course?
+      if @comment.update(comment_params)
+        redirect_to ucenter_course_path(@course), notice: '修改成功！'
+      else
+        redirect_to ucenter_course_path(@course), notice: '修改失败！'
+      end
+    else
+       redirect_to ucenter_course_path(@course), notice: '修改失败！.'
     end
   end
 
@@ -78,8 +72,20 @@ class CommentsController < ApplicationController
       @comment = Comment.find(params[:id])
     end
 
+    def set_course
+      @course = Course.find(params[:comment][:course_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
       params.require(:comment).permit(:mark, :manner, :level, :pattern, :content, :course_id)
+    end
+
+    def has_course?
+        CoursesStudent.find_by(student_id: @student, course_id: @course) && @course.stage == 'finished'
+    end
+
+    def uncomment?
+        !Comment.find_by(student_id: @student, course_id: @course)
     end
 end

@@ -11,6 +11,8 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+    set_student
+    set_teacher
   end
 
   # GET /courses/new
@@ -60,15 +62,15 @@ class CoursesController < ApplicationController
   end
 
   def entry
-    if @course.is_public == false
+    set_student
+    if !@course.is_public
         redirect_to course_path(@course), notice: '此课程非公开课，无法报名' and return
     elsif @account.teacher == @course.teacher
         redirect_to course_path(@course), notice: '不能报名自己开设的课程' and return
-    elsif @account.student.courses.include?(@course)
+    elsif @student.courses.include?(@course)
         redirect_to ucenter_course_path(@course), notice: '您已报名过该课程，不能重复报名' and return
     end
-    @student = @account.student;
-    @account.student.courses << @course
+    @student.courses << @course
     redirect_to ucenter_course_path(@course), notice: '报名成功！'
   end
   # DELETE /courses/1

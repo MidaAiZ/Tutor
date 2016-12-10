@@ -4,6 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :get_account
 
+  def set_student
+      @student = @account.student
+  end
+
+  def set_teacher
+      @teacher = @account.teacher
+  end
+
   def check_login
      if session[:user_id]
          session[:user_id]
