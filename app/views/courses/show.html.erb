@@ -2,7 +2,7 @@
 
 <button class='back btn btn-sm btn-primary' role='back'>Back</button>
 <div class='course-info'>
-	<div class='course-info info-box'>
+	<div class='info-box'>
 		<div class='ico-box'>
 			<%=  image_tag 'index/avatar.jpg', class: ['info-ico'] %>
 		</div>
@@ -57,13 +57,13 @@
 </div>
 
 <!-- 帐号已登录且非该课程老师帐号的情况 -->
-<% if @student  && @teacher != @course.teacher %>
+<% if @student && @teacher != @course.teacher %>
 <% if !@student.courses.include?(@course) &&%>
 <%= link_to '我要报名', entry_course_path(@course), method: :post, class: 'btn btn-primary'%>
 <% else %>
 <label class='label label-info'>您已报名该课程</label>
 <% end %>
 <!-- 帐号未登录的情况 -->
-<% else %>
+<% elsif !@student %>
 <%= link_to '我要报名', entry_course_path(@course), method: :post, class: 'btn btn-primary'%>
 <% end %>
