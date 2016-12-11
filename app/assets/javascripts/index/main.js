@@ -39,7 +39,7 @@ function setFlowShow($flowEle) {
 
     //设置上升速度
     function setSpeed() {
-        return (Math.random() + 1) * (flowParams.height * 10)
+        return (Math.random() + 1.5) * (flowParams.height * 10)
     }
 
     function showFlow($ele) {

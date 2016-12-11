@@ -161,7 +161,7 @@ nav {
         display: inline-block;
         margin: 0 ($narrow-padding / 2);
         border-radius: $default-radius;
-        background-color: $green;
+        background-color: $nav-btn-color;
 
         @include set-bounds(auto, $btn-height);
 

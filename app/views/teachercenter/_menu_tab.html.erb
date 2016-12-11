@@ -1,9 +1,9 @@
 <div id='usercenter-tab' class='user-info-tab tab'>
   <ul>
-    <li class='tab-list <%= check_current(' index')%>'><%= link_to'教师信息', teacenter_path %></li>
-    <li class='tab-list <%= check_current(' courses')%>'><%= link_to '课程管理', teacenter_courses_path %></li>
-    <li class='tab-list <%= check_current(' comments')%>'><%= link_to '查看评价', teacenter_comments_path %></li>
-    <li class='tab-list <%= check_current(' comments')%>'><%= link_to '我的消息', teacenter_messages_path %></li>
+    <li class="tab-list <%= check_current 'index' %>"><%= link_to'教师信息', teacenter_path %></li>
+    <li class="tab-list <%= check_current 'courses' %>"><%= link_to '课程管理', teacenter_courses_path %></li>
+    <li class="tab-list <%= check_current 'comments' %>"><%= link_to '查看评价', teacenter_comments_path %></li>
+    <li class="tab-list <%= check_current 'messages' %>"><%= link_to '我的消息', teacenter_messages_path %></li>
   </ul>
 </div>
 <%= yield %>

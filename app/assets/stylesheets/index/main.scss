@@ -9,6 +9,9 @@
 
   .carousel {
     .carousel-inner {
+      width: $primary-width;
+      height: 400px;
+
       .item {
         img {
           @include set-bounds($primary-width, 400px);
@@ -26,11 +29,11 @@
   }
 }
 
-section {
+.main-block {
   margin-bottom: $wide-margin;
   color: white;
   border-radius: $default-radius;
-  background-color: $blue;
+  background-color: $main-block-color;
 
   @include set-width-min-height(100%, 200px);
 
@@ -42,7 +45,6 @@ section {
   margin: 0 $wide-margin $wide-margin 0;
   padding: $narrow-padding;
   border-radius: $default-radius;
-  background-color: $blue;
 
   @include set-left-panel-bounds;
 
