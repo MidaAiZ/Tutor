@@ -1,113 +1,112 @@
 <p id="notice"><%= notice %></p>
-
 <button class='back btn btn-sm btn-primary' role='back'>Back</button>
 <div class='info-box'>
-    <div class='comment-box'>
-        <div class='comment-head'>
-            <span>学生姓名</span>
-            <p class='label label-info'>
-                <%= link_to @comment.student.name || @comment.student.account.number, student_path(@comment.student) %>
-            </p>
-        </div>
-        <div class='comment-content'>
-            <div class='fix-left'>
-                <div class="field">
-                    <span>总评</span>
-                    <div class='stars'>
-                        <%= @comment.mark %>
-                    </div>
-                </div>
-                <div class="field">
-                    <span>教学态度</span>
-                    <div class='stars'>
-                        <% if  @comment.manner.nil? %>
-                        未评星
-                    <% else %>
-                        <% $i = 1 %>
-                        <% while $i <= 5 do %>
-                        <span class='glyphicon<%= $i <= @comment.manner ? ' glyphicon-star' : ' glyphicon-star-empty'%> '></span>
-                        <% $i+= 1 %>
-                        <% end %>
-                        <% end %>
-                    </div>
-                </div>
-                <div class="field">
-                    <span>教学水平</span>
-                    <div class='stars'>
-                        <% if  @comment.level.nil? %>
-                        未评星
-                    <% else %>
-                        <% $i = 1 %>
-                        <% while $i <= 5 do %>
-                        <span class='glyphicon<%= $i <= @comment.level ? ' glyphicon-star' : ' glyphicon-star-empty'%> '></span>
-                        <% $i+= 1 %>
-                        <% end %>
-                        <% end %>
-                    </div>
-                </div>
-                <div class="field">
-                    <span>授课方式</span>
-                    <div class='stars'>
-                        <% if  @comment.pattern.nil? %>
-                        未评星
-                    <% else %>
-                        <% $i = 1 %>
-                        <% while $i <= 5 do %>
-                        <span class='glyphicon<%= $i <= @comment.pattern ? ' glyphicon-star' : ' glyphicon-star-empty'%> '></span>
-                        <% $i+= 1 %>
-                        <% end %>
-                        <% end %>
-                    </div>
-                </div>
-            </div>
-            <div class='contents'>
-                <span><%= @comment.content%></span>
-            </div>
-        </div>
+  <div class='comment-box'>
+    <div class='comment-head'>
+      <span>学生姓名</span>
+      <p class='label label-info'>
+        <%= link_to @comment.student.name || @comment.student.account.number, student_path(@comment.student) %>
+      </p>
     </div>
-    <div class='course-info'>
-        <div class='info-box'>
-            <div class='ico-box'>
-                <%=  image_tag 'index/avatar.jpg', class: ['info-ico'] %>
-            </div>
-            <ul class='fix-ico-right'>
-                <li class='fix-item'>
-                    <span>课程名：</span>
-                    <span><%= @course.name %></span>
-                </li>
-                <li class='fix-item'>
-                    <span>讲师：</span>
-                    <span><%= link_to @course.teacher.name || '', @course.teacher %></span>
-                </li>
-                <li class='fix-item'>
-                    <span>课程类型：</span>
-                    <span><%= @course.category %></span>
-                </li>
-                <li class='fix-item'>
-                    <span>开班日期:</span>
-                    <span><%= @course.begintime %></span>
-                </li>
-                <li class='fix-item'>
-                    <span>地点:</span>
-                    <span><%= @course.place %></span>
-                </li>
-                <li class='fix-item'>
-                    <span>上课时间:</span>
-                    <span><%= @course.class_time %></span>
-                </li>
-                <li class='fix-item'>
-                    <span>课时数:</span>
-                    <span><%= @course.is_public %></span>
-                </li>
-                <li class='fix-item'>
-                    <span>课程评分:</span>
-                    <span><%= @course.score %></span>
-                </li>
-                <li class='fix-item'>
-                    <span>价格:</span>
-                    <span><%= @course.price %></span>
-                </li>
-            </ul>
+    <div class='comment-content'>
+      <div class='fix-left'>
+        <div class="field">
+          <span>总评</span>
+          <div class='stars'>
+            <%= @comment.mark %>
+          </div>
         </div>
+        <div class="field">
+          <span>教学态度</span>
+          <div class='stars'>
+            <% if  @comment.manner.nil? %>
+              未评星
+                    <% else %>
+              <% $i = 1 %>
+              <% while $i <= 5 do %>
+                <span class='glyphicon<%= $i <= @comment.manner ? ' glyphicon-star' : ' glyphicon-star-empty'%> '></span>
+                <% $i+= 1 %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div class="field">
+          <span>教学水平</span>
+          <div class='stars'>
+            <% if  @comment.level.nil? %>
+              未评星
+                    <% else %>
+              <% $i = 1 %>
+              <% while $i <= 5 do %>
+                <span class='glyphicon<%= $i <= @comment.level ? ' glyphicon-star' : ' glyphicon-star-empty'%> '></span>
+                <% $i+= 1 %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div class="field">
+          <span>授课方式</span>
+          <div class='stars'>
+            <% if  @comment.pattern.nil? %>
+              未评星
+                    <% else %>
+              <% $i = 1 %>
+              <% while $i <= 5 do %>
+                <span class='glyphicon<%= $i <= @comment.pattern ? ' glyphicon-star' : ' glyphicon-star-empty'%> '></span>
+                <% $i+= 1 %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class='contents'>
+        <span><%= @comment.content%></span>
+      </div>
     </div>
+  </div>
+  <div class='course-info'>
+    <div class='info-box'>
+      <div class='ico-box'>
+        <%=  image_tag 'index/avatar.jpg', class: ['info-ico'] %>
+      </div>
+      <ul class='fix-ico-right'>
+        <li class='fix-item'>
+          <span>课程名：</span>
+          <span><%= @course.name %></span>
+        </li>
+        <li class='fix-item'>
+          <span>讲师：</span>
+          <span><%= link_to @course.teacher.name || '', @course.teacher %></span>
+        </li>
+        <li class='fix-item'>
+          <span>课程类型：</span>
+          <span><%= @course.category %></span>
+        </li>
+        <li class='fix-item'>
+          <span>开班日期:</span>
+          <span><%= @course.begintime %></span>
+        </li>
+        <li class='fix-item'>
+          <span>地点:</span>
+          <span><%= @course.place %></span>
+        </li>
+        <li class='fix-item'>
+          <span>上课时间:</span>
+          <span><%= @course.class_time %></span>
+        </li>
+        <li class='fix-item'>
+          <span>课时数:</span>
+          <span><%= @course.is_public %></span>
+        </li>
+        <li class='fix-item'>
+          <span>课程评分:</span>
+          <span><%= @course.score %></span>
+        </li>
+        <li class='fix-item'>
+          <span>价格:</span>
+          <span><%= @course.price %></span>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

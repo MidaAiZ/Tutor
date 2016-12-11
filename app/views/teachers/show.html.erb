@@ -1,126 +1,123 @@
 <p id="notice"><%= notice %></p>
-
 <div class='teacher-info'>
-    <div class='info-box'>
-        <div class='ico-box'>
-            <%=  image_tag 'index/avatar.jpg' %>
-        </div>
-        <ul class='fix-ico-right'>
-            <li class='fix-item'>
-                <span>姓名：</span>
-                <span><%= @teacher.name %></span>
-            </li>
-            <li class='fix-item'>
-                <span>地址：</span>
-                <span><%= @teacher.address %></span>
-            </li>
-            <li class='fix-item'>
-                <span>评分：</span>
-                <span class='glyphicon glyphicon-star'></span>
-                <span class='glyphicon glyphicon-star'></span>
-                <span class='glyphicon glyphicon-star'></span>
-                <span class='glyphicon glyphicon-star'></span>
-                <span class='glyphicon glyphicon-star'></span>
-            </li>
-        </ul>
+  <div class='info-box'>
+    <div class='ico-box'>
+      <%=  image_tag 'index/avatar.jpg' %>
     </div>
+    <ul class='fix-ico-right'>
+      <li class='fix-item'>
+        <span>姓名：</span>
+        <span><%= @teacher.name %></span>
+      </li>
+      <li class='fix-item'>
+        <span>地址：</span>
+        <span><%= @teacher.address %></span>
+      </li>
+      <li class='fix-item'>
+        <span>评分：</span>
+        <span class='glyphicon glyphicon-star'></span>
+        <span class='glyphicon glyphicon-star'></span>
+        <span class='glyphicon glyphicon-star'></span>
+        <span class='glyphicon glyphicon-star'></span>
+        <span class='glyphicon glyphicon-star'></span>
+      </li>
+    </ul>
+  </div>
 </div>
 <div class='detail-info'>
-    <ul>
-        <li class='info-item'>
-            <span>Name:</span>
-            <em><%= @teacher.name %></em>
-        </li>
-        <li class='info-item'>
-            <span>Sex:</span>
-            <em><%= @teacher.sex %></em>
-        </li>
-        <li class='info-item'>
-            <span>Address:</span>
-            <em><%= @teacher.address %></em>
-        </li>
-        <li class='info-item'>
-            <span>School:</span>
-            <em><%= @teacher.school %></em>
-        </li>
-    </ul>
+  <ul>
+    <li class='info-item'>
+      <span>Name:</span>
+      <em><%= @teacher.name %></em>
+    </li>
+    <li class='info-item'>
+      <span>Sex:</span>
+      <em><%= @teacher.sex %></em>
+    </li>
+    <li class='info-item'>
+      <span>Address:</span>
+      <em><%= @teacher.address %></em>
+    </li>
+    <li class='info-item'>
+      <span>School:</span>
+      <em><%= @teacher.school %></em>
+    </li>
+  </ul>
 </div>
-
 <div class='intro-box'>
-    <div class='intro-head'>
-        <span>自我介绍</span>
-    </div>
-    <div class='intro-content'>
-        <span><%= @teacher.intro %>假装我是自我介绍</span>
-    </div>
+  <div class='intro-head'>
+    <span>自我介绍</span>
+  </div>
+  <div class='intro-content'>
+    <span><%= @teacher.intro %>假装我是自我介绍</span>
+  </div>
 </div>
 <% if @account.teacher != @teacher %>
-<button data-toggle='modal' , data-target='#appoint-course' class='btn btn-sm btn-danger'>我要预约</button>
+  <button data-toggle='modal' , data-target='#appoint-course' class='btn btn-sm btn-danger'>我要预约</button>
 <% end %>
-
 <div class="modal fade" id="appoint-course" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class='modal-content handbook' id='handbook'>
-            <div class='content'>
-                <span>这是用户手册，请先阅读！</span>
-            </div>
-            <div class='control-group'>
-                <div class='field'>
-                    <input type='checkbox' id='agree'>
-                    <label for='agree'>同意</label>
-                </div>
-                <button class="btn btn-danger" data-dismiss="modal">取消</button>
-                <button class="btn btn-primary" id='conform' disabled="disabled">确定</button>
-            </div>
+  <div class="modal-dialog">
+    <div class='modal-content handbook' id='handbook'>
+      <div class='content'>
+        <span>这是用户手册，请先阅读！</span>
+      </div>
+      <div class='control-group'>
+        <div class='field'>
+          <input type='checkbox' id='agree'>
+          <label for='agree'>同意</label>
         </div>
-        <div class="modal-content hidden" id='modal-content'>
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">&times;</span>
-                    <span class="sr-only">Close</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">填写具体信息</h4>
-            </div>
-            <div class="modal-body">
-                <div class='form-panel'>
-                    <%= form_for @course do |f| %>
-                    <% if @course.errors.any? %>
-                    <div id="error_explanation">
-                        <h2><%= pluralize(@course.errors.count, "error") %>prohibited this account from being saved:</h2>
-                        <ul>
-                            <% @course.errors.full_messages.each do |message| %>
-                            <li><%= message %></li>
-                            <% end %>
-                        </ul>
-                    </div>
-                    <% end %>
-                    <div class='form-body'>
-                        <div class="field">
-                            <%= f.label :name %>
-                            <%= f.text_field :name, value: '特长培养' %>
-                        </div>
-                        <div class="field">
-                            <%= f.label :category %>
-                            <%= f.text_field :category %>
-                        </div>
-                        <div class="field">
-                            <%= f.label :price, 'price/h' %>
-                            <%= f.text_field :price, value: '60' %>
-                        </div>
-                        <div class="field">
-                            <%= f.label :place %>
-                            <%= f.text_field :place, value: @account.student.address %>
-                        </div>
-                        <%= f.hidden_field 'teacher_id',value: @teacher.id %>
-                    </div>
-                    <div class='form-footer'>
-                        <div class="actions">
-                            <%= f.submit '提交', id: 'appoint-submit', class: 'btn btn-primary' %>
-                        </div>
-                    </div>
-                    <% end %>
-                </div>
-            </div>
-        </div>
+        <button class="btn btn-danger" data-dismiss="modal">取消</button>
+        <button class="btn btn-primary" id='conform' disabled="disabled">确定</button>
+      </div>
     </div>
+    <div class="modal-content hidden" id='modal-content'>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">填写具体信息</h4>
+      </div>
+      <div class="modal-body">
+        <div class='form-panel'>
+          <%= form_for @course do |f| %>
+            <% if @course.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@course.errors.count, "error") %>prohibited this account from being saved:</h2>
+                <ul>
+                  <% @course.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div class='form-body'>
+              <div class="field">
+                <%= f.label :name %>
+                <%= f.text_field :name, value: '特长培养' %>
+              </div>
+              <div class="field">
+                <%= f.label :category %>
+                <%= f.text_field :category %>
+              </div>
+              <div class="field">
+                <%= f.label :price, 'price/h' %>
+                <%= f.text_field :price, value: '60' %>
+              </div>
+              <div class="field">
+                <%= f.label :place %>
+                <%= f.text_field :place, value: @account.student.address %>
+              </div>
+              <%= f.hidden_field 'teacher_id',value: @teacher.id %>
+            </div>
+            <div class='form-footer'>
+              <div class="actions">
+                <%= f.submit '提交', id: 'appoint-submit', class: 'btn btn-primary' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

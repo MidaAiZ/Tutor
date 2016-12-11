@@ -1,95 +1,93 @@
 <%= render 'menu_tab' %>
-
 <div class='courses_panel fix-bounds'>
-	<div class='course_tab'>
-		<ul id='course-tab' role="tablist">
-			<li role="presentation" class="active">
-				<a href="#all-courses" role="tab" data-toggle="tab">全部课程</a>
-			</li>
-			<li role="presentation">
-				<a href='#private-courses' role="tab" data-toggle="tab">一对一</a>
-			</li>
-			<li role="presentation">
-				<a href='#public-courses' role="tab" data-toggle="tab">公开课</a>
-			</li>
-		</ul>
-		<div class='new-course'>
-			<%= link_to teacenter_course_new_path do %>
-			<span class='glyphicon glyphicon-plus-sign'></span>
-			<p>新建课程</p>
-			<% end %>
-		</div>
-	</div>
-	<div class='tab-content course-content'>
-		<% type = Array['all', 'true', 'false'] %>
-		<% for t in type %>
-		<div id='<%= set_ele_id(t) %>' class="tab-content tab-pane<%= ' active' if t == 'all' %>">
-			<div class='fix-left courses-selection'>
-				<div class='add-right-margin'>
-					<span>筛选</span>
-				</div>
-				<ul role='courses-selection'>
-					<li role="condition all" class="active">
-						<a class='btn btn-sm btn-default' data-target="#all">全部</a>
-					</li>
-					<li role="condition">
-						<a class='btn btn-sm btn-default' data-target='#ongoing'>进行中</a>
-					</li>
-					<li role="condition">
-						<a class='btn btn-sm btn-default' data-target='#finished'>已结束</a>
-					</li>
-					<% if t != 'true'  %>
-					<li role="condition">
-						<a class='btn btn-sm btn-default' data-target="#waiting">待处理</a>
-					</li>
-					<li role="condition">
-						<a class='btn btn-sm btn-default' data-target="#refused">已拒绝</a>
-					</li>
-					<% end %>
-				</ul>
-			</div>
-			<table class='table'>
-				<thead>
-					<tr>
-						<td>课程名</td>
-						<td>学生姓名</td>
-						<td>学科</td>
-						<td>状态</td>
-						<td><%= t %></td>
-					</tr>
-				</thead>
-				<tbody>
-					<% if !@courses.nil? %>
-					<% @courses.each do |c| %>
-					<% if (c.is_public.to_s == t || t == 'all') %>
-					<tr data-stage='<%= c.stage %>' data-public='<%= c.is_public %>' role="<%= 'all-courses' if t== 'all' %>">
-						<td><%= c.name %></td>
-						<td><% c.students.each do |s| %><%= s.name %><% end %></td>
-						<td><%= c.category %></td>
-						<td>
-							<span>
-								<% case c.stage %>
-								<% when 'waiting' %>
-								待处理
+  <div class='course_tab'>
+    <ul id='course-tab' role="tablist">
+      <li role="presentation" class="active">
+        <a href="#all-courses" role="tab" data-toggle="tab">全部课程</a>
+      </li>
+      <li role="presentation">
+        <a href='#private-courses' role="tab" data-toggle="tab">一对一</a>
+      </li>
+      <li role="presentation">
+        <a href='#public-courses' role="tab" data-toggle="tab">公开课</a>
+      </li>
+    </ul>
+    <div class='new-course'>
+      <%= link_to teacenter_course_new_path do %>
+        <span class='glyphicon glyphicon-plus-sign'></span>
+        <p>新建课程</p>
+      <% end %>
+    </div>
+  </div>
+  <div class='tab-content course-content'>
+    <% type = Array['all', 'true', 'false'] %>
+    <% for t in type %>
+      <div id='<%= set_ele_id(t) %>' class="tab-content tab-pane<%= ' active' if t == 'all' %>">
+        <div class='fix-left courses-selection'>
+          <div class='add-right-margin'>
+            <span>筛选</span>
+          </div>
+          <ul role='courses-selection'>
+            <li role="condition all" class="active">
+              <a class='btn btn-sm btn-default' data-target="#all">全部</a>
+            </li>
+            <li role="condition">
+              <a class='btn btn-sm btn-default' data-target='#ongoing'>进行中</a>
+            </li>
+            <li role="condition">
+              <a class='btn btn-sm btn-default' data-target='#finished'>已结束</a>
+            </li>
+            <% if t != 'true'  %>
+              <li role="condition">
+                <a class='btn btn-sm btn-default' data-target="#waiting">待处理</a>
+              </li>
+              <li role="condition">
+                <a class='btn btn-sm btn-default' data-target="#refused">已拒绝</a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <table class='table'>
+          <thead>
+            <tr>
+              <td>课程名</td>
+              <td>学生姓名</td>
+              <td>学科</td>
+              <td>状态</td>
+              <td><%= t %></td>
+            </tr>
+          </thead>
+          <tbody>
+            <% if !@courses.nil? %>
+              <% @courses.each do |c| %>
+                <% if (c.is_public.to_s == t || t == 'all') %>
+                  <tr data-stage='<%= c.stage %>' data-public='<%= c.is_public %>' role="<%= 'all-courses' if t== 'all' %>">
+                    <td><%= c.name %></td>
+                    <td><% c.students.each do |s| %><%= s.name %><% end %></td>
+                    <td><%= c.category %></td>
+                    <td>
+                      <span>
+                        <% case c.stage %>
+                        <% when 'waiting' %>
+                        待处理
 								<% when 'ongoing' %>
-								进行中
+                        进行中
 								<% when 'finished' %>
-								已结束
+                        已结束
 								<% when 'refused' %>
-								已拒绝
+                        已拒绝
 								<% end %>
-							</span>
-						</td>
-						<td><%= link_to '详情', teacenter_course_path(c), class: [:btn, 'btn-primary'] %></td>
-					</tr>
-					<% end %>
-					<% end %>
-					<% end %>
-				</tbody>
-			</table>
-		</div>
-		<% end %>
-	</div>
-
-	<%= paginate @courses %>
+                    </span>
+                  </td>
+                  <td><%= link_to '详情', teacenter_course_path(c), class: [:btn, 'btn-primary'] %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>
+<%= paginate @courses %>
 </div>

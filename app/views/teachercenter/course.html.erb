@@ -1,147 +1,144 @@
 <p id="notice"><%= notice %></p>
-
 <% if notice.nil? %>
-<button class='back btn btn-sm btn-primary' role='back'>Back</button>
+  <button class='back btn btn-sm btn-primary' role='back'>Back</button>
 <% else %>
-<button class='back btn btn-sm btn-primary' role='back double'>Back</button>
+  <button class='back btn btn-sm btn-primary' role='back double'>Back</button>
 <% end %>
 <div class='course-info fix-bounds'>
-	<div class='info-box'>
-		<div class='ico-box'>
-			<%=  image_tag 'index/avatar.jpg', class: ['info-ico'] %>
-			<br>
-			<span class='label label-success'><%= set_course_stage @course.stage %></span>
-		</div>
-		<ul class='fix-ico-right'>
-			<li class='fix-item'>
-				<span>课程名：</span>
-				<span><%= @course.name%></span>
-			</li>
-			<% if @course.is_public %>
-			<li class='fix-item'>
-				<span>报名人数：</span>
-				<span><%= @course.students.length %></span>
-			</li>
-		<% else %>
-			<li class='fix-item'>
-				<span>学生：</span>
-				<span>
-					<% if @course.students.length != 0 %>
-					<%= link_to @course.students[0].name || @course.students[0].account.number, student_path(@course.students[0]) %>
-					<% end %>
-				</span>
-			</li>
-			<% end %>
-			<li class='fix-item'>
-				<span>学科：</span>
-				<span><%= @course.category %></span>
-			</li>
-			<li class='fix-item'>
-				<span>地点:</span>
-				<span><%= @course.place %></span>
-			</li>
-			<li class='fix-item'>
-				<span>价格:</span>
-				<span><%= @course.price %></span>
-			</li>
-			<li class='fix-item'>
-				<span>课时数:</span>
-				<span><%= @course.times %></span>
-			</li>
-			<li class='fix-item'>
-				<span>上课时间:</span>
-				<span><%= @course.class_time %></span>
-			</li>
-			<li class='fix-item'>
-				<span>开班日期:</span>
-				<span><%= @course.begintime %></span>
-			</li>
-			<li class='fix-item'>
-				<span>课程评分:</span>
-				<span><%= @course.score %></span>
-			</li>
-		</ul>
-	</div>
-	<% if @course.is_public %>
-	<div class='fix-left info-box'>
-		<span>报名学生：</span>
-		<ul>
-			<% @course.students.each do |s| %>
-			<li class='item-list'><%= link_to s.name || s.account.number, student_path(s), class: 'btn btn-default' %></li>
-			<% end %>
-		</ul>
-	</div>
-	<% end %>
+  <div class='info-box'>
+    <div class='ico-box'>
+      <%=  image_tag 'index/avatar.jpg', class: ['info-ico'] %>
+      <br>
+      <span class='label label-success'><%= set_course_stage @course.stage %></span>
+    </div>
+    <ul class='fix-ico-right'>
+      <li class='fix-item'>
+        <span>课程名：</span>
+        <span><%= @course.name%></span>
+      </li>
+      <% if @course.is_public %>
+        <li class='fix-item'>
+          <span>报名人数：</span>
+          <span><%= @course.students.length %></span>
+        </li>
+      <% else %>
+        <li class='fix-item'>
+          <span>学生：</span>
+          <span>
+            <% if @course.students.length != 0 %>
+              <%= link_to @course.students[0].name || @course.students[0].account.number, student_path(@course.students[0]) %>
+            <% end %>
+          </span>
+        </li>
+      <% end %>
+      <li class='fix-item'>
+        <span>学科：</span>
+        <span><%= @course.category %></span>
+      </li>
+      <li class='fix-item'>
+        <span>地点:</span>
+        <span><%= @course.place %></span>
+      </li>
+      <li class='fix-item'>
+        <span>价格:</span>
+        <span><%= @course.price %></span>
+      </li>
+      <li class='fix-item'>
+        <span>课时数:</span>
+        <span><%= @course.times %></span>
+      </li>
+      <li class='fix-item'>
+        <span>上课时间:</span>
+        <span><%= @course.class_time %></span>
+      </li>
+      <li class='fix-item'>
+        <span>开班日期:</span>
+        <span><%= @course.begintime %></span>
+      </li>
+      <li class='fix-item'>
+        <span>课程评分:</span>
+        <span><%= @course.score %></span>
+      </li>
+    </ul>
+  </div>
+  <% if @course.is_public %>
+    <div class='fix-left info-box'>
+      <span>报名学生：</span>
+      <ul>
+        <% @course.students.each do |s| %>
+          <li class='item-list'><%= link_to s.name || s.account.number, student_path(s), class: 'btn btn-default' %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class='intro-box'>
+    <div class='intro-head'>
+      <span>课程介绍</span>
+    </div>
+    <div class='intro-content'>
+      <span><%= @course.intro %></span>
+    </div>
+  </div>
 </div>
-
-<div class='intro-box'>
-	<div class='intro-head'>
-		<span>课程介绍</span>
-	</div>
-	<div class='intro-content'>
-		<span><%= @course.intro %>假装是课程介绍</span>
-	</div>
-</div>
-
 <% if @course.stage == 'waiting' %>
-<%= form_tag '/teachercenter/dispose/course', method: :post, class: 'inline' do%>
-<%= hidden_field_tag 'command', 'refuse' %>
-<%= hidden_field_tag 'course_id', @course.id %>
-<%= submit_tag '拒绝预约', class: 'btn btn-danger' %>
-<% end %>
-<%= form_tag '/teachercenter/dispose/course', method: :post, class: 'inline' do%>
-<%= hidden_field_tag 'command', 'accept' %>
-<%= hidden_field_tag 'course_id', @course.id %>
-<%= submit_tag '接受预约', class: 'btn btn-primary' %>
-<% end %>
+  <%= form_tag '/teachercenter/dispose/course', method: :post, class: 'inline' do%>
+    <%= hidden_field_tag 'command', 'refuse' %>
+    <%= hidden_field_tag 'course_id', @course.id %>
+    <%= submit_tag '拒绝预约', class: 'btn btn-danger' %>
+  <% end %>
+  <%= form_tag '/teachercenter/dispose/course', method: :post, class: 'inline' do%>
+    <%= hidden_field_tag 'command', 'accept' %>
+    <%= hidden_field_tag 'course_id', @course.id %>
+    <%= submit_tag '接受预约', class: 'btn btn-primary' %>
+  <% end %>
 <% elsif @course.stage == 'ongoing' %>
-<%= form_tag '/teachercenter/dispose/course', method: :post, class: 'inline' do%>
-<%= hidden_field_tag 'command', 'finish' %>
-<%= hidden_field_tag 'course_id', @course.id %>
-<%= submit_tag '结束课程', class: 'btn btn-success' %>
-</br>
+  <%= form_tag '/teachercenter/dispose/course', method: :post, class: 'inline' do%>
+    <%= hidden_field_tag 'command', 'finish' %>
+    <%= hidden_field_tag 'course_id', @course.id %>
+    <%= submit_tag '结束课程', class: 'btn btn-success' %>
+  </br>
 </br>
 <P>
-<label class='label label-danger'>Tips:完成课程后学生才可进行评价</label>
+  <label class='label label-danger'>Tips:完成课程后学生才可进行评价</label>
 </P>
 <% end %>
 <% elsif @course.stage == 'finished' %>
-<h4>课程评价</h4>
-<div class='info-box'>
-<table class='table'>
-<thead>
-	<tr class='tr'>
-		<td class='td'>学生</td>
-		<td class='td'>评级</td>
-		<td class='td'>综合评分</td>
-		<td class='td'>评论时间</td>
-		<td></td>
-	</tr>
-</thead>
-<tbody class='collection'>
-	<% if @course.comments.length == 0 %>
-	<tr>
-		<td>暂无评价</td>
-	</tr>
-<% else %>
-	<% @course.comments.each do |c| %>
-	<tr class='vertical-middle students-list'>
-		<td><%= c.student.name || c.student.account.number  %></td>
-		<td><%= c.mark %></td>
-		<td>
-			<% $i = 0 %>
-			<% $i += 1 if c.manner %>
-			<% $i += 1 if c.level %>
-			<% $i += 1 if c.pattern %>
-			<% $i = 1 if $i == 0 %>
-			<%= format("%0.2f",((c.manner || 0) + (c.level || 0) + (c.pattern || 0)).to_f / $i) %>分
+  <h4>课程评价</h4>
+  <div class='info-box'>
+    <table class='table'>
+      <thead>
+        <tr class='tr'>
+          <td class='td'>学生</td>
+          <td class='td'>评级</td>
+          <td class='td'>综合评分</td>
+          <td class='td'>评论时间</td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody class='collection'>
+        <% if @course.comments.length == 0 %>
+          <tr>
+            <td>暂无评价</td>
+          </tr>
+        <% else %>
+          <% @course.comments.each do |c| %>
+            <tr class='vertical-middle students-list'>
+              <td><%= c.student.name || c.student.account.number  %></td>
+              <td><%= c.mark %></td>
+              <td>
+                <% $i = 0 %>
+                <% $i += 1 if c.manner %>
+                <% $i += 1 if c.level %>
+                <% $i += 1 if c.pattern %>
+                <% $i = 1 if $i == 0 %>
+                <%= format("%0.2f",((c.manner || 0) + (c.level || 0) + (c.pattern || 0)).to_f / $i) %>分
 		</td>
-		<td><%= c.updated_at || c.created_at %></td>
-		<td><%= link_to '详情', comment_path(c), class: ['btn btn-sm btn-primary']%></td>
-	</tr>
-	<% end %>
-	<% end %>
-</tbody>
-</table>
-</div>
+              <td><%= c.updated_at || c.created_at %></td>
+              <td><%= link_to '详情', comment_path(c), class: ['btn btn-sm btn-primary']%></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 <% end %>

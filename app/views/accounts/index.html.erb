@@ -1,39 +1,36 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Listing Accounts</h1>
-
 <table>
-    <thead>
-        <tr>
-            <th>Acount num</th>
-            <th>Pwd</th>
-            <th>Username</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Is teacher</th>
-            <th>Is vip</th>
-            <th>Is access</th>
-            <th>Student_id</th>
-            <th colspan="3"></th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <% @accounts.each do |account| %>
-        <tr>
-            <td><%= account.number %></td>
-            <td><%= account.pwd %></td>
-            <td><%= account.username %></td>
-            <td><%= account.phone %></td>
-            <td><%= account.email %></td>
-            <td><%= account.is_teacher %></td>
-            <td><%= account.is_vip %></td>
-            <td><%= account.is_access %></td>
-            <td><%= account.student_id %></td>
-            <td><%= link_to 'Show', account %></td>
-            <td><%= link_to 'Edit', edit_account_path(account) %></td>
-            <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-        <% end %>
-    </tbody>
+  <thead>
+    <tr>
+      <th>Acount num</th>
+      <th>Pwd</th>
+      <th>Username</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Is teacher</th>
+      <th>Is vip</th>
+      <th>Is access</th>
+      <th>Student_id</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @accounts.each do |account| %>
+      <tr>
+        <td><%= account.number %></td>
+        <td><%= account.pwd %></td>
+        <td><%= account.username %></td>
+        <td><%= account.phone %></td>
+        <td><%= account.email %></td>
+        <td><%= account.is_teacher %></td>
+        <td><%= account.is_vip %></td>
+        <td><%= account.is_access %></td>
+        <td><%= account.student_id %></td>
+        <td><%= link_to 'Show', account %></td>
+        <td><%= link_to 'Edit', edit_account_path(account) %></td>
+        <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>

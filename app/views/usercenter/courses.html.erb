@@ -1,48 +1,48 @@
 <%= render 'menu_tab' %>
 <div class='courses_panel fix-bounds'>
-	<div class='course_tab'>
-		<ul id='course-tab' role="tablist">
-			<li role="presentation" class="active">
-				<a href="#all" role="tab" data-toggle="tab">全部课程</a>
-			</li>
-			<li role="presentation">
-				<a href='#ongoing' role="tab" data-toggle="tab">进行中</a>
-			</li>
-			<li role="presentation">
-				<a href='#finished' role="tab" data-toggle="tab">已结课</a>
-			</li>
-		</ul>
-	</div>
-	<div class='tab-content course-content'>
-		<% stage = Array['all', 'waiting', 'ongoing', 'finished'] %>
-		<% stage.each do |s| %>
-		<table id='<%= s %>' class="table tab-pane<%= ' active' if s == 'all' %>" role="tabpanel">
-			<thead>
-				<tr>
-					<td>课程名：</td>
-					<td>教师：</td>
-					<td>学科：</td>
-					<td>状态：</td>
-					<td></td>
-				</tr>
-			</thead>
-			<tbody>
-				<% if !@courses.nil? %>
-				<% @courses.each do |c| %>
-				<% if c.stage == s || s == 'all' %>
-				<tr>
-					<td><%= c.name %></td>
-					<td><%= link_to c.teacher.name || c.teacher.account.number, teacher_path(c.teacher)%></td>
-					<td><%= c.category %></td>
-					<td><%= set_course_stage c.stage %></td>
-					<td><%= link_to '详情', ucenter_course_path(c), class: [:btn, 'btn-primary'] %></td>
-				</tr>
-				<% end %>
-				<% end %>
-				<% end %>
-			</tbody>
-		</table>
-		<% end %>
-	</div>
-	<%= paginate @courses %>
+  <div class='course_tab'>
+    <ul id='course-tab' role="tablist">
+      <li role="presentation" class="active">
+        <a href="#all" role="tab" data-toggle="tab">全部课程</a>
+      </li>
+      <li role="presentation">
+        <a href='#ongoing' role="tab" data-toggle="tab">进行中</a>
+      </li>
+      <li role="presentation">
+        <a href='#finished' role="tab" data-toggle="tab">已结课</a>
+      </li>
+    </ul>
+  </div>
+  <div class='tab-content course-content'>
+    <% stage = Array['all', 'waiting', 'ongoing', 'finished'] %>
+    <% stage.each do |s| %>
+      <table id='<%= s %>' class="table tab-pane<%= ' active' if s == 'all' %>" role="tabpanel">
+        <thead>
+          <tr>
+            <td>课程名：</td>
+            <td>教师：</td>
+            <td>学科：</td>
+            <td>状态：</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <% if !@courses.nil? %>
+            <% @courses.each do |c| %>
+              <% if c.stage == s || s == 'all' %>
+                <tr>
+                  <td><%= c.name %></td>
+                  <td><%= link_to c.teacher.name || c.teacher.account.number, teacher_path(c.teacher)%></td>
+                  <td><%= c.category %></td>
+                  <td><%= set_course_stage c.stage %></td>
+                  <td><%= link_to '详情', ucenter_course_path(c), class: [:btn, 'btn-primary'] %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+  <%= paginate @courses %>
 </div>

@@ -1,21 +1,21 @@
 <div class='box-header'>
-	<h2>Teachers</h2>
-	<%= link_to teachers_path, class: ['more'] do%>
-	<span class='glyphicon glyphicon-th-list'></span>
-	<% end %>
+  <h2>Teachers</h2>
+  <%= link_to teachers_path, class: ['more'] do%>
+    <span class='glyphicon glyphicon-th-list'></span>
+  <% end %>
 </div>
 <div class='box-body'>
-	<ul class='collection'>
-		<% if !@teachers.nil? %>
-		<% @teachers.each do |teacher| %>
-		<li class='list-item teacher'>
-			<div class='sign'></div>
-			<%= link_to teacher_path(teacher), class: :ico do %>
-			<%=  image_tag 'index/avatar.jpg' %>
-			<% end %>
-			<div class='information'><%= teacher.id %></div>
-		</li>
-		<% end %>
-		<% end %>
-	</ul>
+  <ul class='collection'>
+    <% if !@teachers.nil? %>
+      <% @teachers.each do |teacher| %>
+        <li class='list-item teacher'>
+          <div class='sign'></div>
+          <%= link_to teacher_path(teacher), class: :ico do %>
+            <%=  image_tag 'index/avatar.jpg' %>
+          <% end %>
+          <div class='information'><%= teacher.id %></div>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
 </div>

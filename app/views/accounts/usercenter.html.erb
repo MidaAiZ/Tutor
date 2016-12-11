@@ -1,107 +1,106 @@
 <div class='user-info'>
-	<div class='login-info info-box'>
-		<div class='ico-box'>
-			<%=  image_tag 'index/avatar.jpg', class: ['info-ico'] %>
-			<a href='#' class='btn btn-primary btn-sm'>更换</a>
-		</div>
-		<ul class='fix-ico-right'>
-			<li class='fix-item'>
-				<span>帐号：</span>
-				<span><%= @account.acount_num %></span>
-			</li>
-			<li class='fix-item'>
-				<span>昵称：</span>
-				<span><%= @account.username %></span>
-				<a href='#'>修改</a>
-			</li>
-			<li class='fix-item'>
-				<span>会员状态：</span>
-				<% if @account.is_vip %>
-				<span>已开通</span>
-				<a href='#' class='state-ture'>续费会员</a>
-			<% else %>
-				<span>暂未开通</span>
-				<a href='#' class='state-false'>立即开通VIP</a>
-				<% end %>
-			</li>
-		</ul>
-	</div>
-	<div class='phone-email info-box'>
-		<div class='phone'>
-			<div class='ico-box'><img src='<%= %>' class='info-ico'></div>
-			<ul class='fix-ico-right'>
-				<li class='fix-item'>
-					<% if @account.phone %>
-					<p>手机已验证</p>
-					<span><%= @account.phone %></span>
-					<a href='#' class='state-ture'>修改手机号</a>
-				<% else %>
-					<p>手机未绑定</p>
-					<a href='#' class='state-false'>立即绑定</a>
-					<% end %>
-				</li>
-			</ul>
-		</div>
-		<div class='email'>
-			<div class='ico-box'><img src='' class='info-ico'></div>
-			<ul class='fix-ico-right'>
-				<li class='fix-item'>
-					<% if @account.email %>
-					<p>邮箱已验证</p>
-					<span><%= @account.email %></span>
-					<a href='#' class='state-ture'>修改邮箱</a>
-				<% else %>
-					<p>邮箱未绑定</p>
-					<a href='#' class='state-false'>立即绑定</a>
-					<% end %>
-				</li>
-			</ul>
-		</div>
-	</div>
+  <div class='login-info info-box'>
+    <div class='ico-box'>
+      <%=  image_tag 'index/avatar.jpg', class: ['info-ico'] %>
+      <a href='#' class='btn btn-primary btn-sm'>更换</a>
+    </div>
+    <ul class='fix-ico-right'>
+      <li class='fix-item'>
+        <span>帐号：</span>
+        <span><%= @account.acount_num %></span>
+      </li>
+      <li class='fix-item'>
+        <span>昵称：</span>
+        <span><%= @account.username %></span>
+        <a href='#'>修改</a>
+      </li>
+      <li class='fix-item'>
+        <span>会员状态：</span>
+        <% if @account.is_vip %>
+          <span>已开通</span>
+          <a href='#' class='state-ture'>续费会员</a>
+        <% else %>
+          <span>暂未开通</span>
+          <a href='#' class='state-false'>立即开通VIP</a>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+  <div class='phone-email info-box'>
+    <div class='phone'>
+      <div class='ico-box'><img src='<%= %>' class='info-ico'></div>
+      <ul class='fix-ico-right'>
+        <li class='fix-item'>
+          <% if @account.phone %>
+            <p>手机已验证</p>
+            <span><%= @account.phone %></span>
+            <a href='#' class='state-ture'>修改手机号</a>
+          <% else %>
+            <p>手机未绑定</p>
+            <a href='#' class='state-false'>立即绑定</a>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <div class='email'>
+      <div class='ico-box'><img src='' class='info-ico'></div>
+      <ul class='fix-ico-right'>
+        <li class='fix-item'>
+          <% if @account.email %>
+            <p>邮箱已验证</p>
+            <span><%= @account.email %></span>
+            <a href='#' class='state-ture'>修改邮箱</a>
+          <% else %>
+            <p>邮箱未绑定</p>
+            <a href='#' class='state-false'>立即绑定</a>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 <div class='detail-info'>
-	<ul>
-		<li class='info-item'>
-			<span>姓名</span>
-			<em><%= @account.realname %></em>
-			<a class='revise'>修改</a>
-		</li>
-		<li class='info-item'>
-			<span>性别</span>
-			<em><%= @account.sex %></em>
-			<a class='revise'>修改</a>
-		</li>
-		<li class='info-item'>
-			<span>生日</span>
-			<em><%= @account.born_date%></em>
-			<a class='revise'>修改</a>
-		</li>
-		<li class='info-item'>
-			<span>地址</span>
-			<em><%= @account.student.address %></em>
-			<a class='revise'>修改</a>
-		</li>
-		<li class='info-item'>
-			<span>学校</span>
-			<em><%= @account.student.school %></em>
-			<a class='revise'>修改</a>
-		</li>
-		<li class='info-item'>
-			<span>年级</span>
-			<em><%= @account.student.grade %></em>
-			<a class='revise'>修改</a>
-		</li>
-	</ul>
+  <ul>
+    <li class='info-item'>
+      <span>姓名</span>
+      <em><%= @account.realname %></em>
+      <a class='revise'>修改</a>
+    </li>
+    <li class='info-item'>
+      <span>性别</span>
+      <em><%= @account.sex %></em>
+      <a class='revise'>修改</a>
+    </li>
+    <li class='info-item'>
+      <span>生日</span>
+      <em><%= @account.born_date%></em>
+      <a class='revise'>修改</a>
+    </li>
+    <li class='info-item'>
+      <span>地址</span>
+      <em><%= @account.student.address %></em>
+      <a class='revise'>修改</a>
+    </li>
+    <li class='info-item'>
+      <span>学校</span>
+      <em><%= @account.student.school %></em>
+      <a class='revise'>修改</a>
+    </li>
+    <li class='info-item'>
+      <span>年级</span>
+      <em><%= @account.student.grade %></em>
+      <a class='revise'>修改</a>
+    </li>
+  </ul>
 </div>
-
 <div class='intro-box'>
-	<div class='intro-head'>
-		<span>自我介绍</span>
-	</div>
-	<div class='intro-content'>
-		<p>
-			<a class='revise'>修改</a>
-		</p>
-		<span><%= @account.student.intro %>假装我是自我介绍</span>
-	</div>
+  <div class='intro-head'>
+    <span>自我介绍</span>
+  </div>
+  <div class='intro-content'>
+    <p>
+      <a class='revise'>修改</a>
+    </p>
+    <span><%= @account.student.intro %>假装我是自我介绍</span>
+  </div>
 </div>

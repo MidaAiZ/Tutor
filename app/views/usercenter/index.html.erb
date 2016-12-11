@@ -1,165 +1,165 @@
 <%= render 'menu_tab' %>
 <div class='user-info'>
-	<div class='info-box'>
-		<div class='ico-box'>
-			<%=  image_tag 'index/avatar.jpg', class: ['info-ico'] %>
-			<a href='#' class='btn btn-primary btn-sm'>更换</a>
-		</div>
-		<ul class='fix-ico-right'>
-			<li class='fix-item'>
-				<span>帐号：</span>
-				<span><%= @account.number %></span>
-			</li>
-			<li class='fix-item'>
-				<span>会员状态：</span>
-				<% if @account.is_vip %>
-				<span>已开通</span>
-				<a href='#' class='state-ture'>续费会员</a>
-			<% else %>
-				<span>暂未开通</span>
-				<a href='#' class='state-false'>立即开通VIP</a>
-				<% end %>
-			</li>
-		</ul>
-	</div>
-	<div class='phone-email info-box'>
-		<div class='phone'>
-			<div class='ico-box'><img src='<%= %>' class='info-ico'></div>
-			<ul class='fix-ico-right'>
-				<li class='fix-item'>
-					<% if @account.phone %>
-					<p>手机已验证</p>
-					<span><%= @account.phone %></span>
-					<a href='#' class='state-ture'>修改手机号</a>
-				<% else %>
-					<p>手机未绑定</p>
-					<a href='#' class='state-false'>立即绑定</a>
-					<% end %>
-				</li>
-			</ul>
-		</div>
-		<div class='email'>
-			<div class='ico-box'><img src='' class='info-ico'></div>
-			<ul class='fix-ico-right'>
-				<li class='fix-item'>
-					<% if @account.email %>
-					<p>邮箱已验证</p>
-					<span><%= @account.email %></span>
-					<a href='#' class='state-ture'>修改邮箱</a>
-				<% else %>
-					<p>邮箱未绑定</p>
-					<a href='#' class='state-false'>立即绑定</a>
-					<% end %>
-				</li>
-			</ul>
-		</div>
-	</div>
+  <div class='info-box'>
+    <div class='ico-box'>
+      <%=  image_tag 'index/avatar.jpg', class: ['info-ico'] %>
+      <a href='#' class='btn btn-primary btn-sm'>更换</a>
+    </div>
+    <ul class='fix-ico-right'>
+      <li class='fix-item'>
+        <span>帐号：</span>
+        <span><%= @account.number %></span>
+      </li>
+      <li class='fix-item'>
+        <span>会员状态：</span>
+        <% if @account.is_vip %>
+          <span>已开通</span>
+          <a href='#' class='state-ture'>续费会员</a>
+        <% else %>
+          <span>暂未开通</span>
+          <a href='#' class='state-false'>立即开通VIP</a>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+  <div class='phone-email info-box'>
+    <div class='phone'>
+      <div class='ico-box'><img src='<%= %>' class='info-ico'></div>
+      <ul class='fix-ico-right'>
+        <li class='fix-item'>
+          <% if @account.phone %>
+            <p>手机已验证</p>
+            <span><%= @account.phone %></span>
+            <a href='#' class='state-ture'>修改手机号</a>
+          <% else %>
+            <p>手机未绑定</p>
+            <a href='#' class='state-false'>立即绑定</a>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <div class='email'>
+      <div class='ico-box'><img src='' class='info-ico'></div>
+      <ul class='fix-ico-right'>
+        <li class='fix-item'>
+          <% if @account.email %>
+            <p>邮箱已验证</p>
+            <span><%= @account.email %></span>
+            <a href='#' class='state-ture'>修改邮箱</a>
+          <% else %>
+            <p>邮箱未绑定</p>
+            <a href='#' class='state-false'>立即绑定</a>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 <div class='detail-info'>
-	<ul>
-		<li class='info-item'>
-			<span>姓名</span>
-			<div role='info-cotent'>
-				<em role='info' data-attr='name'><%= @account.student.name %></em>
-				<input type='text-field' name='revise[name]' class='edit' role='edit'>
-			</div>
-			<div class='revise-group' role='revise-group'>
-				<a class='revise' role='revise'>修改</a>
-				<div class='control-group'>
-					<a class='revise' role='cancel'>取消</a>
-					<a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
-				</div>
-			</div>
-		</li>
-		<li class='info-item'>
-			<span>性别</span>
-			<div role='info-cotent'>
-				<em role='info' name='revise[sex]' data-attr='sex'><%= @account.student.sex %></em>
-				<input type='text-field' name='revise[sex]' class='edit' role='edit'>
-			</div>
-			<div class='revise-group' role='revise-group'>
-				<a class='revise' role='revise'>修改</a>
-				<div class='control-group'>
-					<a class='revise' role='cancel'>取消</a>
-					<a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
-				</div>
-			</div>
-		</li>
-		<li class='info-item'>
-			<span>生日</span>
-			<div role='info-cotent'>
-				<em role='info' data-attr='bornday'><%= @account.student.bornday %></em>
-				<input type='date' name='revise[bornday]' role='edit' class='edit'>
-			</div>
-			<div class='revise-group' role='revise-group'>
-				<a class='revise' role='revise'>修改</a>
-				<div class='control-group'>
-					<a class='revise' role='cancel'>取消</a>
-					<a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
-				</div>
-			</div>
-		</li>
-		<li class='info-item'>
-			<span>地址</span>
-			<div role='info-cotent'>
-				<em role='info' data-attr='address'><%= @account.student.address %></em>
-				<input type='text-field' name='revise[address]' class='edit' role='edit'>
-			</div>
-			<div class='revise-group' role='revise-group'>
-				<a class='revise' role='revise'>修改</a>
-				<div class='control-group'>
-					<a class='revise' role='cancel'>取消</a>
-					<a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
-				</div>
-			</div>
-		</li>
-		<li class='info-item'>
-			<span>学校</span>
-			<div role='info-cotent'>
-				<em role='info' data-attr='school'><%= @account.student.school %></em>
-				<input type='text-field' name='revise[school]' class='edit' role='edit'>
-			</div>
-			<div class='revise-group' role='revise-group'>
-				<a class='revise' role='revise'>修改</a>
-				<div class='control-group'>
-					<a class='revise' role='cancel'>取消</a>
-					<a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
-				</div>
-			</div>
-		</li>
-		<li class='info-item'>
-			<span>年级</span>
-			<div role='info-cotent'>
-				<em role='info' data-attr='grade'><%= @account.student.grade %></em>
-				<input type='text-field' name='revise[grade]' class='edit' role='edit'>
-			</div>
-			<div class='revise-group' role='revise-group'>
-				<a class='revise' role='revise'>修改</a>
-				<div class='control-group'>
-					<a class='revise' role='cancel'>取消</a>
-					<a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
-				</div>
-			</div>
-		</li>
-	</ul>
+  <ul>
+    <li class='info-item'>
+      <span>姓名</span>
+      <div role='info-cotent'>
+        <em role='info' data-attr='name'><%= @account.student.name %></em>
+        <input type='text-field' name='revise[name]' class='edit' role='edit'>
+      </div>
+      <div class='revise-group' role='revise-group'>
+        <a class='revise' role='revise'>修改</a>
+        <div class='control-group'>
+          <a class='revise' role='cancel'>取消</a>
+          <a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
+        </div>
+      </div>
+    </li>
+    <li class='info-item'>
+      <span>性别</span>
+      <div role='info-cotent'>
+        <em role='info' name='revise[sex]' data-attr='sex'><%= @account.student.sex %></em>
+        <input type='text-field' name='revise[sex]' class='edit' role='edit'>
+      </div>
+      <div class='revise-group' role='revise-group'>
+        <a class='revise' role='revise'>修改</a>
+        <div class='control-group'>
+          <a class='revise' role='cancel'>取消</a>
+          <a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
+        </div>
+      </div>
+    </li>
+    <li class='info-item'>
+      <span>生日</span>
+      <div role='info-cotent'>
+        <em role='info' data-attr='bornday'><%= @account.student.bornday %></em>
+        <input type='date' name='revise[bornday]' role='edit' class='edit'>
+      </div>
+      <div class='revise-group' role='revise-group'>
+        <a class='revise' role='revise'>修改</a>
+        <div class='control-group'>
+          <a class='revise' role='cancel'>取消</a>
+          <a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
+        </div>
+      </div>
+    </li>
+    <li class='info-item'>
+      <span>地址</span>
+      <div role='info-cotent'>
+        <em role='info' data-attr='address'><%= @account.student.address %></em>
+        <input type='text-field' name='revise[address]' class='edit' role='edit'>
+      </div>
+      <div class='revise-group' role='revise-group'>
+        <a class='revise' role='revise'>修改</a>
+        <div class='control-group'>
+          <a class='revise' role='cancel'>取消</a>
+          <a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
+        </div>
+      </div>
+    </li>
+    <li class='info-item'>
+      <span>学校</span>
+      <div role='info-cotent'>
+        <em role='info' data-attr='school'><%= @account.student.school %></em>
+        <input type='text-field' name='revise[school]' class='edit' role='edit'>
+      </div>
+      <div class='revise-group' role='revise-group'>
+        <a class='revise' role='revise'>修改</a>
+        <div class='control-group'>
+          <a class='revise' role='cancel'>取消</a>
+          <a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
+        </div>
+      </div>
+    </li>
+    <li class='info-item'>
+      <span>年级</span>
+      <div role='info-cotent'>
+        <em role='info' data-attr='grade'><%= @account.student.grade %></em>
+        <input type='text-field' name='revise[grade]' class='edit' role='edit'>
+      </div>
+      <div class='revise-group' role='revise-group'>
+        <a class='revise' role='revise'>修改</a>
+        <div class='control-group'>
+          <a class='revise' role='cancel'>取消</a>
+          <a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
+        </div>
+      </div>
+    </li>
+  </ul>
 </div>
 <div class='intro-box detail-info'>
-	<div class='intro-head'>
-		<span>自我介绍</span>
-	</div>
-	<div class='intro-content'>
-		<div class='revise-group' role='revise-group'>
-			<a class='revise' role='revise'>修改</a>
-			<div class='control-group'>
-				<a class='revise' role='cancel'>取消</a>
-				<a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
-			</div>
-		</div>
-		<div role='info-cotent'>
-			<em role='info' data-attr='intro'>
-				<span><%= @account.student.intro %></span>
-			</em>
-			<textarea class='edit' name='revise[intro]' role='edit'><%= @account.student.intro %></textarea>
-		</div>
-	</div>
+  <div class='intro-head'>
+    <span>自我介绍</span>
+  </div>
+  <div class='intro-content'>
+    <div class='revise-group' role='revise-group'>
+      <a class='revise' role='revise'>修改</a>
+      <div class='control-group'>
+        <a class='revise' role='cancel'>取消</a>
+        <a class='revise' role='conform' data-target='usercenter/revise'>确定</a>
+      </div>
+    </div>
+    <div role='info-cotent'>
+      <em role='info' data-attr='intro'>
+        <span><%= @account.student.intro %></span>
+      </em>
+      <textarea class='edit' name='revise[intro]' role='edit'><%= @account.student.intro %></textarea>
+    </div>
+  </div>
 </div>

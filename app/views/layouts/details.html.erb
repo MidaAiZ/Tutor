@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Tutor</title>
-        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
-        <%= csrf_meta_tags %>
-    </head>
-    <body>
-        <%= render 'layouts/nav' %>
-        <div class='container'>
-            <button class='back btn btn-sm btn-primary' role='back'>Back</button>
-            <div class='list-box'>
-                <%= yield %>
-            </div>
-        </div>
-
-        <!-- <div class='bottom-nav'> -->
-    </body>
+  <head>
+    <title>Tutor</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'layouts/nav' %>
+    <div class='container'>
+      <button class='back btn btn-sm btn-primary' role='back'>Back</button>
+      <div class='list-box'>
+        <%= yield %>
+      </div>
+    </div>
+    <!-- <div class='bottom-nav'> -->
+  </body>
 </html>

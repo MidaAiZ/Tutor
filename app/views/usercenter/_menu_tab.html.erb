@@ -1,12 +1,12 @@
 <div id='usercenter-tab' class='user-info-tab tab'>
-    <ul>
-        <li class="tab-list <%= check_current 'index'%>"><%= link_to'基本信息', ucenter_path %></li>
-        <li class="tab-list <%= check_current 'courses'%>"><%= link_to '我的课程', ucenter_courses_path %></li>
-        <li class="tab-list <%= check_current 'comments'%>"><%= link_to '我的评价', ucenter_comments_path %></li>
-        <li class="tab-list <%= check_current 'messages'%>"><%= link_to '我的消息', ucenter_messages_path %></li>
-        <li class="tab-list <%= check_current 'more'%>"><%= link_to '更多', ucenter_more_path %></li>
-    </ul>
-    <% if !@account.teacher %>
+  <ul>
+    <li class="tab-list <%= check_current 'index'%>"><%= link_to'基本信息', ucenter_path %></li>
+    <li class="tab-list <%= check_current 'courses'%>"><%= link_to '我的课程', ucenter_courses_path %></li>
+    <li class="tab-list <%= check_current 'comments'%>"><%= link_to '我的评价', ucenter_comments_path %></li>
+    <li class="tab-list <%= check_current 'messages'%>"><%= link_to '我的消息', ucenter_messages_path %></li>
+    <li class="tab-list <%= check_current 'more'%>"><%= link_to '更多', ucenter_more_path %></li>
+  </ul>
+  <% if !@account.teacher %>
     <div class='fix-right'><%= link_to '申请当教师', new_teacher_path, class: 'btn btn-success' %></div>
-    <% end %>
+  <% end %>
 </div>

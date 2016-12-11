@@ -1,48 +1,46 @@
 <div class='form-panel'>
-    <%= form_for(@account) do |f| %>
+  <%= form_for(@account) do |f| %>
     <% if @account.errors.any? %>
-    <div id="error_explanation">
+      <div id="error_explanation">
         <h2><%= pluralize(@account.errors.count, "error") %>
-            prohibited this account from being saved:</h2>
-
+          prohibited this account from being saved:</h2>
         <ul>
-            <% @account.errors.full_messages.each do |message| %>
+          <% @account.errors.full_messages.each do |message| %>
             <li><%= message %></li>
-            <% end %>
+          <% end %>
         </ul>
-    </div>
+      </div>
     <% end %>
-
     <div class='form-header'>
-        <h2>New Account</h2>
+      <h2>New Account</h2>
     </div>
     <div class='form-body'>
-        <div class="field">
-            <%= f.label :number %>
-            <%= f.text_field :number %>
-        </div>
-        <div class="field">
-            <%= f.label :pwd %>
-            <%= f.text_field :pwd %>
-        </div>
-        <div class="field">
-            <%= f.label :username %>
-            <%= f.text_field :username %>
-        </div>
-        <div class="field">
-            <%= f.label :phone %>
-            <%= f.text_field :phone %>
-        </div>
-        <div class="field">
-            <%= f.label :email %>
-            <%= f.text_field :email %>
-        </div>
+      <div class="field">
+        <%= f.label :number %>
+        <%= f.text_field :number %>
+      </div>
+      <div class="field">
+        <%= f.label :pwd %>
+        <%= f.text_field :pwd %>
+      </div>
+      <div class="field">
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+      </div>
+      <div class="field">
+        <%= f.label :phone %>
+        <%= f.text_field :phone %>
+      </div>
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
     </div>
     <div class='form-footer'>
-        <div class="actions">
-            <!-- <%= f.submit ['注册'] %> -->
-            <button class='btn' type="submit">注册</button>
-        </div>
+      <div class="actions">
+        <!-- <%= f.submit ['注册'] %> -->
+        <button class='btn' type="submit">注册</button>
+      </div>
     </div>
-    <% end %>
+  <% end %>
 </div>

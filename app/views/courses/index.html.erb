@@ -1,31 +1,28 @@
 <p id="notice"><%= notice %></p>
-
 <button class='back btn btn-sm btn-primary' role='back'>Back</button>
 <div class='fix-bounds'>
-	<div class='box-header'>
-		<h2>Courses</h2>
-	</div>
-
-	<%= render 'layouts/sercher' %>
-
-	<div class='box-body fix-bounds'>
-		<ul class='collection'>
-			<% if !@courses.nil? %>
-			<% @courses.each do |course| %>
-			<li class='list-item course'>
-				<div class='sign'></div>
-				<%= link_to course_path(course), class: :ico do %>
-				<%=  image_tag 'index/avatar.jpg' %>
-				<% end %>
-				<div class='information'>
-					<span><%= link_to course.score %></span>
-					<p><%= course.name %></p>
-				</div>
-			</li>
-			<% end %>
-			<% end %>
-		</ul>
-		<div class='space-block'></div>
-	</div>
-	<%= paginate @courses %>
+  <div class='box-header'>
+    <h2>Courses</h2>
+  </div>
+  <%= render 'layouts/sercher' %>
+  <div class='box-body fix-bounds'>
+    <ul class='collection'>
+      <% if !@courses.nil? %>
+        <% @courses.each do |course| %>
+          <li class='list-item course'>
+            <div class='sign'></div>
+            <%= link_to course_path(course), class: :ico do %>
+              <%=  image_tag 'index/avatar.jpg' %>
+            <% end %>
+            <div class='information'>
+              <span><%= link_to course.score %></span>
+              <p><%= course.name %></p>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+    <div class='space-block'></div>
+  </div>
+  <%= paginate @courses %>
 </div>

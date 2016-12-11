@@ -1,37 +1,37 @@
 <%= render 'menu_tab' %>
 <div class='info-box fix-bounds'>
-	<table class='table'>
-		<thead>
-			<tr class='tr'>
-				<td class='td'>课程</td>
-				<td class='td'>教师</td>
-				<td class='td'>评级</td>
-				<td class='td'>综合评分</td>
-				<td class='td'>评论时间</td>
-				<td></td>
-			</tr>
-		</thead>
-		<tbody class='collection'>
-			<% if !@comments.nil? %>
-			<% @comments.each do |c| %>
-			<tr class='vertical-middle students-list'>
-				<td><%= c.course.name %></td>
-				<td><%= c.course.teacher.name || c.course.teacher.account.number  %></td>
-				<td><%= c.mark %></td>
-				<td>
-					<% $i = 0 %>
-					<% $i += 1 if c.manner %>
-					<% $i += 1 if c.level %>
-					<% $i += 1 if c.pattern %>
-					<% $i = 1 if $i == 0 %>
-					<%= format("%0.2f",((c.manner || 0) + (c.level || 0) + (c.pattern || 0)).to_f / $i) %>分
+  <table class='table'>
+    <thead>
+      <tr class='tr'>
+        <td class='td'>课程</td>
+        <td class='td'>教师</td>
+        <td class='td'>评级</td>
+        <td class='td'>综合评分</td>
+        <td class='td'>评论时间</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody class='collection'>
+      <% if !@comments.nil? %>
+        <% @comments.each do |c| %>
+          <tr class='vertical-middle students-list'>
+            <td><%= c.course.name %></td>
+            <td><%= c.course.teacher.name || c.course.teacher.account.number  %></td>
+            <td><%= c.mark %></td>
+            <td>
+              <% $i = 0 %>
+              <% $i += 1 if c.manner %>
+              <% $i += 1 if c.level %>
+              <% $i += 1 if c.pattern %>
+              <% $i = 1 if $i == 0 %>
+              <%= format("%0.2f",((c.manner || 0) + (c.level || 0) + (c.pattern || 0)).to_f / $i) %>分
 				</td>
-				<td><%= c.updated_at.nil? ? c.updated_at.strftime("%Y-%m-%d") : c.created_at.strftime("%Y-%m-%d")  %></td>
-				<td><%= link_to '详情', comment_path(c), class: ['btn btn-sm btn-primary']%></td>
-			</tr>
-			<% end %>
-			<% end %>
-		</tbody>
-	</table>
-	<%= paginate @comments %>
+            <td><%= c.updated_at.nil? ? c.updated_at.strftime("%Y-%m-%d") : c.created_at.strftime("%Y-%m-%d")  %></td>
+            <td><%= link_to '详情', comment_path(c), class: ['btn btn-sm btn-primary']%></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @comments %>
 </div>
